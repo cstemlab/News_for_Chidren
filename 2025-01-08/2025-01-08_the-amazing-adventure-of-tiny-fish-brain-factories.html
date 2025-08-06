@@ -334,6 +334,54 @@
             </ul>
         </div>
 
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+            
+            <div class="question" id="question1">
+                <h3>Question 1: How long do turquoise killifish live?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', false)">A) 4-6 months</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) 4-6 years</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) 10-12 months</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) 2-3 years</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">Remember, the story said these fish were like "nature's speed racers" and lived their entire lives in just one season!</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: What are ribosomes compared to in the story?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) Racing cars</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) Tiny factories</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) Libraries</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) Highways</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">Think about what the ribosomes do - they work like assembly lines making proteins, just like workers in a place that builds things!</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: What happens to the ribosomes as the killifish get older?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) They work faster and better</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) They completely disappear</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) They slow down and get stuck</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) They make too many proteins</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">The story described this like a traffic jam - remember what happens when cars on a highway start having problems driving smoothly?</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
+            </div>
+        </div>
+
         <div class="scientific-debrief">
             <h2>Scientific Debrief: Ribosome Dysfunction Drives Brain Aging</h2>
             
