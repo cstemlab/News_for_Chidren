@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +54,7 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             border-bottom: 3px solid var(--primary-200);
             padding-bottom: 20px;
         }
@@ -66,7 +67,7 @@
             background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
             border-left: 5px solid var(--primary-100);
             border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         h3 {
@@ -90,11 +91,12 @@
             margin: 20px auto;
             display: block;
             border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
             border: 3px solid var(--primary-300);
         }
 
-        ul, ol {
+        ul,
+        ol {
             margin: 20px 0;
             padding-left: 30px;
         }
@@ -109,7 +111,7 @@
             margin: 30px 0;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--accent-100);
         }
 
@@ -155,7 +157,8 @@
             border: 2px solid var(--accent-200);
         }
 
-        .scientific-debrief h2, .scientific-debrief h3 {
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
             background: none;
             border: none;
             margin-top: 0;
@@ -220,98 +223,349 @@
             text-align: center;
         }
 
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
-            
+
             h1 {
                 font-size: 2em;
             }
-            
+
             h2 {
                 font-size: 1.5em;
             }
-            
+
             body {
                 font-size: 16px;
+            }
+
+            .option {
+                font-size: 18px;
+                padding: 18px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>The Amazing Adventure of the Tiny Fish Brain Factories</h1>
-        
+
         <div class="citation">
-            <strong>Citation:</strong> Di Fraia, D., et al. (2025). Altered translation elongation contributes to key hallmarks of aging in the killifish brain. Science, 389, eadk3079.
+            <strong>Citation:</strong> Di Fraia, D., et al. (2025). Altered translation elongation contributes to key
+            hallmarks of aging in the killifish brain. Science, 389, eadk3079.
         </div>
 
         <div class="chapter">
             <h2>Chapter 1: Meet the Super-Fast Fish</h2>
             <img src="chapter 1.png" alt="Chapter 1 - Meet the Super-Fast Fish">
-            <p>Once upon a time, in the warm pools of Africa, there lived some very special fish called turquoise killifish. These weren't ordinary fish - they were like nature's speed racers! While most fish live for many years, these colorful little creatures lived their entire lives in just 4-6 months. It's like if a whole human lifetime happened in just one season!</p>
-            <p>Scientists discovered that these turquoise killifish were perfect for studying something very important: what happens to our brains as we get older[1][6]. You see, even though these fish live super-fast lives, they go through all the same aging changes that happen to humans - just much, much faster!</p>
+            <p>Once upon a time, in the warm pools of Africa, there lived some very special fish called turquoise
+                killifish. These weren't ordinary fish - they were like nature's speed racers! While most fish live for
+                many years, these colorful little creatures lived their entire lives in just 4-6 months. It's like if a
+                whole human lifetime happened in just one season!</p>
+            <p>Scientists discovered that these turquoise killifish were perfect for studying something very important:
+                what happens to our brains as we get older[1][6]. You see, even though these fish live super-fast lives,
+                they go through all the same aging changes that happen to humans - just much, much faster!</p>
         </div>
 
         <div class="chapter">
             <h2>Chapter 2: The Mystery of the Sleepy Brain Factories</h2>
             <img src="chapter 2.png" alt="Chapter 2 - The Mystery of the Sleepy Brain Factories">
-            <p>Inside every single cell in your body - and in the killifish's body too - there are thousands of tiny factories called ribosomes. Think of ribosomes as the tiniest factories you can imagine, so small you'd need a super-powerful microscope to see them. Their job is to make proteins, which are like the building blocks and workers that help our bodies function[2][4].</p>
-            <p>These ribosome factories work like assembly lines in a car factory. They read special instruction manuals called mRNA (messenger RNA) - kind of like a recipe book - and use these instructions to build proteins by connecting tiny building blocks called amino acids together, one by one[2].</p>
-            <p>But here's where the mystery began: Scientists noticed that as the killifish got older, something strange was happening in their brain factories. The ribosomes started to slow down, get stuck, and even crash into each other[1].</p>
-        </div>  
-      <div class="chapter">
+            <p>Inside every single cell in your body - and in the killifish's body too - there are thousands of tiny
+                factories called ribosomes. Think of ribosomes as the tiniest factories you can imagine, so small you'd
+                need a super-powerful microscope to see them. Their job is to make proteins, which are like the building
+                blocks and workers that help our bodies function[2][4].</p>
+            <p>These ribosome factories work like assembly lines in a car factory. They read special instruction manuals
+                called mRNA (messenger RNA) - kind of like a recipe book - and use these instructions to build proteins
+                by connecting tiny building blocks called amino acids together, one by one[2].</p>
+            <p>But here's where the mystery began: Scientists noticed that as the killifish got older, something strange
+                was happening in their brain factories. The ribosomes started to slow down, get stuck, and even crash
+                into each other[1].</p>
+        </div>
+        <div class="chapter">
             <h2>Chapter 3: The Great Traffic Jam</h2>
             <img src="chapter 3.png" alt="Chapter 3 - The Great Traffic Jam">
-            <p>Imagine you're on a busy highway where cars (ribosomes) are supposed to drive smoothly and deliver important packages (make proteins). But suddenly, some cars start driving really slowly or even stop completely, causing traffic jams!</p>
-            <p>That's exactly what the scientists discovered was happening in the aging fish brains. The ribosomes were getting stuck while trying to read certain parts of their instruction manual - especially when they came to instructions for making proteins that contained lots of special ingredients called "basic amino acids" (like lysine and arginine)[1][2].</p>
-            <p>These basic amino acids are super important because they're found in proteins that help take care of our DNA (the master instruction book) and RNA (the copies of instructions). It's like the workers whose job it is to maintain the library and copy machines were disappearing[3][4].</p>
+            <p>Imagine you're on a busy highway where cars (ribosomes) are supposed to drive smoothly and deliver
+                important packages (make proteins). But suddenly, some cars start driving really slowly or even stop
+                completely, causing traffic jams!</p>
+            <p>That's exactly what the scientists discovered was happening in the aging fish brains. The ribosomes were
+                getting stuck while trying to read certain parts of their instruction manual - especially when they came
+                to instructions for making proteins that contained lots of special ingredients called "basic amino
+                acids" (like lysine and arginine)[1][2].</p>
+            <p>These basic amino acids are super important because they're found in proteins that help take care of our
+                DNA (the master instruction book) and RNA (the copies of instructions). It's like the workers whose job
+                it is to maintain the library and copy machines were disappearing[3][4].</p>
         </div>
 
         <div class="chapter">
             <h2>Chapter 4: The Detective Work</h2>
             <img src="chapter 4.png" alt="Chapter 4 - The Detective Work">
-            <p>The scientists became like super detectives, using amazing tools to peek inside the tiny fish brains and see exactly what was going wrong. They compared young fish brains (like kids), adult fish brains (like grown-ups), and old fish brains (like grandparents) to see how things changed over time[2].</p>
-            <p>What they discovered was incredible! They found that in the aging brains, the ribosome factories were having trouble moving along their instruction manuals. They kept getting stuck and pausing, especially when they hit certain "difficult words" - the codes for those important basic amino acids[1].</p>
-            <p>It was like trying to read a book where some pages were really hard to turn, causing the reader to pause and struggle, slowing down the whole story!</p>
+            <p>The scientists became like super detectives, using amazing tools to peek inside the tiny fish brains and
+                see exactly what was going wrong. They compared young fish brains (like kids), adult fish brains (like
+                grown-ups), and old fish brains (like grandparents) to see how things changed over time[2].</p>
+            <p>What they discovered was incredible! They found that in the aging brains, the ribosome factories were
+                having trouble moving along their instruction manuals. They kept getting stuck and pausing, especially
+                when they hit certain "difficult words" - the codes for those important basic amino acids[1].</p>
+            <p>It was like trying to read a book where some pages were really hard to turn, causing the reader to pause
+                and struggle, slowing down the whole story!</p>
         </div>
 
         <div class="chapter">
             <h2>Chapter 5: The Missing Workers</h2>
             <img src="chapter 5.png" alt="Chapter 5 - The Missing Workers">
-            <p>Because the ribosome factories were getting stuck so often, they couldn't make enough of the important proteins that help take care of DNA and RNA. This created a big problem - it was like having a city where all the repair workers, librarians, and maintenance crews suddenly disappeared[3][4].</p>
+            <p>Because the ribosome factories were getting stuck so often, they couldn't make enough of the important
+                proteins that help take care of DNA and RNA. This created a big problem - it was like having a city
+                where all the repair workers, librarians, and maintenance crews suddenly disappeared[3][4].</p>
             <p>The scientists realized this was a big deal because these missing proteins normally help:</p>
             <ul>
                 <li>Fix damage to our DNA (like fixing torn pages in a book)</li>
                 <li>Make copies of important instructions</li>
                 <li>Keep everything organized and working properly</li>
             </ul>
-            <p>This discovery helped explain why brains become more likely to develop diseases like Alzheimer's as they get older - because the cellular maintenance crew isn't working properly anymore[2].</p>
+            <p>This discovery helped explain why brains become more likely to develop diseases like Alzheimer's as they
+                get older - because the cellular maintenance crew isn't working properly anymore[2].</p>
         </div>
 
         <div class="chapter">
             <h2>Chapter 6: Why This Matters for You</h2>
             <img src="chapter 6.png" alt="Chapter 6 - Why This Matters for You">
-            <p>Now you might be wondering, "Why should I care about tiny fish and their microscopic factories?" Well, here's the amazing part: the same basic processes that happen in killifish brains also happen in human brains! Scientists can use what they learn from these fast-living fish to understand how human brains age too[1][2].</p>
-            <p>This research is like finding the first piece in a giant puzzle. By understanding exactly what goes wrong with our cellular factories as we age, scientists hope to develop new medicines that could help keep our brains healthy longer and maybe even prevent diseases that affect older people[2][7].</p>
+            <p>Now you might be wondering, "Why should I care about tiny fish and their microscopic factories?" Well,
+                here's the amazing part: the same basic processes that happen in killifish brains also happen in human
+                brains! Scientists can use what they learn from these fast-living fish to understand how human brains
+                age too[1][2].</p>
+            <p>This research is like finding the first piece in a giant puzzle. By understanding exactly what goes wrong
+                with our cellular factories as we age, scientists hope to develop new medicines that could help keep our
+                brains healthy longer and maybe even prevent diseases that affect older people[2][7].</p>
         </div>
 
         <div class="chapter">
             <h2>Chapter 7: The Amazing Science Team</h2>
             <img src="chapter 7.png" alt="Chapter 7 - The Amazing Science Team">
-            <p>This incredible discovery was made by a team of scientists from around the world - from places like Stanford University in California and research centers in Germany and Italy. As one of the lead scientists, Professor Judith Frydman, explained:</p>
+            <p>This incredible discovery was made by a team of scientists from around the world - from places like
+                Stanford University in California and research centers in Germany and Italy. As one of the lead
+                scientists, Professor Judith Frydman, explained:</p>
             <div class="quote">
-                "We know that many processes become more dysfunctional with aging, but we really don't understand the fundamental molecular principles of why we age. Our new study begins to provide a mechanistic explanation."[1]
+                "We know that many processes become more dysfunctional with aging, but we really don't understand the
+                fundamental molecular principles of why we age. Our new study begins to provide a mechanistic
+                explanation."[1]
             </div>
-            <p>Just like detectives solving a mystery, these scientists used super-advanced tools to peek inside cells and watch the tiny factories at work. They used techniques with names like "ribosome profiling" and "mass spectrometry" - which are basically ways to take incredibly detailed pictures and measurements of things too small to see with regular microscopes.</p>
+            <p>Just like detectives solving a mystery, these scientists used super-advanced tools to peek inside cells
+                and watch the tiny factories at work. They used techniques with names like "ribosome profiling" and
+                "mass spectrometry" - which are basically ways to take incredibly detailed pictures and measurements of
+                things too small to see with regular microscopes.</p>
         </div>
 
         <div class="big-picture">
             <h2>The Big Picture</h2>
-            <p>This story shows us how everything in our bodies is connected - from the tiniest factories in our cells to how our brains work as we grow older. The turquoise killifish, living their super-fast lives in African pools, have helped scientists understand something that could help all of us live healthier, longer lives.</p>
-            <p>The research continues as scientists work to understand more about how we can keep our cellular factories running smoothly and what we might be able to do to help our brains stay healthy as we age[1].</p>
-            <p>And the next time you see a fish - even if it's just a goldfish in a bowl - remember that inside its tiny brain are millions of microscopic factories, working day and night to keep it healthy and swimming strong!</p>
+            <p>This story shows us how everything in our bodies is connected - from the tiniest factories in our cells
+                to how our brains work as we grow older. The turquoise killifish, living their super-fast lives in
+                African pools, have helped scientists understand something that could help all of us live healthier,
+                longer lives.</p>
+            <p>The research continues as scientists work to understand more about how we can keep our cellular factories
+                running smoothly and what we might be able to do to help our brains stay healthy as we age[1].</p>
+            <p>And the next time you see a fish - even if it's just a goldfish in a bowl - remember that inside its tiny
+                brain are millions of microscopic factories, working day and night to keep it healthy and swimming
+                strong!</p>
             <img src="Final.png" alt="The Big Picture">
         </div>
 
@@ -319,16 +573,20 @@
             <h2>Fun Facts for Young Scientists</h2>
             <ul>
                 <li>A single cell can have up to 10 million ribosomes working inside it!</li>
-                <li>These cellular factories are so important that they exist in every living thing - from the tiniest bacteria to the largest whales</li>
-                <li>The instructions (DNA) in your cells contain about 3 billion "letters" - enough to fill 200 telephone books!</li>
-                <li>Scientists are still discovering new things about how our bodies work, just like the detective story we just read</li>
+                <li>These cellular factories are so important that they exist in every living thing - from the tiniest
+                    bacteria to the largest whales</li>
+                <li>The instructions (DNA) in your cells contain about 3 billion "letters" - enough to fill 200
+                    telephone books!</li>
+                <li>Scientists are still discovering new things about how our bodies work, just like the detective story
+                    we just read</li>
             </ul>
         </div>
 
         <div class="what-you-can-do">
             <h2>What You Can Do</h2>
             <ul>
-                <li>Stay curious about science - every big discovery starts with someone asking "Why does this happen?"</li>
+                <li>Stay curious about science - every big discovery starts with someone asking "Why does this happen?"
+                </li>
                 <li>Take care of your brain by eating healthy foods, getting enough sleep, and staying active</li>
                 <li>Remember that even the smallest creatures can teach us the biggest lessons about life!</li>
             </ul>
@@ -339,17 +597,18 @@
             <div class="score-board">
                 <h3>Your Score: <span id="score">0</span>/3</h3>
             </div>
-            
+
             <div class="question" id="question1">
                 <h3>Question 1: How long do turquoise killifish live?</h3>
                 <div class="options">
-                    <button class="option" onclick="checkAnswer(1, 'A', false)">A) 4-6 months</button>
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) 4-6 months</button>
                     <button class="option" onclick="checkAnswer(1, 'B', false)">B) 4-6 years</button>
                     <button class="option" onclick="checkAnswer(1, 'C', false)">C) 10-12 months</button>
                     <button class="option" onclick="checkAnswer(1, 'D', false)">D) 2-3 years</button>
                 </div>
                 <div class="feedback" id="feedback1"></div>
-                <div class="hint" id="hint1">Remember, the story said these fish were like "nature's speed racers" and lived their entire lives in just one season!</div>
+                <div class="hint" id="hint1">Remember, the story said these fish were like "nature's speed racers" and
+                    lived their entire lives in just one season!</div>
             </div>
 
             <div class="question" id="question2">
@@ -361,7 +620,8 @@
                     <button class="option" onclick="checkAnswer(2, 'D', false)">D) Highways</button>
                 </div>
                 <div class="feedback" id="feedback2"></div>
-                <div class="hint" id="hint2">Think about what the ribosomes do - they work like assembly lines making proteins, just like workers in a place that builds things!</div>
+                <div class="hint" id="hint2">Think about what the ribosomes do - they work like assembly lines making
+                    proteins, just like workers in a place that builds things!</div>
             </div>
 
             <div class="question" id="question3">
@@ -373,7 +633,8 @@
                     <button class="option" onclick="checkAnswer(3, 'D', false)">D) They make too many proteins</button>
                 </div>
                 <div class="feedback" id="feedback3"></div>
-                <div class="hint" id="hint3">The story described this like a traffic jam - remember what happens when cars on a highway start having problems driving smoothly?</div>
+                <div class="hint" id="hint3">The story described this like a traffic jam - remember what happens when
+                    cars on a highway start having problems driving smoothly?</div>
             </div>
 
             <div id="confetti-container"></div>
@@ -384,18 +645,27 @@
 
         <div class="scientific-debrief">
             <h2>Scientific Debrief: Ribosome Dysfunction Drives Brain Aging</h2>
-            
+
             <h3>Key Discovery</h3>
-            <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify ribosome pausing as a fundamental mechanism of brain aging. Their multi-omics analysis revealed that ribosomes increasingly stall during protein synthesis, particularly when translating codons for basic amino acids (lysine and arginine).</p>
-            
+            <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify ribosome
+                pausing as a fundamental mechanism of brain aging. Their multi-omics analysis revealed that ribosomes
+                increasingly stall during protein synthesis, particularly when translating codons for basic amino acids
+                (lysine and arginine).</p>
+
             <h3>Core Findings</h3>
-            <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces production of proteins essential for DNA repair, RNA processing, and cellular maintenance</p>
-            <p><strong>Selective protein vulnerability:</strong> Proteins rich in basic amino acids—critical for genome integrity—decline preferentially during aging</p>
-            <p><strong>Evolutionary conservation:</strong> The protein-transcript decoupling observed mirrors patterns across species, suggesting a universal aging mechanism</p>
-            
+            <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces production
+                of proteins essential for DNA repair, RNA processing, and cellular maintenance</p>
+            <p><strong>Selective protein vulnerability:</strong> Proteins rich in basic amino acids—critical for genome
+                integrity—decline preferentially during aging</p>
+            <p><strong>Evolutionary conservation:</strong> The protein-transcript decoupling observed mirrors patterns
+                across species, suggesting a universal aging mechanism</p>
+
             <h3>Significance</h3>
-            <p>This work identifies translation as a central hub connecting multiple aging processes and provides a mechanistic explanation for why cellular maintenance systems fail during aging. The findings have direct relevance to human neurodegenerative diseases, as affected proteins include those associated with Alzheimer's and ALS.</p>
-            
+            <p>This work identifies translation as a central hub connecting multiple aging processes and provides a
+                mechanistic explanation for why cellular maintenance systems fail during aging. The findings have direct
+                relevance to human neurodegenerative diseases, as affected proteins include those associated with
+                Alzheimer's and ALS.</p>
+
             <h3>Therapeutic Implications</h3>
             <p>The research suggests potential interventions targeting:</p>
             <ul>
@@ -403,29 +673,169 @@
                 <li>Maintenance of protein synthesis machinery</li>
                 <li>Prevention of translation elongation defects</li>
             </ul>
-            <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a primary driver rather than consequence of cellular aging.</p>
+            <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a primary
+                driver rather than consequence of cellular aging.</p>
         </div>
 
         <div class="references">
             <h2>Learn More</h2>
             <ol>
-                <li><a href="https://medicalxpress.com/news/2025-07-involving-turquoise-killifish-key-mechanism.html">Study involving turquoise killifish pinpoints key mechanism of brain aging</a></li>
-                <li><a href="https://news.stanford.edu/stories/2025/07/brain-aging-mechanism-proteostasis-neurodegenerative-diseases-als-parkinsons-alzheimers">Study pinpoints key mechanism of brain aging | Stanford Report</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation contributes to key hallmarks of aging in the killifish brain | Science</a></li>
-                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory for Protein Production According to the Genetic Code</a></li>
-                <li><a href="https://www.ducksters.com/science/biology/cell_ribosome.php">Biology for Kids: Cell Ribosome</a></li>
-                <li><a href="https://www.genengnews.com/topics/omics/protein-synthesis-slowdown-implicated-in-brain-aging-in-killifish/">Protein Synthesis Slowdown Implicated in Brain Aging in Killifish</a></li>
-                <li><a href="https://study.com/academy/lesson/ribosomes-lesson-for-kids-definition-function.html">Ribosomes Lesson for Kids: Definition & Function</a></li>
-                <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation, Role, Importance, & Facts | Britannica</a></li>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5946070/">The African turquoise killifish: A research organism to study vertebrate aging and diapause</a></li>
-                <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">Biology for Kids: Proteins and Amino Acids</a></li>
-                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish Brain Aging Linked to Protein Translation Slowdown | Mirage News</a></li>
+                <li><a href="https://medicalxpress.com/news/2025-07-involving-turquoise-killifish-key-mechanism.html">Study
+                        involving turquoise killifish pinpoints key mechanism of brain aging</a></li>
+                <li><a
+                        href="https://news.stanford.edu/stories/2025/07/brain-aging-mechanism-proteostasis-neurodegenerative-diseases-als-parkinsons-alzheimers">Study
+                        pinpoints key mechanism of brain aging | Stanford Report</a></li>
+                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation contributes
+                        to key hallmarks of aging in the killifish brain | Science</a></li>
+                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory for
+                        Protein Production According to the Genetic Code</a></li>
+                <li><a href="https://www.ducksters.com/science/biology/cell_ribosome.php">Biology for Kids: Cell
+                        Ribosome</a></li>
+                <li><a
+                        href="https://www.genengnews.com/topics/omics/protein-synthesis-slowdown-implicated-in-brain-aging-in-killifish/">Protein
+                        Synthesis Slowdown Implicated in Brain Aging in Killifish</a></li>
+                <li><a href="https://study.com/academy/lesson/ribosomes-lesson-for-kids-definition-function.html">Ribosomes
+                        Lesson for Kids: Definition & Function</a></li>
+                <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation, Role,
+                        Importance, & Facts | Britannica</a></li>
+                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5946070/">The African turquoise killifish: A
+                        research organism to study vertebrate aging and diapause</a></li>
+                <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">Biology for Kids:
+                        Proteins and Amino Acids</a></li>
+                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish Brain
+                        Aging Linked to Protein Translation Slowdown | Mirage News</a></li>
                 <li><a href="https://www.genome.gov/genetics-glossary/Ribosome">Ribosome</a></li>
-                <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and Information About Ribosomes</a></li>
-                <li><a href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How African turquoise killifish press the pause button on aging</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging brains | Science</a></li>
+                <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and Information
+                        About Ribosomes</a></li>
+                <li><a href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How
+                        African turquoise killifish press the pause button on aging</a></li>
+                <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging brains
+                        | Science</a></li>
             </ol>
         </div>
     </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' };
+        const praises = {
+            1: "Excellent! You remembered that these amazing fish live super-fast lives in just 4-6 months!",
+            2: "Perfect! You got it - ribosomes are like tiny factories that make proteins!",
+            3: "Amazing! You understood that aging ribosomes slow down and get stuck, just like cars in a traffic jam!"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            // Clear any previous feedback and hints
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                // Correct answer
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                // Add to score if not already answered correctly
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                // Disable all options for this question
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                // Wrong answer
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "Not quite right! Try again!";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+                
+                // Show hint for wrong answer
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+
+                // Disable the wrong option permanently, but allow retries on others
+                clickedButton.disabled = true;
+                
+                // Re-enable other options after a short delay
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            console.log('Score updated to:', score); // Debug log
+
+            // Check for perfect score
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1'];
+
+            // Create more confetti pieces for a better effect
+            for (let i = 0; i < 150; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 1 + 's';
+                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
+                    
+                    // Add some variety to confetti shapes
+                    if (Math.random() > 0.5) {
+                        confetti.style.borderRadius = '50%';
+                    }
+                    
+                    container.appendChild(confetti);
+
+                    // Remove confetti after animation
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 6000);
+                }, i * 30);
+            }
+        }
+
+        // Initialize quiz - hide all hints initially
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+        });
+    </script>
 </body>
+
 </html>
