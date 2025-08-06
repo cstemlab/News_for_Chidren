@@ -249,7 +249,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             border: 3px solid var(--primary-100);
             background-color: var(--bg-100);
             min-width: 200px;
@@ -806,135 +806,134 @@
 
         <div class="quiz-section">
             <h2>Let's See What We Discovered!</h2>
-            <div class="score-board" id="score-board">
-                <h3>Your Score: <span id="score">0</span>/3</h3>
-            </div>
-
-            <div class="question" id="question1">
-                <h3>Question 1: How long do turquoise killifish live?</h3>
-                <div class="options">
-                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) 4-6 months</button>
-                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) 4-6 years</button>
-                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) 10-12 months</button>
-                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) 2-3 years</button>
-                </div>
-                <div class="feedback" id="feedback1"></div>
-                <div class="hint" id="hint1">Remember, the story said these fish were like "nature's speed racers" and
-                    lived their entire lives in just one season!</div>
-            </div>
-
-            <div class="question" id="question2">
-                <h3>Question 2: What are ribosomes compared to in the story?</h3>
-                <div class="options">
-                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) Racing cars</button>
-                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) Tiny factories</button>
-                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) Libraries</button>
-                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) Highways</button>
-                </div>
-                <div class="feedback" id="feedback2"></div>
-                <div class="hint" id="hint2">Think about what the ribosomes do - they work like assembly lines making
-                    proteins, just like workers in a place that builds things!</div>
-            </div>
-
-            <div class="question" id="question3">
-                <h3>Question 3: What happens to the ribosomes as the killifish get older?</h3>
-                <div class="options">
-                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) They work faster and better</button>
-                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) They completely disappear</button>
-                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) They slow down and get stuck</button>
-                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) They make too many proteins</button>
-                </div>
-                <div class="feedback" id="feedback3"></div>
-                <div class="hint" id="hint3">The story described this like a traffic jam - remember what happens when
-                    cars on a highway start having problems driving smoothly?</div>
-            </div>
-
-            <div id="confetti-container"></div>
-            <div class="perfect-score" id="perfect-score">
-                🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
-            </div>
+            <div class="score-board" id="score-board"></div>
+            <h3>Your Score: <span id="score">0</span>/3</h3>
         </div>
 
-        <div class="scientific-debrief">
-            <h2>Scientific Debrief: Ribosome Dysfunction Drives Brain Aging</h2>
-
-            <h3>Key Discovery</h3>
-            <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify
-                ribosome
-                pausing as a fundamental mechanism of brain aging. Their multi-omics analysis revealed that ribosomes
-                increasingly stall during protein synthesis, particularly when translating codons for basic amino acids
-                (lysine and arginine).</p>
-
-            <h3>Core Findings</h3>
-            <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces
-                production
-                of proteins essential for DNA repair, RNA processing, and cellular maintenance</p>
-            <p><strong>Selective protein vulnerability:</strong> Proteins rich in basic amino acids—critical for genome
-                integrity—decline preferentially during aging</p>
-            <p><strong>Evolutionary conservation:</strong> The protein-transcript decoupling observed mirrors patterns
-                across species, suggesting a universal aging mechanism</p>
-
-            <h3>Significance</h3>
-            <p>This work identifies translation as a central hub connecting multiple aging processes and provides a
-                mechanistic explanation for why cellular maintenance systems fail during aging. The findings have direct
-                relevance to human neurodegenerative diseases, as affected proteins include those associated with
-                Alzheimer's and ALS.</p>
-
-            <h3>Therapeutic Implications</h3>
-            <p>The research suggests potential interventions targeting:</p>
-            <ul>
-                <li>Ribosome function and translation fidelity</li>
-                <li>Maintenance of protein synthesis machinery</li>
-                <li>Prevention of translation elongation defects</li>
-            </ul>
-            <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a
-                primary
-                driver rather than consequence of cellular aging.</p>
+        <div class="question" id="question1">
+            <h3>Question 1: How long do turquoise killifish live?</h3>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(1, 'A', true)">A) 4-6 months</button>
+                <button class="option" onclick="checkAnswer(1, 'B', false)">B) 4-6 years</button>
+                <button class="option" onclick="checkAnswer(1, 'C', false)">C) 10-12 months</button>
+                <button class="option" onclick="checkAnswer(1, 'D', false)">D) 2-3 years</button>
+            </div>
+            <div class="feedback" id="feedback1"></div>
+            <div class="hint" id="hint1">Remember, the story said these fish were like "nature's speed racers" and
+                lived their entire lives in just one season!</div>
         </div>
 
-        <div class="references">
-            <h2>Learn More</h2>
-            <ol>
-                <li><a href="https://medicalxpress.com/news/2025-07-involving-turquoise-killifish-key-mechanism.html">Study
-                        involving turquoise killifish pinpoints key mechanism of brain aging</a></li>
-                <li><a
-                        href="https://news.stanford.edu/stories/2025/07/brain-aging-mechanism-proteostasis-neurodegenerative-diseases-als-parkinsons-alzheimers">Study
-                        pinpoints key mechanism of brain aging | Stanford Report</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation
-                        contributes
-                        to key hallmarks of aging in the killifish brain | Science</a></li>
-                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory
-                        for
-                        Protein Production According to the Genetic Code</a></li>
-                <li><a href="https://www.ducksters.com/science/biology/cell_ribosome.php">Biology for Kids: Cell
-                        Ribosome</a></li>
-                <li><a
-                        href="https://www.genengnews.com/topics/omics/protein-synthesis-slowdown-implicated-in-brain-aging-in-killifish/">Protein
-                        Synthesis Slowdown Implicated in Brain Aging in Killifish</a></li>
-                <li><a href="https://study.com/academy/lesson/ribosomes-lesson-for-kids-definition-function.html">Ribosomes
-                        Lesson for Kids: Definition & Function</a></li>
-                <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation,
-                        Role,
-                        Importance, & Facts | Britannica</a></li>
-                <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5946070/">The African turquoise killifish: A
-                        research organism to study vertebrate aging and diapause</a></li>
-                <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">Biology for Kids:
-                        Proteins and Amino Acids</a></li>
-                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish
-                        Brain
-                        Aging Linked to Protein Translation Slowdown | Mirage News</a></li>
-                <li><a href="https://www.genome.gov/genetics-glossary/Ribosome">Ribosome</a></li>
-                <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and
-                        Information
-                        About Ribosomes</a></li>
-                <li><a
-                        href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How
-                        African turquoise killifish press the pause button on aging</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging
-                        brains
-                        | Science</a></li>
-            </ol>
+        <div class="question" id="question2">
+            <h3>Question 2: What are ribosomes compared to in the story?</h3>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(2, 'A', false)">A) Racing cars</button>
+                <button class="option" onclick="checkAnswer(2, 'B', true)">B) Tiny factories</button>
+                <button class="option" onclick="checkAnswer(2, 'C', false)">C) Libraries</button>
+                <button class="option" onclick="checkAnswer(2, 'D', false)">D) Highways</button>
+            </div>
+            <div class="feedback" id="feedback2"></div>
+            <div class="hint" id="hint2">Think about what the ribosomes do - they work like assembly lines making
+                proteins, just like workers in a place that builds things!</div>
         </div>
+
+        <div class="question" id="question3">
+            <h3>Question 3: What happens to the ribosomes as the killifish get older?</h3>
+            <div class="options">
+                <button class="option" onclick="checkAnswer(3, 'A', false)">A) They work faster and better</button>
+                <button class="option" onclick="checkAnswer(3, 'B', false)">B) They completely disappear</button>
+                <button class="option" onclick="checkAnswer(3, 'C', true)">C) They slow down and get stuck</button>
+                <button class="option" onclick="checkAnswer(3, 'D', false)">D) They make too many proteins</button>
+            </div>
+            <div class="feedback" id="feedback3"></div>
+            <div class="hint" id="hint3">The story described this like a traffic jam - remember what happens when
+                cars on a highway start having problems driving smoothly?</div>
+        </div>
+
+        <div id="confetti-container"></div>
+        <div class="perfect-score" id="perfect-score">
+            🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
+        </div>
+    </div>
+
+    <div class="scientific-debrief">
+        <h2>Scientific Debrief: Ribosome Dysfunction Drives Brain Aging</h2>
+
+        <h3>Key Discovery</h3>
+        <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify
+            ribosome
+            pausing as a fundamental mechanism of brain aging. Their multi-omics analysis revealed that ribosomes
+            increasingly stall during protein synthesis, particularly when translating codons for basic amino acids
+            (lysine and arginine).</p>
+
+        <h3>Core Findings</h3>
+        <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces
+            production
+            of proteins essential for DNA repair, RNA processing, and cellular maintenance</p>
+        <p><strong>Selective protein vulnerability:</strong> Proteins rich in basic amino acids—critical for genome
+            integrity—decline preferentially during aging</p>
+        <p><strong>Evolutionary conservation:</strong> The protein-transcript decoupling observed mirrors patterns
+            across species, suggesting a universal aging mechanism</p>
+
+        <h3>Significance</h3>
+        <p>This work identifies translation as a central hub connecting multiple aging processes and provides a
+            mechanistic explanation for why cellular maintenance systems fail during aging. The findings have direct
+            relevance to human neurodegenerative diseases, as affected proteins include those associated with
+            Alzheimer's and ALS.</p>
+
+        <h3>Therapeutic Implications</h3>
+        <p>The research suggests potential interventions targeting:</p>
+        <ul>
+            <li>Ribosome function and translation fidelity</li>
+            <li>Maintenance of protein synthesis machinery</li>
+            <li>Prevention of translation elongation defects</li>
+        </ul>
+        <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a
+            primary
+            driver rather than consequence of cellular aging.</p>
+    </div>
+
+    <div class="references">
+        <h2>Learn More</h2>
+        <ol>
+            <li><a href="https://medicalxpress.com/news/2025-07-involving-turquoise-killifish-key-mechanism.html">Study
+                    involving turquoise killifish pinpoints key mechanism of brain aging</a></li>
+            <li><a
+                    href="https://news.stanford.edu/stories/2025/07/brain-aging-mechanism-proteostasis-neurodegenerative-diseases-als-parkinsons-alzheimers">Study
+                    pinpoints key mechanism of brain aging | Stanford Report</a></li>
+            <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation
+                    contributes
+                    to key hallmarks of aging in the killifish brain | Science</a></li>
+            <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory
+                    for
+                    Protein Production According to the Genetic Code</a></li>
+            <li><a href="https://www.ducksters.com/science/biology/cell_ribosome.php">Biology for Kids: Cell
+                    Ribosome</a></li>
+            <li><a
+                    href="https://www.genengnews.com/topics/omics/protein-synthesis-slowdown-implicated-in-brain-aging-in-killifish/">Protein
+                    Synthesis Slowdown Implicated in Brain Aging in Killifish</a></li>
+            <li><a href="https://study.com/academy/lesson/ribosomes-lesson-for-kids-definition-function.html">Ribosomes
+                    Lesson for Kids: Definition & Function</a></li>
+            <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation,
+                    Role,
+                    Importance, & Facts | Britannica</a></li>
+            <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5946070/">The African turquoise killifish: A
+                    research organism to study vertebrate aging and diapause</a></li>
+            <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">Biology for Kids:
+                    Proteins and Amino Acids</a></li>
+            <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish
+                    Brain
+                    Aging Linked to Protein Translation Slowdown | Mirage News</a></li>
+            <li><a href="https://www.genome.gov/genetics-glossary/Ribosome">Ribosome</a></li>
+            <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and
+                    Information
+                    About Ribosomes</a></li>
+            <li><a href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How
+                    African turquoise killifish press the pause button on aging</a></li>
+            <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging
+                    brains
+                    | Science</a></li>
+        </ol>
+    </div>
     </div>
 
     <script>
@@ -1158,14 +1157,14 @@
             // Setup sticky scoreboard
             const scoreBoard = document.getElementById('score-board');
             const quizSection = document.querySelector('.quiz-section');
-            
+
             if (scoreBoard && quizSection) {
                 const originalScoreBoardTop = scoreBoard.offsetTop;
-                
-                window.addEventListener('scroll', function() {
+
+                window.addEventListener('scroll', function () {
                     const quizSectionRect = quizSection.getBoundingClientRect();
                     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    
+
                     // Check if we're in the quiz section
                     if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
                         // We're scrolling through the quiz section
