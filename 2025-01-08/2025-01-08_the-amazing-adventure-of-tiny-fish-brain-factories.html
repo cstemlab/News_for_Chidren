@@ -208,19 +208,27 @@
         }
 
         .big-picture {
-            background: linear-gradient(135deg, var(--bg-200), var(--primary-300));
+            background-color: var(--bg-200);
+            margin: 30px 0;
             padding: 30px;
             border-radius: 15px;
-            margin: 40px 0;
-            border: 3px solid var(--primary-200);
-            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
         }
 
         .big-picture h2 {
-            background: none;
-            border: none;
-            margin-top: 0;
-            text-align: center;
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 0 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .big-picture p {
+            text-align: justify;
         }
 
         .quiz-section {
@@ -297,7 +305,7 @@
             background-color: var(--primary-300);
             border-color: var(--primary-100);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .option.correct {
@@ -385,20 +393,75 @@
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 15px;
+            height: 15px;
             background: #f0f;
-            animation: confetti-fall 3s linear forwards;
+            animation: confetti-fall 4s ease-out forwards;
+        }
+
+        .confetti-large {
+            width: 25px;
+            height: 25px;
+            animation: confetti-fall-large 5s ease-out forwards;
+        }
+
+        .confetti-star {
+            width: 20px;
+            height: 20px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: confetti-fall-spin 4.5s ease-out forwards;
         }
 
         @keyframes confetti-fall {
             0% {
-                transform: translateY(-100vh) rotate(0deg);
+                transform: translateY(-100vh) rotate(0deg) scale(1);
                 opacity: 1;
             }
-
+            10% {
+                transform: translateY(-80vh) rotate(180deg) scale(1.2);
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
             100% {
-                transform: translateY(100vh) rotate(720deg);
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-large {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            15% {
+                transform: translateY(-70vh) rotate(270deg) scale(1.5);
+                opacity: 1;
+            }
+            85% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-spin {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            20% {
+                transform: translateY(-60vh) rotate(360deg) scale(1.3);
+                opacity: 1;
+            }
+            80% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(1800deg) scale(0.4);
                 opacity: 0;
             }
         }
@@ -647,13 +710,15 @@
             <h2>Scientific Debrief: Ribosome Dysfunction Drives Brain Aging</h2>
 
             <h3>Key Discovery</h3>
-            <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify ribosome
+            <p>Di Fraia, Marino, Lee and colleagues used the short-lived African turquoise killifish to identify
+                ribosome
                 pausing as a fundamental mechanism of brain aging. Their multi-omics analysis revealed that ribosomes
                 increasingly stall during protein synthesis, particularly when translating codons for basic amino acids
                 (lysine and arginine).</p>
 
             <h3>Core Findings</h3>
-            <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces production
+            <p><strong>Translation dysfunction precedes other aging hallmarks:</strong> Ribosome stalling reduces
+                production
                 of proteins essential for DNA repair, RNA processing, and cellular maintenance</p>
             <p><strong>Selective protein vulnerability:</strong> Proteins rich in basic amino acids—critical for genome
                 integrity—decline preferentially during aging</p>
@@ -673,7 +738,8 @@
                 <li>Maintenance of protein synthesis machinery</li>
                 <li>Prevention of translation elongation defects</li>
             </ul>
-            <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a primary
+            <p>This represents a paradigm shift in aging research, positioning protein synthesis dysfunction as a
+                primary
                 driver rather than consequence of cellular aging.</p>
         </div>
 
@@ -685,9 +751,11 @@
                 <li><a
                         href="https://news.stanford.edu/stories/2025/07/brain-aging-mechanism-proteostasis-neurodegenerative-diseases-als-parkinsons-alzheimers">Study
                         pinpoints key mechanism of brain aging | Stanford Report</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation contributes
+                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">Altered translation elongation
+                        contributes
                         to key hallmarks of aging in the killifish brain | Science</a></li>
-                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory for
+                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2023.1034112">The Ribosome—The Factory
+                        for
                         Protein Production According to the Genetic Code</a></li>
                 <li><a href="https://www.ducksters.com/science/biology/cell_ribosome.php">Biology for Kids: Cell
                         Ribosome</a></li>
@@ -696,20 +764,25 @@
                         Synthesis Slowdown Implicated in Brain Aging in Killifish</a></li>
                 <li><a href="https://study.com/academy/lesson/ribosomes-lesson-for-kids-definition-function.html">Ribosomes
                         Lesson for Kids: Definition & Function</a></li>
-                <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation, Role,
+                <li><a href="https://www.britannica.com/science/ribosome">Ribosome | Definition, Function, Formation,
+                        Role,
                         Importance, & Facts | Britannica</a></li>
                 <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5946070/">The African turquoise killifish: A
                         research organism to study vertebrate aging and diapause</a></li>
                 <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">Biology for Kids:
                         Proteins and Amino Acids</a></li>
-                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish Brain
+                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-protein-1507278/">Killifish
+                        Brain
                         Aging Linked to Protein Translation Slowdown | Mirage News</a></li>
                 <li><a href="https://www.genome.gov/genetics-glossary/Ribosome">Ribosome</a></li>
-                <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and Information
+                <li><a href="https://byjus.com/biology/facts-about-ribosomes/">Ribosomes- Interesting Facts and
+                        Information
                         About Ribosomes</a></li>
-                <li><a href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How
+                <li><a
+                        href="https://www.sciencenews.org/article/how-african-turquoise-killifish-press-pause-button-aging">How
                         African turquoise killifish press the pause button on aging</a></li>
-                <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging brains
+                <li><a href="https://www.science.org/doi/10.1126/science.adz4995">Translational traffic jam in aging
+                        brains
                         | Science</a></li>
             </ol>
         </div>
@@ -765,14 +838,14 @@
                 feedbackDiv.textContent = "Not quite right! Try again!";
                 feedbackDiv.className = 'feedback incorrect';
                 feedbackDiv.style.display = 'block';
-                
+
                 // Show hint for wrong answer
                 hintDiv.style.display = 'block';
                 hintDiv.classList.add('show');
 
                 // Disable the wrong option permanently, but allow retries on others
                 clickedButton.disabled = true;
-                
+
                 // Re-enable other options after a short delay
                 setTimeout(() => {
                     options.forEach(option => {
@@ -799,37 +872,82 @@
 
         function createConfetti() {
             const container = document.getElementById('confetti-container');
-            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1'];
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB'];
 
-            // Create more confetti pieces for a better effect
-            for (let i = 0; i < 150; i++) {
+            // Create multiple waves of confetti for maximum impact!
+            for (let wave = 0; wave < 3; wave++) {
                 setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + '%';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDelay = Math.random() * 1 + 's';
-                    confetti.style.animationDuration = (Math.random() * 2 + 3) + 's';
-                    
-                    // Add some variety to confetti shapes
-                    if (Math.random() > 0.5) {
-                        confetti.style.borderRadius = '50%';
-                    }
-                    
-                    container.appendChild(confetti);
+                    // Each wave has different types of confetti
+                    for (let i = 0; i < 100; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+                            
+                            // Different types of confetti
+                            if (rand < 0.3) {
+                                // Large confetti
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.6) {
+                                // Star confetti
+                                confetti.className = 'confetti confetti-star';
+                            } else {
+                                // Regular confetti
+                                confetti.className = 'confetti';
+                                // Random shapes
+                                if (Math.random() > 0.5) {
+                                    confetti.style.borderRadius = '50%';
+                                } else if (Math.random() > 0.7) {
+                                    confetti.style.borderRadius = '20%';
+                                }
+                            }
 
-                    // Remove confetti after animation
-                    setTimeout(() => {
-                        if (confetti.parentNode) {
-                            confetti.parentNode.removeChild(confetti);
-                        }
-                    }, 6000);
-                }, i * 30);
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                            
+                            // Add some confetti that starts from different heights
+                            if (Math.random() > 0.8) {
+                                confetti.style.top = '-' + (Math.random() * 200 + 100) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            // Remove confetti after animation
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 8000);
+                        }, i * 15);
+                    }
+                }, wave * 500);
             }
+
+            // Add some extra burst effects
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const burst = document.createElement('div');
+                        burst.className = 'confetti confetti-large';
+                        burst.style.left = (45 + Math.random() * 10) + '%'; // Center burst
+                        burst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        burst.style.borderRadius = '50%';
+                        burst.style.animationDelay = '0s';
+                        
+                        container.appendChild(burst);
+
+                        setTimeout(() => {
+                            if (burst.parentNode) {
+                                burst.parentNode.removeChild(burst);
+                            }
+                        }, 6000);
+                    }, i * 10);
+                }
+            }, 1000);
         }
 
         // Initialize quiz - hide all hints initially
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const hints = document.querySelectorAll('.hint');
             hints.forEach(hint => {
                 hint.style.display = 'none';
