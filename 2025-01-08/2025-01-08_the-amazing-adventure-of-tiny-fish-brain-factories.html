@@ -212,23 +212,8 @@
             margin: 30px 0;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--accent-100);
-        }
-
-        .big-picture h2 {
-            color: var(--primary-100);
-            font-size: 1.8em;
-            margin: 0 0 20px 0;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
-            border-left: 5px solid var(--primary-100);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .big-picture p {
-            text-align: justify;
         }
 
         .quiz-section {
@@ -393,23 +378,39 @@
 
         .confetti {
             position: absolute;
-            width: 15px;
-            height: 15px;
+            width: 8px;
+            height: 40px;
             background: #f0f;
-            animation: confetti-fall 4s ease-out forwards;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
         }
 
         .confetti-large {
-            width: 25px;
-            height: 25px;
-            animation: confetti-fall-large 5s ease-out forwards;
+            width: 12px;
+            height: 60px;
+            border-radius: 6px;
+            animation: confetti-fall-large 6s ease-out forwards;
+        }
+
+        .confetti-wide {
+            width: 15px;
+            height: 50px;
+            border-radius: 7px;
+            animation: confetti-fall-wide 5.5s ease-out forwards;
         }
 
         .confetti-star {
-            width: 20px;
-            height: 20px;
+            width: 35px;
+            height: 35px;
             clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-            animation: confetti-fall-spin 4.5s ease-out forwards;
+            animation: confetti-fall-spin 5s ease-out forwards;
+        }
+
+        .confetti-ribbon {
+            width: 6px;
+            height: 80px;
+            border-radius: 3px;
+            animation: confetti-fall-ribbon 7s ease-out forwards;
         }
 
         @keyframes confetti-fall {
@@ -417,13 +418,16 @@
                 transform: translateY(-100vh) rotate(0deg) scale(1);
                 opacity: 1;
             }
+
             10% {
                 transform: translateY(-80vh) rotate(180deg) scale(1.2);
                 opacity: 1;
             }
+
             90% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(100vh) rotate(1080deg) scale(0.5);
                 opacity: 0;
@@ -435,13 +439,16 @@
                 transform: translateY(-100vh) rotate(0deg) scale(1);
                 opacity: 1;
             }
+
             15% {
                 transform: translateY(-70vh) rotate(270deg) scale(1.5);
                 opacity: 1;
             }
+
             85% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(100vh) rotate(1440deg) scale(0.3);
                 opacity: 0;
@@ -453,15 +460,60 @@
                 transform: translateY(-100vh) rotate(0deg) scale(1);
                 opacity: 1;
             }
+
             20% {
                 transform: translateY(-60vh) rotate(360deg) scale(1.3);
                 opacity: 1;
             }
+
             80% {
                 opacity: 1;
             }
+
             100% {
                 transform: translateY(100vh) rotate(1800deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-wide {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            12% {
+                transform: translateY(-75vh) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            88% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1200deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ribbon {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            8% {
+                transform: translateY(-85vh) rotate(120deg) scale(1.2);
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(2160deg) scale(0.3);
                 opacity: 0;
             }
         }
@@ -872,42 +924,42 @@
 
         function createConfetti() {
             const container = document.getElementById('confetti-container');
-            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB'];
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB', '#FF0080', '#00FF80', '#8000FF', '#FF8000'];
 
-            // Create multiple waves of confetti for maximum impact!
-            for (let wave = 0; wave < 3; wave++) {
+            // Create multiple waves of paper roll confetti for maximum impact!
+            for (let wave = 0; wave < 4; wave++) {
                 setTimeout(() => {
-                    // Each wave has different types of confetti
-                    for (let i = 0; i < 100; i++) {
+                    // Each wave has different types of paper roll confetti
+                    for (let i = 0; i < 120; i++) {
                         setTimeout(() => {
                             const confetti = document.createElement('div');
                             const rand = Math.random();
-                            
-                            // Different types of confetti
-                            if (rand < 0.3) {
-                                // Large confetti
+
+                            // Different types of paper roll confetti
+                            if (rand < 0.2) {
+                                // Long ribbon confetti
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.4) {
+                                // Large paper roll
                                 confetti.className = 'confetti confetti-large';
                             } else if (rand < 0.6) {
+                                // Wide paper roll
+                                confetti.className = 'confetti confetti-wide';
+                            } else if (rand < 0.8) {
                                 // Star confetti
                                 confetti.className = 'confetti confetti-star';
                             } else {
-                                // Regular confetti
+                                // Regular paper roll
                                 confetti.className = 'confetti';
-                                // Random shapes
-                                if (Math.random() > 0.5) {
-                                    confetti.style.borderRadius = '50%';
-                                } else if (Math.random() > 0.7) {
-                                    confetti.style.borderRadius = '20%';
-                                }
                             }
 
                             confetti.style.left = Math.random() * 100 + '%';
                             confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                            confetti.style.animationDelay = Math.random() * 0.5 + 's';
-                            
-                            // Add some confetti that starts from different heights
-                            if (Math.random() > 0.8) {
-                                confetti.style.top = '-' + (Math.random() * 200 + 100) + 'px';
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            // Add some confetti that starts from different heights for more chaos
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
                             }
 
                             container.appendChild(confetti);
@@ -917,33 +969,80 @@
                                 if (confetti.parentNode) {
                                     confetti.parentNode.removeChild(confetti);
                                 }
-                            }, 8000);
-                        }, i * 15);
+                            }, 9000);
+                        }, i * 12);
                     }
-                }, wave * 500);
+                }, wave * 400);
             }
 
-            // Add some extra burst effects
+            // Add massive center burst of long ribbons
             setTimeout(() => {
-                for (let i = 0; i < 50; i++) {
+                for (let i = 0; i < 80; i++) {
                     setTimeout(() => {
                         const burst = document.createElement('div');
-                        burst.className = 'confetti confetti-large';
-                        burst.style.left = (45 + Math.random() * 10) + '%'; // Center burst
-                        burst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                        burst.style.borderRadius = '50%';
-                        burst.style.animationDelay = '0s';
+                        const burstType = Math.random();
                         
+                        if (burstType < 0.4) {
+                            burst.className = 'confetti confetti-ribbon';
+                        } else if (burstType < 0.7) {
+                            burst.className = 'confetti confetti-large';
+                        } else {
+                            burst.className = 'confetti confetti-wide';
+                        }
+                        
+                        burst.style.left = (40 + Math.random() * 20) + '%'; // Center burst area
+                        burst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        burst.style.animationDelay = '0s';
+
                         container.appendChild(burst);
 
                         setTimeout(() => {
                             if (burst.parentNode) {
                                 burst.parentNode.removeChild(burst);
                             }
-                        }, 6000);
+                        }, 8000);
+                    }, i * 8);
+                }
+            }, 1200);
+
+            // Add side bursts for even more spectacular effect
+            setTimeout(() => {
+                // Left side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const leftBurst = document.createElement('div');
+                        leftBurst.className = 'confetti confetti-ribbon';
+                        leftBurst.style.left = Math.random() * 25 + '%';
+                        leftBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        leftBurst.style.animationDelay = '0s';
+                        container.appendChild(leftBurst);
+
+                        setTimeout(() => {
+                            if (leftBurst.parentNode) {
+                                leftBurst.parentNode.removeChild(leftBurst);
+                            }
+                        }, 8000);
                     }, i * 10);
                 }
-            }, 1000);
+
+                // Right side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const rightBurst = document.createElement('div');
+                        rightBurst.className = 'confetti confetti-ribbon';
+                        rightBurst.style.left = (75 + Math.random() * 25) + '%';
+                        rightBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        rightBurst.style.animationDelay = '0s';
+                        container.appendChild(rightBurst);
+
+                        setTimeout(() => {
+                            if (rightBurst.parentNode) {
+                                rightBurst.parentNode.removeChild(rightBurst);
+                            }
+                        }, 8000);
+                    }, i * 10);
+                }
+            }, 2000);
         }
 
         // Initialize quiz - hide all hints initially
