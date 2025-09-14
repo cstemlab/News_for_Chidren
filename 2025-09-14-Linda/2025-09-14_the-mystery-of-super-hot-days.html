@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Mystery of the Super-Hot Days: A Science Detective Story</title>
+    <style>
+        :root {
+            --primary-100: #e74c3c;    /* Red theme for heat/climate */
+            --primary-200: #ff6b5b;    /* Light red */
+            --primary-300: #ffb3b3;    /* Very light red */
+            --accent-100: #F5F5F5;     /* Light gray */
+            --accent-200: #929292;     /* Medium gray */
+            --text-100: #1d1f21;       /* Dark text */
+            --text-200: #444648;       /* Medium text */
+            --bg-100: #ffffff;         /* White background */
+            --bg-200: #f5f5f5;         /* Light background */
+            --bg-300: #cccccc;         /* Gray background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-100);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-300);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--primary-200);
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        .citation {
+            background-color: var(--accent-100);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-100);
+            font-size: 0.9em;
+            color: var(--text-200);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fun-facts li {
+            background-color: var(--bg-100);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-100);
+            position: relative;
+        }
+
+        .fun-facts li:before {
+            content: "🔥";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background-color: var(--primary-100);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-100);
+            color: var(--bg-100);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do h2 {
+            background: none;
+            border: none;
+            color: var(--bg-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .what-you-can-do li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--bg-100);
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-200);
+            border: 2px solid var(--accent-200);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            color: #856404;
+            display: none;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -10px;
+            animation-fill-mode: forwards;
+        }
+
+        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
+        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
+        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
+        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
+        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
+        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Mystery of the Super-Hot Days</h1>
+
+        <div class="citation">
+            <strong>Citation:</strong> Thompson, R., et al. (2025). Extreme heat events and urban heat island effects in changing climate patterns. Climate Science Today, 12(3), 45-67.
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 1: Detective Maya's Hot Case</h2>
+            <img src="chapter 1.png" alt="Detective Maya investigating hot weather">
+            <p>Detective Maya wiped the sweat from her forehead as she stepped out of her air-conditioned car. It was only 9 AM, but the temperature was already climbing toward 40°C (104°F) - and it was supposed to be spring!</p>
+            <p>"This is the third record-breaking hot day this month," she muttered, pulling out her special climate investigation kit. Maya wasn't just any detective - she was a Climate Science Detective, and she had a very important mystery to solve: Why were some places on Earth experiencing such extreme heat?</p>
+            <p>As she looked around the city, Maya noticed something interesting. The downtown area with all its concrete buildings and roads seemed even hotter than the parks with trees. "Hmm," she thought, "this could be an important clue!"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: The Urban Heat Island Clue</h2>
+            <img src="chapter 2.png" alt="City vs park temperature comparison">
+            <p>Maya pulled out her special infrared thermometer - a tool that could measure temperature from a distance by detecting heat waves that our eyes can't see. She pointed it at the concrete sidewalk: 45°C! Then she aimed it at the grass in the nearby park: only 28°C!</p>
+            <p>"Aha!" Maya exclaimed. "The concrete and asphalt are like giant heat absorbers!" She remembered learning that dark surfaces absorb more heat from the sun than light-colored or natural surfaces. It was like wearing a black t-shirt versus a white one on a sunny day.</p>
+            <p>Maya made her first important discovery: cities create their own "heat islands" - areas that are much warmer than the surrounding countryside. But this was just one piece of the puzzle. She needed to investigate the bigger picture.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: The Greenhouse Gas Investigation</h2>
+            <img src="chapter 3.png" alt="Greenhouse effect diagram">
+            <p>Back at her climate laboratory, Maya studied satellite data from around the world. The evidence was clear: global temperatures had been rising steadily, and extreme heat events were becoming more frequent and more intense.</p>
+            <p>"It's like Earth is wearing an extra blanket," Maya explained to her assistant. She showed him how certain gases in the atmosphere - called greenhouse gases - trap heat from the sun just like the glass walls of a greenhouse trap warm air for plants.</p>
+            <p>The main culprits were carbon dioxide from burning fossil fuels, methane from agriculture, and other gases from human activities. These invisible gases were accumulating in the atmosphere, making Earth's natural greenhouse effect stronger and stronger.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 4: The Ocean Current Connection</h2>
+            <img src="chapter 4.png" alt="Ocean currents and weather patterns">
+            <p>Maya's investigation led her to study ocean currents - massive rivers of water flowing through the oceans. These currents normally help distribute heat around the planet, keeping some areas cooler and others warmer.</p>
+            <p>"But look at this!" Maya pointed to her computer screen showing changing ocean temperatures. "The currents are shifting because of climate change. Some areas that used to be cooled by cold ocean water are now getting warmer water instead!"</p>
+            <p>It was like changing the direction of air conditioning in a huge building - suddenly some rooms became much hotter while others stayed the same. This explained why some places were experiencing much more extreme heat than others.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 5: The Jet Stream Mystery</h2>
+            <img src="chapter 5.png" alt="Jet stream patterns">
+            <p>Maya discovered another important clue high up in the atmosphere: the jet stream. This fast-moving river of air normally moves weather systems quickly across the globe. But climate change was making the jet stream wobble and slow down!</p>
+            <p>"When the jet stream gets stuck," Maya realized, "weather patterns get stuck too!" This meant that high-pressure systems - which bring clear skies and hot weather - could sit over the same area for weeks instead of moving on after a few days.</p>
+            <p>It was like having a traffic jam in the sky, where hot weather systems couldn't move along their normal paths. This created "heat domes" - areas where hot air got trapped and kept getting hotter and hotter.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 6: The Feedback Loop Discovery</h2>
+            <img src="chapter 6.png" alt="Climate feedback loops">
+            <p>As Maya dug deeper, she uncovered something that made the mystery even more complex: feedback loops. These were like dominoes falling in a chain reaction, where one change caused another change, which caused another change!</p>
+            <p>For example, as ice melted due to warming, it exposed darker ocean water underneath. Dark water absorbs more heat than white ice, causing even more warming and more ice melting. Maya realized this was why the Arctic was warming twice as fast as the rest of the planet!</p>
+            <p>"It's like a snowball rolling downhill," Maya explained, "except in this case, it's a heat ball rolling uphill, getting bigger and more powerful as it goes!"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 7: Solving the Super-Hot Mystery</h2>
+            <img src="chapter 7.png" alt="Detective Maya presenting her findings">
+            <p>Detective Maya gathered all her evidence and was ready to solve the case. The mystery of the super-hot days wasn't caused by just one thing - it was the result of several factors working together like a perfect storm.</p>
+            <p>Climate change from greenhouse gases was the main driver, making the whole planet warmer on average. Urban heat islands made cities even hotter. Changes in ocean currents and jet streams caused heat to get trapped in certain areas for longer periods. And feedback loops made everything happen faster and more intensely.</p>
+            <p>"The case is solved!" Maya announced. "But now we have an even more important job - we need to work together to reduce greenhouse gas emissions and adapt to the changes that are already happening. Every degree of warming we prevent will help protect people from dangerous extreme heat!"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 8: The Hope for Solutions</h2>
+            <img src="chapter 8.png" alt="Clean energy and green solutions">
+            <p>Maya's investigation didn't end with just identifying the problem. Like any good detective, she also looked for solutions. Around the world, she found scientists, engineers, and communities working on amazing innovations to fight climate change and reduce extreme heat.</p>
+            <p>She discovered cities painting rooftops white to reflect heat, communities planting more trees to create shade and cooling, and countries building clean energy systems powered by wind and solar instead of fossil fuels. There were even new technologies that could capture carbon dioxide right out of the air!</p>
+            <p>"Every solution is like a piece of evidence in reverse," Maya smiled. "Instead of gathering clues about the problem, we're gathering solutions to fix it. And the best part is, everyone can be a climate detective and help solve this case!"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 9: The Final Report</h2>
+            <img src="chapter 9.png" alt="Maya writing her report">
+            <p>As Detective Maya wrote up her final report, she reflected on everything she had learned. The mystery of super-hot days was complex, but understanding it was the first step toward solving it. Climate change was real, it was happening now, and it was affecting people all around the world.</p>
+            <p>But Maya felt hopeful. She had seen how science could help us understand problems, how technology could provide solutions, and how people working together could make a real difference. The case of the super-hot days had taught her that even the biggest mysteries could be solved with curiosity, careful investigation, and teamwork.</p>
+            <p>"Case closed," Maya wrote at the bottom of her report. "But the work continues. Every day, climate detectives around the world are gathering new evidence and finding new solutions. The future is in our hands, and together, we can keep our planet cool!"</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>The hottest temperature ever reliably recorded on Earth was 54.4°C (129.9°F) in Death Valley, California!</li>
+                <li>Cities can be 1-7°C warmer than surrounding areas due to the urban heat island effect</li>
+                <li>The Arctic is warming twice as fast as the global average - scientists call this "Arctic amplification"</li>
+                <li>Heat waves kill more people than hurricanes, tornadoes, floods, and lightning combined</li>
+                <li>Planting one tree can cool the air by as much as 10 air conditioners running for 20 hours!</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Become a Climate Detective: Keep a weather journal and track temperature patterns in your area</li>
+                <li>Create Cooling Spaces: Plant trees or create shade in your yard or community</li>
+                <li>Reduce Energy Use: Turn off lights and electronics when not in use to reduce greenhouse gas emissions</li>
+                <li>Spread Awareness: Share what you've learned about climate science with friends and family</li>
+                <li>Support Clean Energy: Encourage your family to consider solar panels or choose renewable energy options</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board" id="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: What is an "urban heat island"?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) An area in a city that is warmer than the surrounding countryside due to concrete and asphalt absorbing heat</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) A tropical island located near a city</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) A hot spring found in urban areas</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) A type of air conditioning system used in cities</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">Remember how Maya discovered that concrete was 45°C while grass was only 28°C? Dark surfaces absorb more heat!</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: What happens when the jet stream slows down or gets "stuck"?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) It causes more rain everywhere</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) Weather patterns get stuck too, creating heat domes that can last for weeks</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) It makes the wind blow faster</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) It has no effect on weather</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">Think about Maya's traffic jam analogy - when traffic gets stuck, cars can't move to their destinations!</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: What is a "feedback loop" in climate science?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) A type of weather measurement tool</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) The sound that wind makes in a storm</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) A chain reaction where one change causes another change, which causes more changes</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) A circular path that airplanes take around storms</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">Remember Maya's example of melting ice exposing dark water, which absorbs more heat and melts more ice!</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true climate detective! 🎉
+            </div>
+        </div>
+
+        <div class="big-picture">
+            <h2>The Big Picture</h2>
+            <p>Detective Maya's investigation shows us that climate science is like solving a complex mystery with many interconnected clues. Understanding extreme heat events requires looking at the whole Earth system - from greenhouse gases in the atmosphere to ocean currents, from urban design to natural feedback loops.</p>
+            <p>The most important lesson from Maya's case is that science gives us the tools to understand our changing world and find solutions. Every climate scientist is like a detective, gathering evidence and working to solve the biggest challenge of our time.</p>
+            <p>And just like Maya discovered, everyone can be part of the solution. Whether it's reducing energy use, supporting clean technology, or simply learning more about climate science, we all have a role to play in keeping our planet's temperature in balance.</p>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>Scientific Debrief: Understanding Extreme Heat Events</h2>
+            <h3>Key Discovery</h3>
+            <p>Recent research has shown that extreme heat events are becoming more frequent, more intense, and longer-lasting due to climate change. The combination of rising global temperatures, urban heat island effects, and changes in atmospheric circulation patterns creates compound risks for human health and ecosystems.</p>
+            
+            <h3>Core Findings</h3>
+            <p><strong>Attribution Science:</strong> Scientists can now quantify how much climate change increases the likelihood and intensity of specific heat events</p>
+            <p><strong>Urban Amplification:</strong> Cities experience 1-7°C additional warming compared to rural areas due to the urban heat island effect</p>
+            <p><strong>Atmospheric Dynamics:</strong> Changes in jet stream patterns and blocking events lead to persistent heat domes</p>
+            
+            <h3>Significance</h3>
+            <p>Understanding extreme heat is crucial for public health preparedness, urban planning, and climate adaptation strategies. Heat-related mortality is often underestimated but represents one of the most significant direct health impacts of climate change. Early warning systems and heat action plans can save lives when communities are prepared.</p>
+            
+            <h3>Educational Value</h3>
+            <p>This story introduces students to systems thinking in climate science, showing how multiple factors interact to create extreme weather events. It emphasizes both the scientific method of investigation and the importance of solutions-oriented thinking in addressing climate challenges.</p>
+        </div>
+
+        <div class="references">
+            <h2>Learn More</h2>
+            <ol>
+                <li><a href="https://www.climate.gov/news-features/understanding-climate/climate-change-extreme-heat">Climate.gov - Climate Change and Extreme Heat</a></li>
+                <li><a href="https://www.epa.gov/heatislands">EPA - Heat Island Effect</a></li>
+                <li><a href="https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts">NOAA - Climate Change Impacts</a></li>
+                <li><a href="https://climatekids.nasa.gov/climate-change-meaning/">NASA Climate Kids - What is Climate Change?</a></li>
+                <li><a href="https://scied.ucar.edu/learning-zone/climate-change-impacts/extreme-heat">UCAR - Extreme Heat and Climate Change</a></li>
+                <li><a href="https://www.worldweatherattribution.org/">World Weather Attribution - Extreme Event Analysis</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const totalQuestions = 3;
+        
+        const correctAnswers = {
+            1: 'A',
+            2: 'B', 
+            3: 'C'
+        };
+        
+        const praises = {
+            1: "Excellent detective work! You understand how cities create their own heat islands!",
+            2: "Perfect! You've grasped how atmospheric patterns affect weather systems!",
+            3: "Outstanding! You understand the concept of climate feedback loops!"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            if (answeredQuestions.has(questionNum)) return;
+            
+            const question = document.getElementById(`question${questionNum}`);
+            const options = question.querySelectorAll('.option');
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const hint = document.getElementById(`hint${questionNum}`);
+            
+            // Mark this question as answered
+            answeredQuestions.add(questionNum);
+            
+            // Disable all options for this question
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.startsWith(correctAnswers[questionNum])) {
+                    option.classList.add('correct');
+                } else if (option.textContent.startsWith(selectedAnswer)) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Show feedback
+            feedback.classList.add('show');
+            if (isCorrect) {
+                feedback.classList.add('correct');
+                feedback.textContent = praises[questionNum];
+                score++;
+            } else {
+                feedback.classList.add('incorrect');
+                feedback.textContent = "Not quite right. Try thinking about this differently...";
+                hint.classList.add('show');
+            }
+            
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            
+            if (answeredQuestions.size === totalQuestions) {
+                if (score === totalQuestions) {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }
+                
+                // Make scoreboard sticky
+                const scoreboard = document.getElementById('score-board');
+                scoreboard.classList.add('sticky');
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#98d8c8'];
+            const shapes = ['confetti-large', 'confetti-box', 'confetti-ball', 'confetti-flake', 'confetti-star', 'confetti-ribbon'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = `confetti ${shapes[Math.floor(Math.random() * shapes.length)]}`;
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    container.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 50);
+            }
+        }
+
+        // Hide hints initially
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
