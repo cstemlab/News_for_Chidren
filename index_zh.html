@@ -119,18 +119,31 @@
 
         .language-badges {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 15px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         .language-badge {
-            background-color: transparent;
-            color: var(--accent-100);
+            background-color: var(--accent-100);
+            color: white;
             border: 2px solid var(--accent-100);
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 0.8em;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.85em;
             font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        .language-badge:hover {
+            background-color: var(--accent-200);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
 
@@ -337,18 +350,22 @@
                 <div class="date">2025年9月14日</div>
                 <h2>超级科学侦探故事</h2>
                 <div class="language-badges">
-                    <span class="language-badge">英文</span>
-                    <span class="language-badge">中文</span>
+                    <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html" class="language-badge">英文</a>
+                    <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story_中文版.html" class="language-badge">中文</a>
                 </div>
                 <p>加入我们的科学侦探，发现学习科学如何帮助我们识别虚假信息！这个引人入胜的故事展示了教育如何赋予我们超能力，让我们思考得更清晰，在日常生活中做出更好的决定。</p>
             </a>
 
-            <a href="2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html" class="story-card">
+            <div class="story-card">
                 <img src="2025-09-14-Linda/chapter 1.png" alt="超热天气之谜第1章" class="preview-image">
                 <div class="date">2025年9月14日</div>
                 <h2>超热天气之谜</h2>
+                <div class="language-badges">
+                    <a href="2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html" class="language-badge">英文</a>
+                    <a href="2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html" class="language-badge">中文</a>
+                </div>
                 <p>一个关于理解极端天气和气候模式的科学侦探故事。通过细致的观察和研究，发现科学家如何解开我们不断变化的气候之谜。</p>
-            </a>
+            </div>
 
             <a href="2025_09_08 CXY/The Amazing Discovery of Nature's Seasonal Calendar.html" class="story-card">
                 <img src="2025_09_08 CXY/chapter1.png" alt="自然季节日历的惊人发现第1章" class="preview-image">
@@ -362,8 +379,8 @@
                 <div class="date">2025年9月7日</div>
                 <h2>世界底部的秘密城市</h2>
                 <div class="language-badges">
-                    <span class="language-badge">英文</span>
-                    <span class="language-badge">中文</span>
+                    <a href="2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html" class="language-badge">英文</a>
+                    <a href="2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html" class="language-badge">中文</a>
                 </div>
                 <p>潜入比珠穆朗玛峰还深的地方，发现令人惊叹的水下城市，那里的生物用有毒化学物质制造食物！一个令人难以置信的深海冒险，改变了我们对地球生命的认知。</p>
             </a>
@@ -373,7 +390,7 @@
                 <div class="date">2025年9月7日</div>
                 <h2>伟大的犀牛侦探故事</h2>
                 <div class="language-badges">
-                    <span class="language-badge">英文</span>
+                    <a href="2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_revised.html" class="language-badge">英文</a>
                     <span class="language-badge">中文</span>
                 </div>
                 <p>跟随科学家解开野生动物之谜！发现创造性思维和团队合作如何通过意想不到的解决方案帮助保护濒危犀牛，永远改变了保护工作。</p>
@@ -385,7 +402,7 @@
                 <div class="date">2025年8月1日</div>
                 <h2>小鱼大脑工厂的惊人冒险</h2>
                 <div class="language-badges">
-                    <span class="language-badge">英文</span>
+                    <a href="2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="language-badge">英文</a>
                     <span class="language-badge">中文</span>
                 </div>
                 <p>和我们一起踏上进入特殊非洲鱼类大脑的不可思议旅程，发现微小的细胞工厂如何工作，以及当我们老化时它们开始变慢会发生什么。这个惊人的故事以最适合好奇年轻心灵的方式解释了前沿的大脑研究！</p>
