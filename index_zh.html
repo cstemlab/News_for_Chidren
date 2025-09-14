@@ -65,6 +65,7 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
+            align-items: start;
         }
 
         .story-card {
@@ -79,7 +80,9 @@
             cursor: pointer;
             text-decoration: none;
             color: inherit;
-            display: block;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .story-card .preview-image {
@@ -109,6 +112,7 @@
         .story-card p {
             color: var(--text-200);
             margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         .story-card .date {
@@ -346,7 +350,7 @@
 
         <div class="story-grid" id="storyGrid">
             <!-- 最新故事 -->
-            <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html" class="story-card">
+            <div class="story-card">
                 <img src="2025_09_14_CJX/chapter 1.png" alt="超级科学侦探故事第1章" class="preview-image">
                 <div class="date">2025年9月14日</div>
                 <h2>超级科学侦探故事</h2>
@@ -355,7 +359,7 @@
                     <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story_中文版.html" class="language-badge">中文</a>
                 </div>
                 <p>加入我们的科学侦探，发现学习科学如何帮助我们识别虚假信息！这个引人入胜的故事展示了教育如何赋予我们超能力，让我们思考得更清晰，在日常生活中做出更好的决定。</p>
-            </a>
+            </div>
 
             <div class="story-card">
                 <img src="2025-09-14-Linda/chapter 1.png" alt="超热天气之谜第1章" class="preview-image">
@@ -390,14 +394,7 @@
                 <p>发现世界各地的植物如何遵循它们自己的秘密时间表！这个迷人的故事揭示了科学家如何使用卫星发现自然隐藏的季节模式，以及这对我们星球意味着什么。</p>
             </div>
 
-            <a href="2025_09_08 CXY/The Amazing Discovery of Nature's Seasonal Calendar.html" class="story-card" style="display: none;">
-                <img src="2025_09_08 CXY/chapter1.png" alt="自然季节日历的惊人发现第1章" class="preview-image">
-                <div class="date">2025年9月8日</div>
-                <h2>自然季节日历的惊人发现</h2>
-                <p>发现世界各地的植物如何遵循它们自己的秘密时间表！这个迷人的故事揭示了科学家如何使用卫星发现自然隐藏的季节模式，以及这对我们星球意味着什么。</p>
-            </a>
-
-            <a href="2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html" class="story-card">
+            <div class="story-card">
                 <img src="2025-09-07_Coco/new version/Chapter 1.1.png" alt="世界底部的秘密城市第1章" class="preview-image">
                 <div class="date">2025年9月7日</div>
                 <h2>世界底部的秘密城市</h2>
@@ -406,9 +403,9 @@
                     <a href="2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html" class="language-badge">中文</a>
                 </div>
                 <p>潜入比珠穆朗玛峰还深的地方，发现令人惊叹的水下城市，那里的生物用有毒化学物质制造食物！一个令人难以置信的深海冒险，改变了我们对地球生命的认知。</p>
-            </a>
+            </div>
 
-            <a href="2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_revised.html" class="story-card">
+            <div class="story-card">
                 <img src="2025-09-07_Zeyu/chapter 1.png" alt="伟大的犀牛侦探故事第1章" class="preview-image">
                 <div class="date">2025年9月7日</div>
                 <h2>伟大的犀牛侦探故事</h2>
@@ -417,7 +414,19 @@
                     <span class="language-badge">中文</span>
                 </div>
                 <p>跟随科学家解开野生动物之谜！发现创造性思维和团队合作如何通过意想不到的解决方案帮助保护濒危犀牛，永远改变了保护工作。</p>
-            </a>
+            </div>
+
+            <!-- 原始模板故事 -->
+            <div class="story-card">
+                <img src="2025-08-01/chapter 1.png" alt="小鱼大脑工厂的惊人冒险第1章" class="preview-image">
+                <div class="date">2025年8月1日</div>
+                <h2>小鱼大脑工厂的惊人冒险</h2>
+                <div class="language-badges">
+                    <a href="2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="language-badge">英文</a>
+                    <span class="language-badge">中文</span>
+                </div>
+                <p>和我们一起踏上进入特殊非洲鱼类大脑的不可思议旅程，发现微小的细胞工厂如何工作，以及当我们老化时它们开始变慢会发生什么。这个惊人的故事以最适合好奇年轻心灵的方式解释了前沿的大脑研究！</p>
+            </div>
 
             <!-- 原始模板故事 -->
             <a href="2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="story-card">
