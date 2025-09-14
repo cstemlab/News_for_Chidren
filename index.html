@@ -75,6 +75,10 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
 
         .story-card .preview-image {
@@ -89,6 +93,8 @@
         .story-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-decoration: none;
+            color: inherit;
         }
 
         .story-card h2 {
@@ -126,20 +132,6 @@
             font-weight: bold;
         }
 
-        .read-more {
-            display: inline-block;
-            background-color: var(--primary-100);
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .read-more:hover {
-            background-color: var(--primary-200);
-        }
 
         .about {
             background-color: var(--accent-100);
@@ -150,7 +142,7 @@
         }
 
         .about h2 {
-            color: var(--primary-100);
+            color: white;
             margin-bottom: 20px;
         }
 
@@ -339,7 +331,7 @@
 
         <div class="story-grid" id="storyGrid">
             <!-- Most Recent Stories -->
-            <div class="story-card">
+            <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html" class="story-card">
                 <img src="2025_09_14_CJX/chapter 1.png" alt="Detective Story Chapter 1" class="preview-image">
                 <div class="date">September 14, 2025</div>
                 <h2>The Super Science Detective Story</h2>
@@ -348,26 +340,23 @@
                     <span class="language-badge">中文</span>
                 </div>
                 <p>Join our science detectives as they discover how learning science helps us spot fake information! This engaging story shows how education gives us superpowers to think clearly and make better decisions in our daily lives.</p>
-                <a href="2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
 
-            <div class="story-card">
+            <a href="2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html" class="story-card">
                 <img src="2025-09-14-Linda/chapter 1.png" alt="Mystery of Super-Hot Days Chapter 1" class="preview-image">
                 <div class="date">September 14, 2025</div>
                 <h2>The Mystery of the Super-Hot Days</h2>
                 <p>A science detective story about understanding extreme weather and climate patterns. Discover how scientists solve the mysteries of our changing climate through careful observation and research.</p>
-                <a href="2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
 
-            <div class="story-card">
+            <a href="2025_09_08 CXY/The Amazing Discovery of Nature's Seasonal Calendar.html" class="story-card">
                 <img src="2025_09_08 CXY/chapter1.png" alt="Nature's Seasonal Calendar Chapter 1" class="preview-image">
                 <div class="date">September 8, 2025</div>
                 <h2>The Amazing Discovery of Nature's Seasonal Calendar</h2>
                 <p>Discover how plants around the world follow their own secret schedules! This fascinating story reveals how scientists used satellites to uncover nature's hidden seasonal patterns and what it means for our planet.</p>
-                <a href="2025_09_08 CXY/The Amazing Discovery of Nature's Seasonal Calendar.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
 
-            <div class="story-card">
+            <a href="2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html" class="story-card">
                 <img src="2025-09-07_Coco/new version/Chapter 1.1.png" alt="Secret Cities Chapter 1" class="preview-image">
                 <div class="date">September 7, 2025</div>
                 <h2>The Secret Cities at the Bottom of the World</h2>
@@ -376,10 +365,9 @@
                     <span class="language-badge">中文</span>
                 </div>
                 <p>Dive deeper than Mount Everest is tall to discover amazing underwater cities where creatures make food from poisonous chemicals! An incredible deep-sea adventure that changes everything we know about life on Earth.</p>
-                <a href="2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
 
-            <div class="story-card">
+            <a href="2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_revised.html" class="story-card">
                 <img src="2025-09-07_Zeyu/chapter 1.png" alt="Rhino Detective Story Chapter 1" class="preview-image">
                 <div class="date">September 7, 2025</div>
                 <h2>The Great Rhino Detective Story</h2>
@@ -388,11 +376,10 @@
                     <span class="language-badge">中文</span>
                 </div>
                 <p>Follow scientists as they solve a wildlife mystery! Discover how creative thinking and teamwork helped protect endangered rhinos through an unexpected solution that changed conservation forever.</p>
-                <a href="2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_revised.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
 
             <!-- Original Template Story -->
-            <div class="story-card">
+            <a href="2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="story-card">
                 <img src="2025-08-01/chapter 1.png" alt="Fish Brain Factories Chapter 1" class="preview-image">
                 <div class="date">August 1, 2025</div>
                 <h2>The Amazing Adventure of the Tiny Fish Brain Factories</h2>
@@ -401,8 +388,7 @@
                     <span class="language-badge">中文</span>
                 </div>
                 <p>Join us on an incredible journey inside the brains of special African fish to discover how tiny cellular factories work and what happens when they start to slow down as we age. This amazing story explains cutting-edge brain research in a way that's perfect for curious young minds!</p>
-                <a href="2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="read-more">Read the Story</a>
-            </div>
+            </a>
         </div>
 
         <div class="about">
