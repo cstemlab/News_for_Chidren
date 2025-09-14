@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Super Science Detective Story</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;
+            --primary-200: #ff983f;
+            --primary-300: #ffffa1;
+            --accent-100: #F5F5F5;
+            --accent-200: #929292;
+            --text-100: #1d1f21;
+            --text-200: #444648;
+            --bg-100: #ffffff;
+            --bg-200: #f5f5f5;
+            --bg-300: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .citation {
+            background-color: var(--bg-200);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-100);
+            font-style: italic;
+            color: var(--text-200);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary-200);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-100);
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-100);
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary-300);
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-100);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-200);
+            color: var(--bg-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .what-you-can-do h2 {
+            color: var(--bg-100);
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .what-you-can-do li {
+            color: var(--bg-100);
+        }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2, .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .quote {
+            background-color: var(--accent-100);
+            border-left: 4px solid var(--primary-100);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f0f;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="2025-09-14_the-super-science-detective-story_中文版.html" class="language-switch">中文版</a>
+    <div class="container">
+        <h1>The Super Science Detective Story</h1>
+
+        <div class="citation">
+            <strong>Citation:</strong> Rozenblum, Y., Dalyot, K., & Baram‐Tsabari, A. (2025). People who have more science education rely less on misinformation—Even if they do not necessarily follow the health recommendations. Journal of Research in Science Teaching, 62(3), 825-868.
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 1: The Mystery of the Confusing Messages</h2>
+            <img src="chapter 1.png" alt="Chapter 1 - The Mystery of the Confusing Messages">
+            <p>Have you ever played the telephone game? You know, where one person whispers a message to the next person, and by the time it reaches the last person, the message has completely changed? Sometimes "I saw a big blue bird" becomes "My dad bought a weird burger"!</p>
+            <p>Well, imagine if this telephone game was happening all over the world, but instead of silly messages about birds and burgers, people were sharing important information about staying healthy during COVID-19. And just like in the telephone game, some of the messages got twisted, changed, or were just plain wrong!</p>
+            <p>During the COVID-19 pandemic, which happened a few years ago when you might have been younger, there was a lot of confusing information floating around. Some of it was true and helpful, but some of it was "misinformation" – which is just a fancy word for information that isn't correct, even if the person sharing it thought it was true.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: What is Misinformation, Really?</h2>
+            <img src="chapter 2.png" alt="Chapter 2 - What is Misinformation, Really?">
+            <p>Think of misinformation like a sneaky shapeshifter! It often looks just like real, true information, which makes it really tricky to spot. It's not always shared by people trying to be mean or trick others – sometimes people share wrong information because they genuinely believe it's true and want to help.</p>
+            <p>During COVID-19, misinformation included things like false cures (like thinking drinking lots of water every 15 minutes would protect you from getting sick) or wrong ideas about how the virus worked. Some people even tried dangerous things like using cleaning products to try to prevent getting sick, which actually made them more sick.</p>
+            <p>It's kind of like if someone told you that eating ice cream for breakfast every day would make you taller. It sounds nice (who doesn't want ice cream for breakfast?), but it's not based on real science!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: The Science Detectives</h2>
+            <img src="chapter 3.png" alt="Chapter 3 - The Science Detectives">
+            <p>Now, here comes the exciting part! Scientists in Israel decided to become like super detectives. They wanted to solve a mystery: Do people who learn more about science get better at spotting fake information?</p>
+            <p>To solve this mystery, they talked to 500 grown-ups during COVID-19. They asked them about two tricky situations: "Would you send your child to a preschool where the teachers live in a place with lots of COVID-19 cases?" and "Would you visit your elderly grandparents during the pandemic?"</p>
+            <p>These were like real-life puzzles where people had to think carefully about what was safe and what wasn't, just like when you have to decide whether it's safe to cross the street or whether you should believe your friend when they say they can fly.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 4: The Amazing Discovery</h2>
+            <img src="chapter 4.png" alt="Chapter 4 - The Amazing Discovery">
+            <p>Here's what the science detectives found, and it's pretty amazing:</p>
+            <p><strong>Discovery #1:</strong> People who learned more science in school were much better at spotting fake information! Even if they didn't always follow the health recommendations exactly, they were less likely to believe or use wrong information when making their decisions.</p>
+            <p>It's like having special glasses that help you see through magic tricks – the more you learn about how science works, the better you get at spotting when something doesn't make sense.</p>
+            <p><strong>Discovery #2:</strong> When something was really important to people personally, they thought more carefully about the information. For example, parents thought more deeply about information when it was about their own kids, and women thought more carefully about visiting elderly family members.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 5: The Two Different Ways Your Brain Works</h2>
+            <img src="chapter 5.png" alt="Chapter 5 - The Two Different Ways Your Brain Works">
+            <p>The scientists discovered that our brains work in two different ways when we're trying to figure out if information is true:</p>
+            <p><strong>The Quick Way (Peripheral Route):</strong> This is like when you're in a hurry and you just look at who's telling you something. If it's someone you like or trust, you might believe them without thinking too hard. It's fast, but sometimes you can get tricked!</p>
+            <p><strong>The Careful Way (Central Route):</strong> This is like being a detective – you ask questions, look for evidence, and really think about whether something makes sense. It takes more effort, but you're much more likely to figure out what's really true.</p>
+            <p>The scientists found that people with more science education and people who really cared about the topic used the "careful way" more often. They asked better questions and thought more deeply about the information, even if they didn't always follow the recommendations in the end.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 6: Why This Matters for You</h2>
+            <img src="chapter 6.png" alt="Chapter 6 - Why This Matters for You">
+            <p>You might be thinking, "But I'm only 10! Why should I care about this?" Well, here's the cool thing: Scientists have found that kids around age 14 often start believing in conspiracy theories and fake information, which means the earlier you learn to be a good "information detective," the better prepared you'll be!</p>
+            <p>Plus, even though adults sometimes think kids believe everything they hear, research shows that even preschoolers are pretty good at spotting obviously fake things! But kids can be tricked when fake information looks really official or professional.</p>
+            <p>Think about it like this: if someone showed you a fake website that looked just like your school's website, but it said "No more homework ever!" you might want to believe it, but your detective brain should ask questions like "Is this really from my school? Does this seem too good to be true?"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 7: How to Be a Super Information Detective</h2>
+            <img src="chapter 7.png" alt="Chapter 7 - How to Be a Super Information Detective">
+            <p>Here are some amazing detective tools the scientists found that work:</p>
+            <ol>
+                <li>Ask "Who's telling me this?" Just like how you learned to check if sources are reliable, you can look up whether the person or website sharing information actually knows what they're talking about.</li>
+                <li>Use your science knowledge! Every time you learn something new in science class – whether it's about how germs spread, how vaccines work, or why we need to eat healthy food – you're building your detective superpowers.</li>
+                <li>Think about whether it makes sense. If someone tells you something that seems too amazing or terrible to be true, take a moment to think about it carefully.</li>
+                <li>Care about getting the right answer. The scientists found that when people really cared about making a good decision, they were more likely to think carefully and spot fake information.</li>
+            </ol>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 8: The Happy Ending (That's Really a Beginning!)</h2>
+            <img src="Final.png" alt="The Happy Ending">
+            <p>The best part about this whole story is that it has a really hopeful message: Learning science doesn't just help you understand how the world works – it actually makes you better at thinking clearly about all kinds of information!</p>
+            <p>The scientists concluded that the goal shouldn't just be to make people follow rules, but to help them think clearly and make good decisions based on good information. It's like giving everyone a superpower to see through tricks and make better choices.</p>
+            <p>So the next time you're in science class learning about how plants grow, or how the weather works, or how your body fights off germs, remember: you're not just learning cool facts. You're training your brain to be an amazing information detective who can help make the world a little bit safer and smarter for everyone!</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>Kids around age 14 often start believing in conspiracy theories and fake information</li>
+                <li>Even preschoolers are pretty good at spotting obviously fake things!</li>
+                <li>People with more science education are much better at spotting fake information</li>
+                <li>When something is personally important to you, you think more carefully about information</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Ask "Who's telling me this?" when you see surprising information</li>
+                <li>Use your science knowledge to check if things make sense</li>
+                <li>Think carefully about information that seems too amazing or terrible to be true</li>
+                <li>Remember that learning science gives you super detective powers!</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: According to the story, what is misinformation most like?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) A sneaky shapeshifter that looks like real information but isn't true</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) A loud alarm that warns everyone it's fake</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) A broken telephone that doesn't work</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) A mean person who wants to trick everyone</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">Remember from Chapter 2 - the story says misinformation is tricky because it looks just like real, true information, and people often share it because they genuinely believe it's true and want to help!</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: What was the amazing discovery the science detectives made about people who learned more science in school?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) They always followed health recommendations perfectly</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) They were much better at spotting fake information</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) They never got sick during COVID-19</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) They became real detectives when they grew up</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">Look back at Chapter 4, Discovery #1! The story mentions that people with more science education were better at something specific, even if they didn't always follow recommendations exactly.</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: What did the scientists call the brain's "Careful Way" of thinking about information?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) The Peripheral Route</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) The Quick Route</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) The Central Route</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) The Detective Route</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">Check Chapter 5 again! The story explains that the "Careful Way" has a special scientific name. It's the way where you ask questions, look for evidence, and really think like a detective!</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
+            </div>
+        </div>
+    </div>
+
+    <div class="scientific-debrief">
+        <h2>Scientific Debrief: What the Research Really Shows</h2>
+        <p>This story is based on a peer-reviewed study published in the Journal of Research in Science Teaching by researchers from the Technion – Israel Institute of Technology. The study surveyed 500 Israeli adults during COVID-19's second wave, using the Elaboration Likelihood Model to understand how people process scientific information.</p>
+        
+        <h3>Key Findings</h3>
+        <p>The research revealed two important discoveries: Science education level (not just scientific knowledge) was significantly associated with reduced reliance on misinformation when making health-related decisions. Personal relevance motivated people to think more carefully about information, leading to less use of misinformation even when they didn't follow expert recommendations.</p>
+        
+        <p>Importantly, people with science education and high personal motivation used more complex reasoning but didn't necessarily comply with health guidelines more often. This suggests science education affects how people think about information rather than what they ultimately decide to do.</p>
+        
+        <h3>What This Means</h3>
+        <p>The study supports the idea that science education develops critical thinking skills that help people evaluate information quality, regardless of whether they agree with scientific recommendations. It also highlights that when people care deeply about an issue, they're more likely to think carefully rather than rely on shortcuts or false information.</p>
+    </div>
+
+    <div class="references">
+        <h2>Learn More</h2>
+        <ol>
+            <li><a href="https://www.scientificamerican.com/article/schoolkids-are-falling-victim-to-disinformation-and-conspiracy-fantasies/">Schoolkids Are Falling Victim to Disinformation and Conspiracy Fantasies</a></li>
+            <li><a href="https://fbe.unimelb.edu.au/newsroom/fake-news-in-the-age-of-covid-19">Fake News in the Age of COVID-19</a></li>
+            <li><a href="https://greatergood.berkeley.edu/article/item/scientists_are_teaching_young_people_to_detect_fake_news">Scientists Are Teaching Young People to Detect Fake News</a></li>
+            <li><a href="https://www.sciencedirect.com/science/article/abs/pii/S2352250X23001987">Children's susceptibility to online misinformation</a></li>
+            <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7721433/">The Danger of Misinformation in the COVID-19 Crisis</a></li>
+            <li><a href="https://www.nea.org/nea-today/all-news-articles/helping-students-spot-misinformation-online">Helping Students Spot Misinformation Online</a></li>
+            <li><a href="https://www.apa.org/monitor/2022/01/career-fake-news">Fighting fake news in the classroom</a></li>
+            <li><a href="https://ed.stanford.edu/news/it-doesn-t-take-long-learn-how-spot-misinformation-online-stanford-study-finds">It doesn't take long to learn how to spot misinformation online, Stanford study finds</a></li>
+        </ol>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' };
+        const praises = {
+            1: "Great detecting! You spotted that misinformation can look just like the real thing.",
+            2: "Nice work! More science learning helped people tell what's real from what's fake.",
+            3: "Brilliant! That's the Central Route—the careful, evidence-first thinking of super detectives."
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            // Clear any previous feedback and hints
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                // Correct answer
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                // Add to score if not already answered correctly
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                // Disable all options for this question
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                // Wrong answer
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "Not quite right! Try again!";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+
+                // Show hint for wrong answer
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+
+                // Disable the wrong option permanently, but allow retries on others
+                clickedButton.disabled = true;
+
+                // Re-enable other options after a short delay
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+
+            // Check for perfect score
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1'];
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                    container.appendChild(confetti);
+
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 5000);
+                }, i * 10);
+            }
+        }
+
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function () {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+
+</html>

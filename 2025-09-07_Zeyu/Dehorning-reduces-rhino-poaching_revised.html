@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Rhino Detective Story: How Scientists Solved a Wildlife Mystery</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;
+            --primary-200: #ff983f;
+            --primary-300: #ffffa1;
+            --accent-100: #F5F5F5;
+            --accent-200: #929292;
+            --text-100: #1d1f21;
+            --text-200: #444648;
+            --bg-100: #ffffff;
+            --bg-200: #f5f5f5;
+            --bg-300: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .citation {
+            background-color: var(--bg-200);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-100);
+            font-style: italic;
+            color: var(--text-200);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary-200);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-100);
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-100);
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary-300);
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-100);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-200);
+            color: var(--bg-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .what-you-can-do h2 {
+            color: var(--bg-100);
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .what-you-can-do li {
+            color: var(--bg-100);
+        }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f0f;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+        .confetti-large {
+            width: 12px;
+            height: 60px;
+            border-radius: 6px;
+            animation: confetti-fall-large 6s ease-out forwards;
+        }
+
+        .confetti-wide {
+            width: 15px;
+            height: 50px;
+            border-radius: 7px;
+            animation: confetti-fall-wide 5.5s ease-out forwards;
+        }
+
+        .confetti-star {
+            width: 35px;
+            height: 35px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: confetti-fall-spin 5s ease-out forwards;
+        }
+
+        .confetti-ribbon {
+            width: 6px;
+            height: 80px;
+            border-radius: 3px;
+            animation: confetti-fall-ribbon 7s ease-out forwards;
+        }
+
+        .confetti-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            animation: confetti-fall-box 5s ease-out forwards;
+        }
+
+        .confetti-ball {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            animation: confetti-fall-ball 4.5s ease-out forwards;
+        }
+
+        .confetti-flake {
+            width: 16px;
+            height: 16px;
+            clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+            animation: confetti-fall-flake 5.5s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(180deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-large {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(270deg) scale(1.5);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-spin {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(360deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1800deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-wide {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            12% {
+                transform: translateY(-75vh) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            88% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1200deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ribbon {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            8% {
+                transform: translateY(-85vh) rotate(120deg) scale(1.2);
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(2160deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-box {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(90deg) scale(1.1);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ball {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(180deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(900deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-flake {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(150deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>The Great Rhino Detective Story: How Scientists Solved a Wildlife Mystery</h1>
+        <div class="citation">
+            <p><strong>Citation:</strong> Kuiper, T., et al. (2025). Dehorning reduces rhino poaching. Science, 368, 1075-1081.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 1: Meet the Amazing Rhinos</h2>
+            <img src="chapter 1.png" alt="Chapter 1 - Meet the Amazing Rhinos">
+            <p>In the warm grasslands of southern Africa, there lived some of the most magnificent animals on Earth - rhinoceroses! These incredible creatures are like living tanks, with thick gray skin and impressive horns on their noses that can grow as long as baseball bats. Rhinos are gentle giants who spend their days munching grass and rolling in mud to keep cool.</p>
+            <p>But there was a big problem threatening these amazing animals. Bad people called poachers were sneaking into the rhinos' homes to steal their horns, which some people wrongly believed had magical powers. This was making rhinos disappear from the wild, and scientists were very worried.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: The Expensive Protection Plan</h2>
+            <img src="chapter 2.png" alt="Chapter 2 - The Expensive Protection Plan">
+            <p>The people who take care of the rhinos - called conservationists - decided they needed to protect their beloved animals. They spent a whopping $74 million dollars (that's enough money to buy about 14 million ice cream cones!) trying different ways to stop the poachers.</p>
+            <p>They hired brave rangers to patrol the reserves like security guards, trained special dogs to sniff out intruders, set up cameras that could see in the dark, and even used helicopters to spot bad guys from the sky. They arrested more than 700 poachers - that's like filling up an entire school with caught criminals!</p>
+            <p>But here's the surprising part: even with all this amazing technology and all these brave people working hard, the rhinos were still being poached. It was like playing an endless game of hide-and-seek where the bad guys kept finding new ways to sneak around.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: The Big Question</h2>
+            <img src="chapter 3a.png" alt="Chapter 3 - The Big Question">
+            <p>Dr. Timothy Kuiper and his team of scientist-detectives had a big question: "Why aren't all these expensive protection methods working?" They studied 11 different rhino homes (called reserves) for 7 years, carefully counting how many rhinos were safe and how many were being hurt by poachers.</p>
+            <p>What they discovered was like solving a giant puzzle. The poachers were very determined because rhino horns were worth more money than gold! Even when they knew they might get caught, some people were still willing to take the risk because the reward was so huge.</p>
+            <p>It was like if someone offered kids a million dollars to sneak into a candy store - even if there were security cameras and guards, some kids might still try because the prize seemed so amazing.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 4: A Surprising Solution</h2>
+            <img src="chapter 4.png" alt="Chapter 4 - A Surprising Solution">
+            <p>Then the scientists tried something completely different. Instead of trying to catch the thieves, what if they removed what the thieves wanted to steal? This is called "dehorning" - carefully removing the rhino's horn while the animal is safely asleep, just like how a doctor might remove a person's toenail. The rhino doesn't feel any pain, and the horn grows back slowly over time, just like our fingernails do.</p>
+            <p>The scientists worked with special veterinarians (animal doctors) who used a chainsaw to carefully cut the horns above the growth area. They made sure the rhinos were completely asleep during this process and woke up feeling fine afterward.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 5: The Amazing Results</h2>
+            <img src="chapter 5.png" alt="Chapter 5 - The Amazing Results">
+            <p>What happened next was incredible! When the rhinos had their horns removed, poaching dropped by about 78% - that means if 100 rhinos were being poached before, only about 22 were poached after dehorning. It was like the poachers suddenly lost interest in visiting those areas because there wasn't anything valuable to steal anymore.</p>
+            <p>The scientists discovered that a rhino with horns had a 13% chance of being poached in a year, but a dehorned rhino had only a 0.6% chance - that's more than 20 times safer! It's like the difference between walking through a thunderstorm versus staying safely inside your house.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 6: Why This Worked So Well</h2>
+            <img src="chapter 6.png" alt="Chapter 6 - Why This Worked So Well">
+            <p>The dehorning solution worked for several smart reasons:</p>
+            <ul>
+                <li><strong>No reward, no crime</strong>: When there was nothing valuable to steal, most poachers didn't bother coming anymore</li>
+                <li><strong>Couldn't be tricked</strong>: Unlike cameras and guards that poachers could avoid with inside information, they couldn't make horns magically reappear</li>
+                <li><strong>Much cheaper</strong>: Dehorning cost only about 1.2% of all the money spent on protection, but it was the most effective method</li>
+            </ul>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 7: The Challenges That Remained</h2>
+            <img src="chapter 7.png" alt="Chapter 7 - The Challenges That Remained">
+            <p>Even though dehorning worked amazingly well, it wasn't a perfect solution. Some determined poachers still tried to hurt dehorned rhinos to get the small horn stumps that remained, or they waited for the horns to grow back a little bit. This showed that the rhinos still needed some protection from rangers and other security measures.</p>
+            <p>Also, the scientists learned that dehorning worked best when it was done regularly - about every 18 months - to make sure the horns stayed short.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 8: Lessons for Protecting Wildlife</h2>
+            <img src="chapter 8.png" alt="Chapter 8 - Lessons for Protecting Wildlife">
+            <p>This rhino detective story taught scientists an important lesson about protecting animals: sometimes it's better to remove the reason why bad people want to hurt them, rather than just trying to catch the bad people after they've already caused harm.</p>
+            <p>The scientists realized that other conservation efforts around the world could learn from this. For example, in Venezuela, scientists moved baby parrots to safe places at night to protect them from people who wanted to steal them as pets.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 9: The Future of Rhino Protection</h2>
+            <img src="chapter 9.png" alt="Chapter 9 - The Future of Rhino Protection">
+            <p>The rhino story shows us that protecting wildlife requires creative thinking and teamwork between scientists, park rangers, veterinarians, and local communities. While dehorning was very successful, the scientists emphasized that they still need other protection methods too - it's like having multiple locks on your front door instead of just one.</p>
+            <p>The research continues as scientists work to find even better ways to protect these magnificent animals and help rhino populations grow strong and healthy again.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>The Big Picture</h2>
+            <img src="final.png" alt="The Big Picture">
+            <p>This amazing detective story shows us how science can help solve real-world problems. By carefully studying what works and what doesn't, scientists can help protect endangered animals and make sure future generations will be able to see rhinos roaming freely in the wild.</p>
+            <p>The next time you see a picture of a rhino, remember the dedicated scientists and conservationists working hard every day to keep these incredible creatures safe!</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>Rhino horns are made of keratin - the same material as your fingernails and hair!</li>
+                <li>A rhino's horn can grow back about 7 centimeters per year after dehorning</li>
+                <li>There are only 5 species of rhinos left in the world, and they're all endangered</li>
+                <li>Rhinos have been around for over 50 million years - they lived alongside dinosaurs!</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Learn about wildlife conservation and support organizations that protect endangered animals</li>
+                <li>Stay curious about science - every big discovery starts with someone asking "Why does this happen?"</li>
+                <li>Remember that even small actions can make a big difference in protecting our planet's amazing creatures!</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Test Your Knowledge</h2>
+            <div class="score-board">
+                <h3>Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: According to the article, what is the main reason for rhino poaching?</h3>
+                <div class="options">
+                    <button class="option" data-question="1" data-answer="a">a) For their meat</button>
+                    <button class="option" data-question="1" data-answer="b">b) For their horns</button>
+                    <button class="option" data-question="1" data-answer="c">c) For their skin</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">The article focuses on the demand for rhino horns in traditional medicine and as a status symbol.</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: What is the primary method discussed in the article to prevent rhino poaching?</h3>
+                <div class="options">
+                    <button class="option" data-question="2" data-answer="a">a) Increased patrolling</button>
+                    <button class="option" data-question="2" data-answer="b">b) Dehorning</button>
+                    <button class="option" data-question="2" data-answer="c">c) Legalizing the horn trade</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">The title of the article gives a big clue!</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: What is one of the challenges of dehorning rhinos?</h3>
+                <div class="options">
+                    <button class="option" data-question="3" data-answer="a">a) It is too expensive</button>
+                    <button class="option" data-question="3" data-answer="b">b) The horn grows back</button>
+                    <button class="option" data-question="3" data-answer="c">c) It harms the rhino</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">Think about the long-term effectiveness of a single dehorning procedure.</div>
+            </div>
+            <div id="confetti-container"></div>
+            <div class="perfect-score">
+                <p>Congratulations! You got a perfect score! You're a rhino conservation expert!</p>
+            </div>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>Scientific Debrief: Evidence-Based Anti-Poaching Strategy</h2>
+            <h3>Key Discovery</h3>
+            <p>Kuiper and colleagues conducted a 7-year analysis across 11 southern African reserves, demonstrating that <strong>dehorning achieved a 78% reduction in rhino poaching</strong> while traditional law enforcement showed no statistically significant effects despite $74 million in spending.</p>
+            <h3>Methodological Rigor</h3>
+            <p>The study used hierarchical Bayesian regression models and quasi-experimental regression discontinuity analysis with staggered implementation across sites. This provided natural experimental conditions while integrating quantitative modeling with qualitative attribution methods through stakeholder interviews.</p>
+            <h3>Core Findings</h3>
+            <ul>
+                <li><strong>Proactive reward reduction outperformed reactive enforcement</strong>: Dehorning used only 1.2% of the budget but was the sole intervention showing statistical significance</li>
+                <li><strong>Behavioral economics principle confirmed</strong>: Certain reward reduction (dehorning) influenced behavior more than uncertain punishment (law enforcement)</li>
+                <li><strong>Cost-effectiveness</strong>: $7,133 per rhino saved versus millions spent on traditional methods</li>
+            </ul>
+            <h3>Conservation Significance</h3>
+            <p>This represents a paradigm shift from reactive enforcement to <strong>proactive opportunity reduction</strong> - applicable beyond rhino conservation. The approach demonstrates how situational crime prevention theory can inform wildlife protection strategies globally.</p>
+            <h3>Limitations</h3>
+            <p>Continued poaching of dehorned animals (especially in Kruger NP), potential displacement effects, and need for regular maintenance dehorning highlight that dehorning works best as part of integrated conservation strategies.</p>
+            <p>This work exemplifies evidence-based conservation, showing how rigorous evaluation can identify cost-effective interventions and challenge conventional wildlife crime approaches.</p>
+        </div>
+
+        <div class="references">
+            <h2>Learn More</h2>
+            <ol>
+                <li><a href="https://www.science.org/doi/10.1126/science.ado7490">Dehorning reduces rhino poaching | Science</a></li>
+                <li><a href="https://www.savetherhino.org/">Rhino Conservation - Save the Rhino International</a></li>
+                <li><a href="https://www.worldwildlife.org/initiatives/wildlife-conservation">Wildlife Conservation - World Wildlife Fund</a></li>
+                <li><a href="https://www.conservation.org/priorities/wildlife-trafficking">Anti-Poaching Strategies and Technologies</a></li>
+                <li><a href="https://www.natgeokids.com/uk/discover/animals/general-animals/rhino-facts/">Rhino Facts for Kids</a></li>
+                <li><a href="https://www.sanparks.org/conservation/rhino/">Southern African Rhino Conservation</a></li>
+                <li><a href="https://www.nature.org/en-us/about-us/where-we-work/priority-landscapes/behavioral-insights/">Behavioral Economics and Conservation</a></li>
+                <li><a href="https://academic.oup.com/bioscience/article/69/10/784/5554726">Situational Crime Prevention in Wildlife Protection</a></li>
+                <li><a href="https://gkepf.org/">Greater Kruger Environmental Protection Foundation</a></li>
+                <li><a href="https://wildlifeconservationnetwork.org/rhino-recovery-fund/">Rhino Recovery Fund - Wildlife Conservation Network</a></li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = {
+            1: 'b',
+            2: 'b',
+            3: 'b'
+        };
+        const praises = {
+            1: "Correct! The high demand for rhino horns is the primary driver of poaching.",
+            2: "Excellent! Dehorning is the main strategy discussed to make rhinos less attractive to poachers.",
+            3: "That's right! The horn grows back, so dehorning must be done repeatedly."
+        };
+
+        function checkAnswer(questionNumber, selectedAnswer) {
+            const question = document.getElementById(`question${questionNumber}`);
+            const feedback = question.querySelector('.feedback');
+            const hint = question.querySelector('.hint');
+            const options = question.querySelectorAll('.option');
+            const clickedButton = event.target;
+            const isCorrect = correctAnswers[questionNumber] === selectedAnswer;
+
+            feedback.style.display = 'none';
+            hint.style.display = 'none';
+            hint.classList.remove('show');
+
+            if (isCorrect) {
+                clickedButton.classList.add('correct');
+                feedback.textContent = praises[questionNumber];
+                feedback.className = 'feedback correct';
+                feedback.style.display = 'block';
+
+                if (!answeredQuestions.has(questionNumber)) {
+                    score++;
+                    answeredQuestions.add(questionNumber);
+                    updateScore();
+                }
+
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                clickedButton.classList.add('incorrect');
+                feedback.textContent = "Not quite right! Try again!";
+                feedback.className = 'feedback incorrect';
+                feedback.style.display = 'block';
+
+                hint.style.display = 'block';
+                hint.classList.add('show');
+
+                clickedButton.disabled = true;
+            }
+        }
+
+        function updateScore() {
+            const scoreElement = document.getElementById('score');
+            scoreElement.textContent = score;
+
+            if (score === 3) {
+                const perfectScoreMessage = document.querySelector('.perfect-score');
+                perfectScoreMessage.classList.add('show');
+                createConfetti();
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#f0f', '#0ff', '#ff0', '#f00', '#0f0', '#00f'];
+            const confettiTypes = ['confetti', 'confetti-large', 'confetti-wide', 'confetti-star', 'confetti-ribbon', 'confetti-box', 'confetti-ball', 'confetti-flake'];
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    const type = confettiTypes[Math.floor(Math.random() * confettiTypes.length)];
+                    confetti.classList.add(type);
+                    confetti.style.left = `${Math.random() * 100}vw`;
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = `${Math.random() * 2}s`;
+                    container.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 7000);
+                }, i * 40);
+            }
+
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        const type = confettiTypes[Math.floor(Math.random() * confettiTypes.length)];
+                        confetti.classList.add(type);
+                        confetti.style.left = `${Math.random() * 100}vw`;
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.animationDelay = `${Math.random() * 2}s`;
+                        container.appendChild(confetti);
+
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 7000);
+                    }, i * 40);
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', (event) => {
+                    const questionNumber = option.getAttribute('data-question');
+                    const selectedAnswer = option.getAttribute('data-answer');
+                    checkAnswer(questionNumber, selectedAnswer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

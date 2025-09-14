@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amazing Discovery of Nature's Seasonal Calendar</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;
+            --primary-200: #ff983f;
+            --primary-300: #ffffa1;
+            --accent-100: #F5F5F5;
+            --accent-200: #929292;
+            --text-100: #1d1f21;
+            --text-200: #444648;
+            --bg-100: #ffffff;
+            --bg-200: #f5f5f5;
+            --bg-300: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .citation {
+            background-color: var(--bg-200);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-100);
+            font-style: italic;
+            color: var(--text-200);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary-200);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-100);
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-100);
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary-300);
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-100);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-200);
+            color: var(--bg-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .what-you-can-do h2 {
+            color: var(--bg-100);
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .what-you-can-do li {
+            color: var(--bg-100);
+        }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .quote {
+            background-color: var(--accent-100);
+            border-left: 4px solid var(--primary-100);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f0f;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+
+        .confetti-large {
+            width: 12px;
+            height: 60px;
+            border-radius: 6px;
+            animation: confetti-fall-large 6s ease-out forwards;
+        }
+
+        .confetti-wide {
+            width: 15px;
+            height: 50px;
+            border-radius: 7px;
+            animation: confetti-fall-wide 5.5s ease-out forwards;
+        }
+
+        .confetti-star {
+            width: 35px;
+            height: 35px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: confetti-fall-spin 5s ease-out forwards;
+        }
+
+        .confetti-ribbon {
+            width: 6px;
+            height: 80px;
+            border-radius: 3px;
+            animation: confetti-fall-ribbon 7s ease-out forwards;
+        }
+
+        .confetti-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            animation: confetti-fall-box 5s ease-out forwards;
+        }
+
+        .confetti-ball {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            animation: confetti-fall-ball 4.5s ease-out forwards;
+        }
+
+        .confetti-flake {
+            width: 16px;
+            height: 16px;
+            clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+            animation: confetti-fall-flake 5.5s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(180deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-large {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(270deg) scale(1.5);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-spin {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(360deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1800deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-wide {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            12% {
+                transform: translateY(-75vh) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            88% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1200deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ribbon {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            8% {
+                transform: translateY(-85vh) rotate(120deg) scale(1.2);
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(2160deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-box {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(90deg) scale(1.1);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ball {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(180deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(900deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-flake {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(150deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            body {
+                font-size: 16px;
+            }
+
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>The Amazing Discovery of Nature's Seasonal Calendar</h1>
+
+        <div class="citation">
+            <strong>Citation:</strong> Hart, D. T., et al. (2025). Global patterns of phenology from satellite observations. Nature Ecology & Evolution, 9, 123-145.
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 1: Meet the Plant Detectives</h2>
+            <img src="chapter1.png" alt="Chapter 1 - Meet the Plant Detectives">
+            <p>Once upon a time, there was a team of super-smart scientists who noticed something puzzling about the plants around them. Dr. Drew Terasaki Hart and his friends were like nature detectives, and they had discovered the biggest mystery ever: plants all around the world seemed to be following different schedules, almost like they each had their own personal calendars!</p>
+            <p>Imagine if some kids in your neighborhood started summer vacation in December, while others started in June, and still others took their vacation in March. That would be pretty confusing, right? Well, that's exactly what these scientists noticed happening with plants all over Earth[1].</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: The Secret Language of Seasons</h2>
+            <img src="chapter2.png" alt="Chapter 2 - The Secret Language of Seasons">
+            <p>Every plant on Earth has a special ability - they can "talk" to the seasons! But instead of using words, they use something much cooler. Plants change color throughout the year, and these color changes are like their way of saying "I'm awake!" or "I'm taking a nap!" or "I'm making flowers!"</p>
+            <p>Scientists call this special plant language "phenology" (pronounced "fee-NOL-oh-jee"). It's like nature's own text messaging system, where plants send signals about what they're doing and when they're doing it[2][3].</p>
+            <p>Think of it this way: If you could look down at your neighborhood from a helicopter throughout the whole year, you'd see the trees change from brown (sleeping) to bright green (growing) to colorful (making seeds) and back to brown again. Each plant is like a pixel in a giant, living painting that changes throughout the year!</p>
+        </div>
+        <div class="chapter">
+            <h2>Chapter 3: The Space Telescope Becomes a Time Machine</h2>
+            <img src="chapter3.png" alt="Chapter 3 - The Space Telescope Becomes a Time Machine">
+            <p>Our plant detectives had an amazing tool - satellites in space that could take pictures of the entire Earth every few days! For 20 whole years (that's twice as long as you've been alive!), these space cameras watched every single spot on our planet, taking over 1,800 pictures of each place[1].</p>
+            <p>But these weren't ordinary cameras. They could see a special type of light called "near-infrared" that plants reflect when they're actively making food from sunlight. It's like having X-ray vision that can see how busy and healthy plants are from hundreds of miles up in space!</p>
+            <p>The scientists collected so much information that if you printed it all out, the stack of papers would be taller than the Empire State Building!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 4: The Great Plant Calendar Mystery</h2>
+            <img src="chapter4.png" alt="Chapter 4 - The Great Plant Calendar Mystery">
+            <p>When the scientists looked at all their space pictures, they discovered something absolutely mind-blowing. Instead of all plants following the same seasonal schedule, Earth was like a giant patchwork quilt of different plant calendars!</p>
+            <h3>The Upside-Down Neighbors</h3>
+            <p>In some places, plants living right next to each other followed completely opposite schedules! In California, some plants wake up and start growing in winter when it's cool and rainy, while their desert neighbors just a few miles away wait until summer to really get going[1]. It's like having best friends who eat breakfast at completely different times even though they live on the same street!</p>
+            <h3>The Long-Distance Twins</h3>
+            <p>Even more amazing, the scientists discovered that plants living on completely different continents sometimes followed almost exactly the same schedule! Plants in California might wake up at the same time as plants in Chile (which is on the other side of the world), because they both experience similar weather patterns[2]. It's like finding out that kids in Japan and kids in Brazil both brush their teeth at exactly the same time every day, even though they've never met!</p>
+            <h3>The Tropical Time Zone Chaos</h3>
+            <p>In tropical places near the equator where it's always warm, something super wild happens. Instead of having one main growing season like plants in colder places, tropical plants can have completely different schedules even when they live really close to each other.</p>
+            <p>Picture this: You and your best friend live just down the street from each other, but you eat lunch at noon while they eat lunch at 6 PM. That would be pretty weird, right? Well, that's exactly what happens with plants in tropical mountains and forests!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 5: The Coffee Bean Adventure</h2>
+            <img src="chapter5.png" alt="Chapter 5 - The Coffee Bean Adventure">
+            <p>The scientists made an incredible discovery about coffee plants in Colombia that shows just how crazy these plant calendars can be. Colombia is famous for having two completely different coffee harvest seasons - some farmers pick their coffee beans in December, while others pick theirs in June. That's like having Christmas in winter AND summer in the same country![1]</p>
+            <p>The scientists found that this happens because plants on one side of a mountain range follow a completely different seasonal schedule than plants on the other side, even though they might be only 60 kilometers apart (that's like driving for about 45 minutes). The mountains block different weather patterns, creating totally different plant calendars on each side!</p>
+            <p>This discovery helps explain why Colombian coffee is so special - the country can harvest fresh coffee beans twice a year instead of just once like most other places in the world.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 6: The Animal Connection Game</h2>
+            <img src="chapter6.png" alt="Chapter 6 - The Animal Connection Game">
+            <p>But wait - the story gets even more interesting! When plants change their schedules, it creates a giant ripple effect that touches every living thing on Earth.</p>
+            <p>Think about it like this: If your school cafeteria suddenly started serving lunch at 3 PM instead of noon, you'd be pretty hungry and confused! The same thing happens to animals when their plant food sources change their schedules[2][3].</p>
+            <p>The scientists discovered that in some tropical mountains, this timing chaos might actually help create more different types of animals and plants. When plant schedules get mixed up, it can separate animal populations and help them evolve into new species over very long periods of time. It's like nature's way of creating biodiversity!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 7: The Climate Change Detective Work</h2>
+            <img src="chapter7.png" alt="Chapter 7 - The Climate Change Detective Work">
+            <p>This research is super important for understanding climate change too. By knowing how plants normally time their activities, scientists can better detect when global warming is messing up these natural schedules[2].</p>
+            <p>It's like having a baseline to know when something unusual is happening. If plants that normally wake up in March suddenly start waking up in January, scientists know that's a sign of climate change affecting that area.</p>
+            <p>The scientists found that some places on Earth are much more sensitive to these timing changes than others. Tropical mountains and Mediterranean climate areas (like California and parts of Australia) seem to be the most vulnerable to having their plant calendars disrupted.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 8: The Technology That Made Magic Possible</h2>
+            <img src="chapter8.png" alt="Chapter 8 - The Technology That Made Magic Possible">
+            <p>The scientists used some pretty incredible technology to make these discoveries. Their satellites could measure something called "near-infrared reflectance of vegetation" - basically how much special light plants reflect when they're photosynthesizing (making food from sunlight)[1].</p>
+            <p>They also used super-powerful computers to analyze all this data. Imagine trying to solve a jigsaw puzzle with over 1 million pieces, where each piece represents a different place on Earth at a different time - that's kind of what these scientists did!</p>
+            <p>They even created special mathematical models that could predict what plants would do in different seasons, kind of like having a crystal ball for plant behavior.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 9: The Flower Detective Challenge</h2>
+            <img src="chapter9.png" alt="Chapter 9 - The Flower Detective Challenge">
+            <p>To test their discoveries, the scientists became flower detectives too! They looked at millions of photos that regular people had posted on a website called iNaturalist, where nature lovers share pictures of plants and animals they find[1].</p>
+            <p>The scientists studied when and where people photographed flowers blooming around the world. Amazingly, their space-based plant calendar predictions matched up with what people were seeing on the ground! Plants that their satellites said should be flowering at certain times really were flowering at those times.</p>
+            <p>This was like solving a giant global puzzle where space technology and everyday people's nature photos all told the same story.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 10: What This Means for the Future</h2>
+            <img src="chapter10.png" alt="Chapter 10 - What This Means for the Future">
+            <h3>Better Farming</h3>
+            <p>Farmers can use this information to plan their crops better and make sure people around the world have enough food to eat[3].</p>
+            <h3>Protecting Animals</h3>
+            <p>Scientists can better protect animals by understanding when their food sources will be available and when they need to migrate.</p>
+            <h3>Climate Change Preparation</h3>
+            <p>Communities can prepare for how climate change might affect their local plants and ecosystems.</p>
+            <h3>Medicine from Plants</h3>
+            <p>Many medicines come from plants, so understanding plant timing helps scientists know when to collect plants for making medicines.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 11: Your Mission as a Nature Detective</h2>
+            <img src="chapter11.png" alt="Chapter 11 - Your Mission as a Nature Detective">
+            <p>Now that you know about nature's amazing seasonal calendars, you can become a plant detective yourself! Here's your mission:</p>
+            <ul>
+                <li>Start a Nature Journal: Keep track of when different plants in your area start growing new leaves, when they flower, and when they lose their leaves.</li>
+                <li>Take Monthly Photos: Take pictures of the same tree or plant every month and see how it changes throughout the year.</li>
+                <li>Compare with Friends: If you have friends or family in other places, compare notes about when plants do different things where they live.</li>
+                <li>Notice the Patterns: You might start to see the amazing seasonal patterns that these scientists discovered happening right in your own backyard!</li>
+            </ul>
+        </div>
+
+        <div class="big-picture">
+            <h2>The Big Picture: Nature's Symphony</h2>
+            <p>This research has shown us that our planet is like a giant orchestra, with every plant playing its own instrument in a complex seasonal symphony. Some plants are like violins, playing quick, high notes in spring. Others are like bass drums, with deep, slow rhythms that last all year.</p>
+            <p>The most amazing part is that this incredible symphony has been playing for millions of years, with each ecosystem developing its own unique seasonal song. Plants have figured out how to coordinate with their local weather, soil, and animal partners in ways that are perfectly suited to their specific environments.</p>
+            <p>It's like discovering that every ecosystem on Earth is a perfectly choreographed dance, with each plant knowing exactly when to step forward and when to step back, creating beautiful, complex patterns that keep our whole planet healthy and functioning.</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>Scientists used satellites to take over 1,800 pictures of each place on Earth for 20 years!</li>
+                <li>Plants can "talk" to the seasons by changing colors - it's like nature's text messaging system</li>
+                <li>Colombian coffee farmers can harvest twice a year because plants on different sides of mountains follow different schedules</li>
+                <li>If you printed all the satellite data, the stack would be taller than the Empire State Building!</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Start a Nature Journal: Keep track of when different plants in your area start growing new leaves, when they flower, and when they lose their leaves</li>
+                <li>Take Monthly Photos: Take pictures of the same tree or plant every month and see how it changes throughout the year</li>
+                <li>Compare with Friends: If you have friends or family in other places, compare notes about when plants do different things where they live</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board" id="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: What is "phenology"?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', false)">A) The study of how plants grow taller</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', true)">B) The special language plants use to "talk" to the seasons by changing colors and timing their activities</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) The science of taking pictures from space</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) The way animals communicate with plants</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">Remember from Chapter 2 - this is nature's own text messaging system where plants send signals about what they're doing and when they're doing it!</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: How long did the scientists use satellites to study Earth's plants?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) 5 years</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', false)">B) 10 years</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', true)">C) 20 years</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) 50 years</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">Think back to Chapter 3 - the story mentions this is twice as long as you've been alive (if you're 10 years old)!</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: What amazing discovery did scientists make about coffee plants in Colombia?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) All coffee plants in Colombia follow exactly the same schedule</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) Colombian coffee plants only grow in winter</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) Some farmers harvest coffee in December while others harvest in June - like having two completely different seasons!</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) Coffee plants in Colombia don't follow any schedule at all</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">Look back at Chapter 5 - this discovery shows how crazy plant calendars can be, with some farmers picking coffee beans six months apart from each other!</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true plant detective! 🎉
+            </div>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>Scientific Debrief: Global Plant Phenology Patterns</h2>
+            <h3>Key Discovery</h3>
+            <p>Hart, Terasaki and colleagues used 20 years of satellite data to reveal unprecedented global patterns in plant phenology - the timing of seasonal activities like leaf emergence, flowering, and senescence. Their analysis of over 1,800 observations per location worldwide identified distinct regional phenological zones that don't always match traditional climate boundaries.</p>
+            
+            <h3>Core Findings</h3>
+            <p><strong>Spatial heterogeneity in timing:</strong> Plants in adjacent regions can follow completely different seasonal schedules, even within the same climate zone</p>
+            <p><strong>Tropical complexity:</strong> Contrary to expectations, tropical regions showed the highest phenological diversity, with neighboring ecosystems displaying asynchronous timing</p>
+            <p><strong>Agricultural implications:</strong> The research explains phenomena like Colombia's dual coffee harvest seasons, where geographic barriers create distinct phenological zones</p>
+            
+            <h3>Significance</h3>
+            <p>This work provides the first comprehensive global map of plant seasonal timing, revealing that phenology is more spatially variable than previously understood. The findings have direct implications for understanding ecosystem responses to climate change, predicting agricultural productivity, and managing biodiversity conservation across different phenological zones.</p>
+            
+            <h3>Methodological Innovation</h3>
+            <p>The study represents a breakthrough in remote sensing applications, demonstrating how satellite-derived vegetation indices can reveal fine-scale phenological patterns across entire continents. This approach opens new possibilities for monitoring ecosystem health and predicting climate change impacts on plant communities globally.</p>
+        </div>
+
+        <div class="references">
+            <h2>Learn More</h2>
+            <ol>
+                <li><a href="https://www.nature.com/articles/s41559-024-02456-1">Global patterns of phenology from satellite observations | Nature Ecology & Evolution</a></li>
+                <li><a href="https://www.usgs.gov/centers/eros/science/phenology">USGS Phenology Research</a></li>
+                <li><a href="https://www.neonscience.org/data-collection/phenology">National Ecological Observatory Network - Phenology</a></li>
+                <li><a href="https://www.earthobservatory.nasa.gov/features/LandCover/land_cover_2.php">NASA Earth Observatory - Seasonal Changes</a></li>
+                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2019.00070">Plant Phenology for Kids | Frontiers for Young Minds</a></li>
+                <li><a href="https://www.inaturalist.org/">iNaturalist - Citizen Science Platform</a></li>
+                <li><a href="https://www.climate.gov/news-features/understanding-climate/climate-change-phenology-and-seasonal-events">Climate.gov - Phenology and Climate Change</a></li>
+                <li><a href="https://budburst.org/">Project BudBurst - Citizen Science Phenology</a></li>
+            </ol>
+        </div>
+    </div>
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'B', 2: 'C', 3: 'C' };
+        const praises = {
+            1: "Excellent! You remembered that phenology is nature's text messaging system!",
+            2: "Perfect! You got it - scientists studied plants for 20 years using satellites!",
+            3: "Amazing! You understood that Colombian coffee farmers harvest at different times of the year!"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            // Clear any previous feedback and hints
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                // Correct answer
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                // Add to score if not already answered correctly
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                // Disable all options for this question
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                // Wrong answer
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "Not quite right! Try again!";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+
+                // Show hint for wrong answer
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+
+                // Disable the wrong option permanently, but allow retries on others
+                clickedButton.disabled = true;
+
+                // Re-enable other options after a short delay
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+
+            // Check for perfect score
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB', '#FF0080', '#00FF80', '#8000FF', '#FF8000'];
+
+            // Create multiple waves of paper roll confetti for maximum impact!
+            for (let wave = 0; wave < 4; wave++) {
+                setTimeout(() => {
+                    // Each wave has different types of paper roll confetti
+                    for (let i = 0; i < 120; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+
+                            // Different types of confetti - 20% rolls, 80% other shapes
+                            if (rand < 0.05) {
+                                // Long ribbon confetti (5%)
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.1) {
+                                // Large paper roll (5%)
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.2) {
+                                // Regular paper roll (10%)
+                                confetti.className = 'confetti';
+                            } else if (rand < 0.4) {
+                                // Star confetti (20%)
+                                confetti.className = 'confetti confetti-star';
+                            } else if (rand < 0.6) {
+                                // Box confetti (20%)
+                                confetti.className = 'confetti confetti-box';
+                            } else if (rand < 0.8) {
+                                // Ball confetti (20%)
+                                confetti.className = 'confetti confetti-ball';
+                            } else {
+                                // Flake confetti (20%)
+                                confetti.className = 'confetti confetti-flake';
+                            }
+
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            // Add some confetti that starts from different heights for more chaos
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            // Remove confetti after animation
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 9000);
+                        }, i * 12);
+                    }
+                }, wave * 400);
+            }
+
+            // Add massive center burst of long ribbons
+            setTimeout(() => {
+                for (let i = 0; i < 80; i++) {
+                    setTimeout(() => {
+                        const burst = document.createElement('div');
+                        const burstType = Math.random();
+
+                        if (burstType < 0.4) {
+                            burst.className = 'confetti confetti-ribbon';
+                        } else if (burstType < 0.7) {
+                            burst.className = 'confetti confetti-large';
+                        } else {
+                            burst.className = 'confetti confetti-wide';
+                        }
+
+                        burst.style.left = (40 + Math.random() * 20) + '%'; // Center burst area
+                        burst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        burst.style.animationDelay = '0s';
+
+                        container.appendChild(burst);
+
+                        setTimeout(() => {
+                            if (burst.parentNode) {
+                                burst.parentNode.removeChild(burst);
+                            }
+                        }, 8000);
+                    }, i * 8);
+                }
+            }, 1200);
+
+            // Add side bursts for even more spectacular effect
+            setTimeout(() => {
+                // Left side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const leftBurst = document.createElement('div');
+                        leftBurst.className = 'confetti confetti-ribbon';
+                        leftBurst.style.left = Math.random() * 25 + '%';
+                        leftBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        leftBurst.style.animationDelay = '0s';
+                        container.appendChild(leftBurst);
+
+                        setTimeout(() => {
+                            if (leftBurst.parentNode) {
+                                leftBurst.parentNode.removeChild(leftBurst);
+                            }
+                        }, 8000);
+                    }, i * 10);
+                }
+
+                // Right side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const rightBurst = document.createElement('div');
+                        rightBurst.className = 'confetti confetti-ribbon';
+                        rightBurst.style.left = (75 + Math.random() * 25) + '%';
+                        rightBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        rightBurst.style.animationDelay = '0s';
+                        container.appendChild(rightBurst);
+
+                        setTimeout(() => {
+                            if (rightBurst.parentNode) {
+                                rightBurst.parentNode.removeChild(rightBurst);
+                            }
+                        }, 8000);
+                    }, i * 10);
+                }
+            }, 2000);
+        }
+
+        // Initialize quiz - hide all hints initially and setup sticky scoreboard
+        document.addEventListener('DOMContentLoaded', function () {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+
+            // Setup sticky scoreboard
+            const scoreBoard = document.getElementById('score-board');
+            const quizSection = document.querySelector('.quiz-section');
+
+            if (scoreBoard && quizSection) {
+                window.addEventListener('scroll', function () {
+                    const quizSectionRect = quizSection.getBoundingClientRect();
+
+                    // Check if we're in the quiz section
+                    if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
+                        // We're scrolling through the quiz section
+                        scoreBoard.classList.add('sticky');
+                    } else {
+                        // We're outside the quiz section
+                        scoreBoard.classList.remove('sticky');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

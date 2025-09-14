@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界底部的秘密城市</title>
+    <style>
+        :root {
+            --primary-100:#0077C2;
+            --primary-200:#59a5f5;
+            --primary-300:#c8ffff;
+            --accent-100:#00BFFF;
+            --accent-200:#00619a;
+            --text-100:#333333;
+            --text-200:#5c5c5c;
+            --bg-100:#FFFFFF;
+            --bg-200:#f5f5f5;
+            --bg-300:#cccccc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', 'SimSun', serif; line-height: 1.6; color: var(--text-100); background-color: var(--bg-100); font-size: 18px; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .header { background: linear-gradient(135deg, var(--primary-100), var(--primary-200)); color: white; padding: 2rem; text-align: center; }
+        .header h1 { color: white; text-align: center; font-size: 2.5em; margin-bottom: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); border-bottom: 3px solid var(--primary-200); padding-bottom: 20px; }
+        .header .subtitle { font-size: 1.2rem; font-style: italic; opacity: 0.9; }
+        .content { padding: 2rem; }
+        .chapter { margin-bottom: 3rem; padding: 1.5rem; background: #f8f9fa; border-radius: 10px; border-left: 5px solid #667eea; }
+        .chapter h2 { color: #1e3c72; font-size: 1.8rem; margin-bottom: 1rem; border-bottom: 2px solid #667eea; padding-bottom: 0.5rem; }
+        .chapter-image { text-align: center; margin: 1rem 0; }
+        .chapter-image img { max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); margin: 0.5rem; }
+        .chapter-text-between { margin: 1rem 0; }
+        .quiz-options li { cursor: pointer; }
+        .quiz-options li.selected { background: #ffeb3b; color: #333; }
+        .quiz-options li.correct { background: #4caf50; color: white; }
+        .quiz-options li.incorrect { background: #f44336; color: white; }
+        .quiz-options li.disabled { pointer-events: none; opacity: 0.7; }
+        .ribbons-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000; }
+        .ribbon { position: absolute; width: 4px; height: 100px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #feca57, #ff9ff3); animation: flutter 3s ease-in-out infinite; }
+        @keyframes flutter { 0%, 100% { transform: translateY(0) rotate(0deg); } 25% { transform: translateY(-20px) rotate(5deg); } 50% { transform: translateY(-10px) rotate(-3deg); } 75% { transform: translateY(-15px) rotate(2deg); } }
+        #confetti-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1000; }
+        .confetti { position: absolute; width: 8px; height: 40px; background: #f0f; border-radius: 4px; animation: confetti-fall 5s ease-out forwards; }
+        .confetti-large { width: 12px; height: 60px; border-radius: 6px; animation: confetti-fall-large 6s ease-out forwards; }
+        .confetti-wide { width: 15px; height: 50px; border-radius: 7px; animation: confetti-fall-wide 5.5s ease-out forwards; }
+        .confetti-star { width: 35px; height: 35px; clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); animation: confetti-fall-spin 5s ease-out forwards; }
+        .confetti-ribbon { width: 6px; height: 80px; border-radius: 3px; animation: confetti-fall-ribbon 7s ease-out forwards; }
+        .confetti-box { width: 20px; height: 20px; border-radius: 2px; animation: confetti-fall-box 5s ease-out forwards; }
+        .confetti-ball { width: 18px; height: 18px; border-radius: 50%; animation: confetti-fall-ball 4.5s ease-out forwards; }
+        .confetti-flake { width: 16px; height: 16px; clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%); animation: confetti-fall-flake 5.5s ease-out forwards; }
+        @keyframes confetti-fall { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(180deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(270deg) scale(1.5); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-spin { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(360deg) scale(1.3); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1800deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-wide { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 12% { transform: translateY(-75vh) rotate(200deg) scale(1.1); opacity: 1; } 88% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.6); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 8% { transform: translateY(-85vh) rotate(120deg) scale(1.2); opacity: 1; } 92% { opacity: 1; } 100% { transform: translateY(100vh) rotate(2160deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(90deg) scale(1.1); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg) scale(0.7); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(180deg) scale(1.3); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        .highlight-box { background: #e3f2fd; border: 2px solid #2196f3; border-radius: 8px; padding: 1rem; margin: 1rem 0; font-weight: bold; }
+        .question-box { background: #fff3e0; border: 2px solid #ff9800; border-radius: 8px; padding: 1rem; margin: 1rem 0; font-style: italic; }
+        .emoji-section { background: #f1f8e9; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+        .emoji-section h3 { color: #2e7d32; margin-bottom: 0.5rem; }
+        .scientific-debrief { background: #f5f5f5; border: 2px solid #666; border-radius: 10px; padding: 1.5rem; margin: 2rem 0; }
+        .scientific-debrief h2 { color: #333; border-bottom: 2px solid #666; }
+        .quiz-section { background: linear-gradient(135deg, var(--primary-300), var(--accent-100)); padding: 30px; border-radius: 15px; margin: 30px 0; border: 2px solid var(--primary-200); }
+        .quiz-section h2 { background: none; border: none; color: var(--text-100); margin-top: 0; text-align: center; margin-bottom: 25px; }
+        .score-board { text-align: center; margin-bottom: 30px; padding: 15px; background-color: var(--bg-100); border-radius: 10px; border: 2px solid var(--primary-100); transition: all 0.3s ease; }
+        .score-board.sticky { position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); border: 3px solid var(--primary-100); background-color: var(--bg-100); min-width: 200px; }
+        .score-board h3 { color: var(--primary-100); margin: 0; font-size: 1.3em; }
+        .question { background-color: var(--bg-100); padding: 25px; margin: 20px 0; border-radius: 12px; border: 2px solid var(--accent-200); }
+        .question h3 { color: var(--primary-100); margin-bottom: 20px; border: none; }
+        .options { display: flex; flex-direction: column; gap: 15px; margin-bottom: 20px; }
+        .option { background-color: var(--accent-100); border: 3px solid var(--accent-200); padding: 20px; border-radius: 12px; cursor: pointer; font-size: 20px; font-family: 'Microsoft YaHei', 'SimSun', serif; font-weight: bold; color: var(--text-100); text-align: left; transition: all 0.3s ease; min-height: 60px; display: flex; align-items: center; }
+        .option:hover { background-color: var(--primary-300); border-color: var(--primary-100); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .option.correct { background-color: #4CAF50; color: white; border-color: #45a049; font-weight: bold; }
+        .option.incorrect { background-color: #f44336; color: white; border-color: #da190b; font-weight: bold; }
+        .option:disabled { cursor: not-allowed; opacity: 0.6; }
+        .feedback { margin: 15px 0; padding: 15px; border-radius: 8px; font-weight: bold; text-align: center; display: none; }
+        .feedback.correct { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; display: block; }
+        .feedback.incorrect { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; display: block; }
+        .hint { background-color: var(--primary-200); color: white; padding: 15px; border-radius: 8px; margin-top: 15px; display: none; font-style: italic; }
+        .hint.show { display: block; }
+        .perfect-score { background: linear-gradient(135deg, #FFD700, #FFA500); color: var(--text-100); padding: 25px; border-radius: 15px; text-align: center; font-size: 1.3em; font-weight: bold; margin-top: 30px; display: none; animation: bounce 1s ease-in-out; }
+        .perfect-score.show { display: block; }
+        @keyframes bounce { 0%,20%,50%,80%,100% { transform: translateY(0); } 40% { transform: translateY(-10px); } 60% { transform: translateY(-5px); } }
+        .learn-more { background: #e8f5e8; border-radius: 10px; padding: 1.5rem; margin: 2rem 0; }
+        .learn-more h2 { color: #2e7d32; border-bottom: 2px solid #4caf50; }
+        .learn-more ol { margin-left: 1.5rem; }
+        .learn-more li { margin: 0.5rem 0; }
+        .learn-more a { color: #1e3c72; text-decoration: none; }
+        .learn-more a:hover { text-decoration: underline; }
+        .footer { background: #1e3c72; color: white; text-align: center; padding: 2rem; font-style: italic; }
+        .language-switch { position: fixed; top: 20px; right: 20px; z-index: 1000; background-color: var(--primary-100); color: white; padding: 10px 15px; border-radius: 25px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); transition: all 0.3s ease; }
+        .language-switch:hover { background-color: var(--primary-200); transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); }
+        @media (max-width: 768px) { .container { margin: 0; box-shadow: none; } .header h1 { font-size: 2rem; } .content { padding: 1rem; } .chapter { padding: 1rem; } .language-switch { top: 10px; right: 10px; padding: 8px 12px; font-size: 14px; } }
+    </style>
+</head>
+<body>
+    <a href="The Secret Cities at the Bottom of the World - English.html" class="language-switch">English</a>
+    <div class="container">
+        <div class="header">
+            <h1>世界底部的秘密城市</h1>
+            <p class="subtitle">一场改变一切的深海探险</p>
+        </div>
+        <div class="content">
+            <div class="chapter">
+                <h2>第一章：史上最伟大的探险</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 1.1.png" alt="深海探索潜艇">
+                </div>
+                <div class="chapter-text-between">
+                    <p>如果我告诉你，就在你阅读这篇文章的此时此刻，有整个生命城市生活在比珠穆朗玛峰还要深的海底，你会怎么想？</p>
+                    <p>想象一下：你是一名勇敢的探险家，爬进一艘名为"奋斗者"的超强潜艇。你的任务是什么？潜入比任何人都更深的地方——深入太平洋最黑暗的深渊9,533米。这就像把30座帝国大厦叠在一起，然后潜到最底部！</p>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 1.2.png" alt="海洋深度对比">
+                </div>
+                <div class="highlight-box">
+                    <strong>想想这个：</strong> 如果你在这里往海里扔一块石头，它需要超过一个小时才能到达海底。在这样一个黑暗、压抑的地方，压力就像有100辆汽车压在你身上，你觉得会发现什么？
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>第二章：令人震撼的发现</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 2.1.png" alt="深海生物">
+                </div>
+                <div class="chapter-text-between">
+                    <p>科学家们以为这些深海海沟是空旷的荒地。但他们错了——错得离谱！</p>
+                    <p>在海底，探险家们发现了令人难以置信的东西：<strong>繁忙的水下城市</strong>绵延2,500公里（就像从你家开车到三个州那么远），充满了成千上万种神奇的生物！巨大的管状蠕虫挥舞着红色的触手，就像水下的花朵；像餐盘一样大的蛤蜊；还有像水下农民一样工作的小细菌。</p>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 2.2.png" alt="水下城市">
+                </div>
+                <div class="highlight-box">
+                    <strong>最疯狂的部分是：</strong> 那里没有阳光。那么这些生物是如何制造食物并生存的呢？
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>第三章：神奇的超级能力：化能合成</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 3.1.png" alt="化能合成过程">
+                </div>
+                <div class="chapter-text-between">
+                    <p>你知道植物如何利用阳光制造食物吗？这些深海生物有一种不同的超级能力，叫做<strong>化能合成</strong>——它们从臭臭的化学物质中制造食物！</p>
+                    <p>这样想：这些生物不是用捕获阳光的太阳能板，而是有内置的"化学板"，将有毒气体（如甲烷和硫化氢）转化为美味的食物。这就像有一个神奇的配方，将有毒化学物质转化为能量！</p>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 3.2.png" alt="深海化学反应">
+                </div>
+                <div class="question-box">
+                    <strong>给你的问题：</strong> 如果你能拥有任何制造食物的超级能力，你会选择什么？像植物一样的太阳能，还是像这些深海生物一样的化学能？
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>第四章：为什么这个发现震撼世界</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 4.1.png" alt="地球和太空探索">
+                </div>
+                <div class="chapter-text-between">
+                    <p>这个发现正在重写地球生命的规则！这意味着：</p>
+                    <div class="emoji-section">
+                        <h3>🌍 生命可以在任何地方生存</h3>
+                        <p>如果生物能在世界上最不可能的地方生活，我们还能在哪里找到生命？也许在火星上？在木星的冰卫星上？</p>
+                    </div>
+                    <div class="emoji-section">
+                        <h3>🔬 我们可能发现新药物</h3>
+                        <p>这些极端生物可能掌握着治愈疾病的秘密！</p>
+                    </div>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 4.2.png" alt="医学发现">
+                </div>
+                <div class="emoji-section">
+                    <h3>🌊 我们的海洋充满惊喜</h3>
+                    <p>还有什么秘密城市等待被发现？</p>
+                </div>
+                <div class="question-box">
+                    <strong>探险问题：</strong> 如果你能设计一艘潜艇来探索深海，它需要什么特殊功能才能在压碎性的深度中生存？
+                </div>
+            </div>
+            <div class="chapter">
+                <h2>第五章：与你生活的联系</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 5.1.png" alt="花园土壤细菌">
+                </div>
+                <div class="chapter-text-between">
+                    <p>令人惊奇的是——化能合成不仅仅发生在深海中。它就在我们身边发生！在土壤中，在洞穴中，甚至在你可能从未想到的地方。</p>
+                    <p>想想这个：你花园土壤中的一些细菌使用化能合成来帮助植物生长。为所有植物提供营养的氮循环涉及化能合成细菌。即使在温泉或地下深处等极端地方，生命也能找到使用化学能的方法。</p>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 5.2.png" alt="自然界的化学过程">
+                </div>
+                <div class="highlight-box">
+                    <strong>你的日常生活侦探任务：</strong><br>
+                    <em>本周看看你的家和社区周围。你认为化能合成细菌可能在哪里施展它们的魔法？检查你的花园土壤，看看堆肥堆，或者研究你当地污水处理厂发生了什么。你能找到至少三个地方，化学被用来创造能量或食物而不是阳光吗？</em>
+                </div>
+            </div>
+            <div class="scientific-debrief">
+                <h2>科学简报</h2>
+                <div class="chapter-image">
+                    <img src="Chapter 6.1.png" alt="科学研究数据">
+                </div>
+                <div class="chapter-text-between">
+                    <p><strong>陈莎拉博士，海洋生物学家</strong><br>深海生态系统研究所</p>
+                    <p>这一发现代表了我们对深渊带生态学理解的范式转变。研究团队使用全海深载人潜水器"奋斗者"，在千岛-堪察加海沟和西阿留申海沟记录了前所未有的2,500公里范围内的化能合成群落，最深地点达9,533米——为这类生态系统创造了新的深度记录。</p>
+                    <h3>关键科学发现：</h3>
+                    <ul>
+                        <li><strong>生物多样性：</strong> 密集的须腕动物多毛类和化能共生双壳类种群，密度达到每平方米5,813 ± 1,335个个体</li>
+                        <li><strong>地球化学：</strong> 同位素分析（δ13C值为-78.1‰至-95.7‰）确认了深层沉积物中通过CO2还原的微生物甲烷生产</li>
+                    </ul>
+                </div>
+                <div class="chapter-image">
+                    <img src="Chapter 6.2.png" alt="研究方法和影响">
+                </div>
+                <div class="chapter-text-between">
+                    <ul>
+                        <li><strong>地质机制：</strong> 富含甲烷的流体通过增生楔底部的弯曲相关正断层迁移，与浅水渗漏形成形成对比</li>
+                    </ul>
+                    <h3>影响：</h3>
+                    <p>这挑战了传统观点，即深渊生态系统主要是异养的，依赖表面衍生的有机物。广泛的存在表明化能合成可能在深渊食物网和深海碳循环中发挥着以前未被充分认识的作用。鉴于全球深渊海沟的地质相似性，这样的群落可能比之前认识到的要常见得多。</p>
+                    <p>研究方法——跨多个潜水地点的系统潜水器调查——为未来的深渊带探索提供了强有力的框架，代表了深海生物发现的重大进步。</p>
+                </div>
+            </div>
+            <div class="quiz-section">
+                <h2>测验时间：测试你的深海知识！</h2>
+                <div class="score-board" id="score-board"></div>
+                <h3>你的分数：<span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="q1">
+                <h3>问题1：这些深海海沟中的生物有什么特别之处？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A')">A) 它们可以用特殊的眼睛在完全黑暗中看见</button>
+                    <button class="option" onclick="checkAnswer(1, 'B')">B) 它们从化学物质而不是阳光中制造食物</button>
+                    <button class="option" onclick="checkAnswer(1, 'C')">C) 它们比任何表层鱼类游得都快</button>
+                    <button class="option" onclick="checkAnswer(1, 'D')">D) 它们在黑暗中发光来吸引食物</button>
+                </div>
+                <div class="feedback" id="f1"></div>
+                <div class="hint" id="h1">记住我们谈论的神奇超级能力！这些生物不需要像植物那样的阳光。这就是化能合成。</div>
+            </div>
+
+            <div class="question" id="q2">
+                <h3>问题2：科学家发现最深的水下生命城市有多深？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A')">A) 3米</button>
+                    <button class="option" onclick="checkAnswer(2, 'B')">B) 300米</button>
+                    <button class="option" onclick="checkAnswer(2, 'C')">C) 9,533米</button>
+                    <button class="option" onclick="checkAnswer(2, 'D')">D) 10,000米（飞机高度）</button>
+                </div>
+                <div class="feedback" id="f2"></div>
+                <div class="hint" id="h2">想想我们故事中的比较！就像叠30座帝国大厦。</div>
+            </div>
+
+            <div class="question" id="q3">
+                <h3>问题3：科学家给发现这些神奇生物的最深地方起了什么名字？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A')">A) 不可能地带</button>
+                    <button class="option" onclick="checkAnswer(3, 'B')">B) 化学城</button>
+                    <button class="option" onclick="checkAnswer(3, 'C')">C) 最深点</button>
+                    <button class="option" onclick="checkAnswer(3, 'D')">D) 水下珠穆朗玛峰</button>
+                </div>
+                <div class="feedback" id="f3"></div>
+                <div class="hint" id="h3">他们选择了一个简单而有意义的名字：最深点。</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">🎉 太棒了！满分！你是一个深海探险家！🎉</div>
+            <div class="learn-more">
+                <h2>了解更多：</h2>
+                <ol>
+                    <li><a href="https://oceanexplorer.noaa.gov/facts/photochemo.html" target="_blank">光合作用和化能合成有什么区别？</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Hadal_zone" target="_blank">深渊带 - 维基百科</a></li>
+                    <li><a href="https://www.nature.com/articles/s41586-025-09317-z" target="_blank">深渊海沟最深处的繁荣化能合成生命 | Nature</a></li>
+                    <li><a href="https://oceanographicmagazine.com/news/chemical-eating-marine-life-is-deepest-colony-known-to-exist/" target="_blank">化学摄食海洋生物是已知存在的"最深群落" - Oceanographic</a></li>
+                    <li><a href="https://deepoceaneducation.org/resources/chemosynthesis/" target="_blank">化能合成事实表 - 深海教育项目</a></li>
+                </ol>
+            </div>
+            <div class="footer">
+                <p><strong>下次你看到海洋时，请记住：在波浪深处，整个生命城市正在利用地球本身的化学物质蓬勃发展。当你成为科学家时，你会发现什么秘密？</strong></p>
+            </div>
+        </div>
+    </div>
+    <div class="ribbons-container" id="ribbonsContainer"></div>
+    <div id="confetti-container"></div>
+    
+    <script>
+        const correctAnswers = { 1: 'B', 2: 'C', 3: 'C' };
+        const praises = {
+            1: "太棒了！深海生物使用化学能，而不是阳光！",
+            2: "正确！9,533米——比珠穆朗玛峰还要深！",
+            3: "很好！他们称它为'最深点'。"
+        };
+        let score = 0; const answered = new Set();
+
+        function checkAnswer(q, choice) {
+            const correct = correctAnswers[q] === choice;
+            const feedback = document.getElementById('f' + q);
+            const hint = document.getElementById('h' + q);
+            const options = document.querySelectorAll('#q' + q + ' .option');
+            const clicked = event.target;
+            feedback.style.display = 'none'; hint.style.display = 'none'; hint.classList.remove('show');
+            if (correct) {
+                clicked.classList.add('correct');
+                feedback.textContent = praises[q]; feedback.className = 'feedback correct'; feedback.style.display = 'block';
+                if (!answered.has(q)) { score++; answered.add(q); updateScore(); }
+                options.forEach(o => { o.disabled = true; if (!o.classList.contains('correct')) o.style.opacity = '0.4'; });
+            } else {
+                clicked.classList.add('incorrect');
+                feedback.textContent = '不太对！再试一次！'; feedback.className = 'feedback incorrect'; feedback.style.display = 'block';
+                hint.style.display = 'block'; hint.classList.add('show');
+                clicked.disabled = true;
+                setTimeout(() => { options.forEach(o => { if (!o.classList.contains('incorrect')) o.disabled = false; }); }, 800);
+            }
+        }
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            if (score === 3) { setTimeout(() => { document.getElementById('perfect-score').classList.add('show'); createConfetti(); }, 1200); }
+        }
+        
+        function createRibbonsAnimation() {
+            const container = document.getElementById('ribbonsContainer');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#a8e6cf', '#ffd3a5'];
+            
+            for (let i = 0; i < 50; i++) {
+                const ribbon = document.createElement('div');
+                ribbon.className = 'ribbon';
+                ribbon.style.left = Math.random() * 100 + '%';
+                ribbon.style.top = Math.random() * 100 + '%';
+                ribbon.style.background = colors[Math.floor(Math.random() * colors.length)];
+                ribbon.style.animationDelay = Math.random() * 3 + 's';
+                ribbon.style.animationDuration = (2 + Math.random() * 2) + 's';
+                container.appendChild(ribbon);
+            }
+            
+            // Remove ribbons after animation
+            setTimeout(() => {
+                container.innerHTML = '';
+            }, 5000);
+        }
+        
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB', '#FF0080', '#00FF80', '#8000FF', '#FF8000'];
+
+            // Create multiple waves of paper roll confetti for maximum impact!
+            for (let wave = 0; wave < 4; wave++) {
+                setTimeout(() => {
+                    // Each wave has different types of paper roll confetti
+                    for (let i = 0; i < 120; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+
+                            // Different types of confetti - 20% rolls, 80% other shapes
+                            if (rand < 0.05) {
+                                // Long ribbon confetti (5%)
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.1) {
+                                // Large paper roll (5%)
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.2) {
+                                // Regular paper roll (10%)
+                                confetti.className = 'confetti';
+                            } else if (rand < 0.4) {
+                                // Star confetti (20%)
+                                confetti.className = 'confetti confetti-star';
+                            } else if (rand < 0.6) {
+                                // Box confetti (20%)
+                                confetti.className = 'confetti confetti-box';
+                            } else if (rand < 0.8) {
+                                // Ball confetti (20%)
+                                confetti.className = 'confetti confetti-ball';
+                            } else {
+                                // Flake confetti (20%)
+                                confetti.className = 'confetti confetti-flake';
+                            }
+
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            // Add some confetti that starts from different heights for more chaos
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            // Remove confetti after animation
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 9000);
+                        }, i * 12);
+                    }
+                }, wave * 400);
+            }
+
+            // Add massive center burst of long ribbons
+            setTimeout(() => {
+                for (let i = 0; i < 80; i++) {
+                    setTimeout(() => {
+                        const burst = document.createElement('div');
+                        const burstType = Math.random();
+
+                        if (burstType < 0.4) {
+                            burst.className = 'confetti confetti-ribbon';
+                        } else if (burstType < 0.7) {
+                            burst.className = 'confetti confetti-large';
+                        } else {
+                            burst.className = 'confetti confetti-wide';
+                        }
+
+                        burst.style.left = (40 + Math.random() * 20) + '%'; // Center burst area
+                        burst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        burst.style.animationDelay = '0s';
+
+                        container.appendChild(burst);
+
+                        setTimeout(() => {
+                            if (burst.parentNode) {
+                                burst.parentNode.removeChild(burst);
+                            }
+                        }, 8000);
+                    }, i * 8);
+                }
+            }, 1200);
+
+            // Add side bursts for even more spectacular effect
+            setTimeout(() => {
+                // Left side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const leftBurst = document.createElement('div');
+                        leftBurst.className = 'confetti confetti-ribbon';
+                        leftBurst.style.left = Math.random() * 25 + '%';
+                        leftBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        leftBurst.style.animationDelay = '0s';
+                        container.appendChild(leftBurst);
+
+                        setTimeout(() => {
+                            if (leftBurst.parentNode) {
+                                leftBurst.parentNode.removeChild(leftBurst);
+                            }
+                        }, 8000);
+                    }, i * 10);
+                }
+
+                // Right side burst
+                for (let i = 0; i < 40; i++) {
+                    setTimeout(() => {
+                        const rightBurst = document.createElement('div');
+                        rightBurst.className = 'confetti confetti-ribbon';
+                        rightBurst.style.left = (75 + Math.random() * 25) + '%';
+                        rightBurst.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                        rightBurst.style.animationDelay = '0s';
+                        container.appendChild(rightBurst);
+
+                        setTimeout(() => {
+                            if (rightBurst.parentNode) {
+                                rightBurst.parentNode.removeChild(rightBurst);
+                            }
+                        }, 8000);
+                    }, i * 10);
+                }
+            }, 2000);
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#0077C2', '#59a5f5', '#c8ffff', '#00BFFF', '#00619a', '#FFD700', '#FFA500'];
+            for (let wave = 0; wave < 3; wave++) {
+                setTimeout(() => {
+                    for (let i = 0; i < 100; i++) {
+                        setTimeout(() => {
+                            const c = document.createElement('div');
+                            const r = Math.random();
+                            if (r < 0.15) c.className = 'confetti confetti-ribbon';
+                            else if (r < 0.3) c.className = 'confetti confetti-large';
+                            else if (r < 0.45) c.className = 'confetti confetti-wide';
+                            else if (r < 0.6) c.className = 'confetti confetti-star';
+                            else if (r < 0.75) c.className = 'confetti confetti-box';
+                            else if (r < 0.9) c.className = 'confetti confetti-ball';
+                            else c.className = 'confetti confetti-flake';
+                            c.style.left = Math.random() * 100 + '%';
+                            c.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            c.style.animationDelay = Math.random() * 0.3 + 's';
+                            if (Math.random() > 0.7) { c.style.top = '-' + (Math.random() * 300 + 150) + 'px'; }
+                            container.appendChild(c);
+                            setTimeout(() => { if (c.parentNode) c.parentNode.removeChild(c); }, 9000);
+                        }, i * 10);
+                    }
+                }, wave * 400);
+            }
+        }
+        document.addEventListener('DOMContentLoaded', function () {
+            const scoreBoard = document.getElementById('score-board');
+            const quizSection = document.querySelector('.quiz-section');
+            if (scoreBoard && quizSection) {
+                window.addEventListener('scroll', function () {
+                    const rect = quizSection.getBoundingClientRect();
+                    if (rect.top <= 0 && rect.bottom > 100) scoreBoard.classList.add('sticky');
+                    else scoreBoard.classList.remove('sticky');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

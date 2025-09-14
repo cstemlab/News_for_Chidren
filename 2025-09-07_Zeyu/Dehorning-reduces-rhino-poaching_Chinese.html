@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伟大的犀牛侦探故事：科学家如何解开野生动物之谜</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;
+            --primary-200: #ff983f;
+            --primary-300: #ffffa1;
+            --accent-100: #F5F5F5;
+            --accent-200: #929292;
+            --text-100: #1d1f21;
+            --text-200: #444648;
+            --bg-100: #ffffff;
+            --bg-200: #f5f5f5;
+            --bg-300: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .citation {
+            background-color: var(--bg-200);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-100);
+            font-style: italic;
+            color: var(--text-200);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary-200);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-100);
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-100);
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary-300);
+        }
+
+        ul,
+        ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-100);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-200);
+            color: var(--bg-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .what-you-can-do h2 {
+            color: var(--bg-100);
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .what-you-can-do li {
+            color: var(--bg-100);
+        }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f0f;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+        .confetti-large {
+            width: 12px;
+            height: 60px;
+            border-radius: 6px;
+            animation: confetti-fall-large 6s ease-out forwards;
+        }
+
+        .confetti-wide {
+            width: 15px;
+            height: 50px;
+            border-radius: 7px;
+            animation: confetti-fall-wide 5.5s ease-out forwards;
+        }
+
+        .confetti-star {
+            width: 35px;
+            height: 35px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: confetti-fall-spin 5s ease-out forwards;
+        }
+
+        .confetti-ribbon {
+            width: 6px;
+            height: 80px;
+            border-radius: 3px;
+            animation: confetti-fall-ribbon 7s ease-out forwards;
+        }
+
+        .confetti-box {
+            width: 20px;
+            height: 20px;
+            border-radius: 2px;
+            animation: confetti-fall-box 5s ease-out forwards;
+        }
+
+        .confetti-ball {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            animation: confetti-fall-ball 4.5s ease-out forwards;
+        }
+
+        .confetti-flake {
+            width: 16px;
+            height: 16px;
+            clip-path: polygon(50% 0%, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0% 50%, 40% 40%);
+            animation: confetti-fall-flake 5.5s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(180deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-large {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(270deg) scale(1.5);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-spin {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(360deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1800deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-wide {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            12% {
+                transform: translateY(-75vh) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            88% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1200deg) scale(0.6);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ribbon {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            8% {
+                transform: translateY(-85vh) rotate(120deg) scale(1.2);
+                opacity: 1;
+            }
+
+            92% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(2160deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-box {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(90deg) scale(1.1);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ball {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(180deg) scale(1.3);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(900deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-flake {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(150deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>伟大的犀牛侦探故事：科学家如何解开野生动物之谜</h1>
+        <div class="citation">
+            <p><strong>引文：</strong> Kuiper, T., et al. (2025). 去角可以减少犀牛偷猎. Science, 368, 1075-1081.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第一章：认识神奇的犀牛</h2>
+            <img src="chapter 1.png" alt="第一章：认识神奇的犀牛">
+            <p>在南部非洲温暖的草原上，生活着地球上最雄伟的动物之一——犀牛！这些不可思议的生物就像活的坦克，有着厚厚的灰色皮肤和令人印象深刻的鼻子上的角，这些角可以长得像棒球棒一样长。犀牛是温和的巨人，它们整天吃草，在泥里打滚以保持凉爽。</p>
+            <p>但是有一个大问题威胁着这些神奇的动物。被称为偷猎者的坏人潜入犀牛的家园偷走它们的角，一些人错误地认为这些角具有魔力。这导致犀牛从野外消失，科学家们对此非常担心。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第二章：昂贵的保护计划</h2>
+            <img src="chapter 2.png" alt="第二章：昂贵的保护计划">
+            <p>照顾犀牛的人——被称为自然保护主义者——决定他们需要保护他们心爱的动物。他们花费了高达7400万美元（这笔钱足以购买大约1400万个冰淇淋甜筒！）尝试用不同的方法来阻止偷猎者。</p>
+            <p>他们雇佣了勇敢的巡护员像保安一样在保护区巡逻，训练了能嗅出入侵者的特种犬，安装了能在黑暗中视物的摄像头，甚至使用直升机从空中发现坏人。他们逮捕了700多名偷猎者——这就像把一整所学校都装满了被抓获的罪犯！</p>
+            <p>但令人惊讶的是：尽管有所有这些惊人的技术和所有这些勇敢的人在努力工作，犀牛仍然在被偷猎。这就像在玩一场无休止的捉迷藏游戏，坏人总能找到新的方法潜行。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第三章：大问题</h2>
+            <img src="chapter 3a.png" alt="第三章：大问题">
+            <p>Timothy Kuiper博士和他的科学家侦探团队有一个大问题：“为什么所有这些昂贵的保护方法都不起作用？”他们研究了11个不同的犀牛家园（称为保护区）长达7年，仔细计算了有多少犀牛是安全的，有多少被偷猎者伤害。</p>
+            <p>他们的发现就像解开一个巨大的谜题。偷猎者非常坚决，因为犀牛角比黄金还值钱！即使他们知道可能会被抓住，一些人仍然愿意冒险，因为回报是如此巨大。</p>
+            <p>这就像如果有人给孩子们一百万美元让他们潜入一家糖果店——即使有监控摄像头和保安，一些孩子可能仍然会尝试，因为奖品看起来太诱人了。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第四章：一个惊人的解决方案</h2>
+            <img src="chapter 4.png" alt="第四章：一个惊人的解决方案">
+            <p>然后科学家们尝试了一些完全不同的方法。与其试图抓住小偷，不如拿走小偷想偷的东西？这就是所谓的“去角”——在动物安全睡眠时小心地移除犀牛的角，就像医生移除人的脚趾甲一样。犀牛不会感到任何疼痛，而且角会随着时间的推移慢慢长回来，就像我们的指甲一样。</p>
+            <p>科学家们与特殊的兽医（动物医生）合作，他们使用链锯小心地在生长区域上方切割犀牛角。他们确保犀牛在此过程中完全睡着，并在之后醒来时感觉良好。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第五章：惊人的结果</h2>
+            <img src="chapter 5.png" alt="第五章：惊人的结果">
+            <p>接下来发生的事情令人难以置信！当犀牛的角被移除后，偷猎率下降了约78%——这意味着如果以前有100头犀牛被偷猎，去角后只有大约22头被偷猎。这就像偷猎者突然对访问这些地区失去了兴趣，因为那里再也没有什么有价值的东西可偷了。</p>
+            <p>科学家们发现，有角的犀牛一年内被偷猎的几率为13%，而去角的犀牛只有0.6%的几率——这安全了20多倍！这就像在雷暴中行走和安全地待在房子里的区别。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第六章：为什么效果这么好</h2>
+            <img src="chapter 6.png" alt="第六章：为什么效果这么好">
+            <p>去角解决方案之所以奏效，有几个聪明的原因：</p>
+            <ul>
+                <li><strong>没有回报，就没有犯罪</strong>: 当没有有价值的东西可偷时，大多数偷猎者就不再来了</li>
+                <li><strong>无法被欺骗</strong>: 与偷猎者可以通过内部信息避开的摄像头和警卫不同，他们无法让角神奇地重新出现</li>
+                <li><strong>便宜得多</strong>: 去角的成本仅占所有保护资金的1.2%，但却是最有效的方法</li>
+            </ul>
+        </div>
+
+        <div class="chapter">
+            <h2>第七章：仍然存在的挑战</h2>
+            <img src="chapter 7.png" alt="第七章：仍然存在的挑战">
+            <p>尽管去角效果惊人，但这并非一个完美的解决方案。一些坚决的偷猎者仍然试图伤害去角的犀牛，以获取剩下的小角桩，或者他们等待角长回来一点。这表明犀牛仍然需要巡护员和其他安全措施的保护。</p>
+            <p>此外，科学家们了解到，定期进行去角效果最好——大约每18个月一次——以确保角保持短小。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第八章：保护野生动物的教训</h2>
+            <img src="chapter 8.png" alt="第八章：保护野生动物的教训">
+            <p>这个犀牛侦探故事教给科学家们一个关于保护动物的重要教训：有时候，消除坏人想伤害它们的原因，比在他们已经造成伤害后试图抓住他们更好。</p>
+            <p>科学家们意识到，世界各地的其他保护工作可以从中学习。例如，在委内瑞拉，科学家们在夜间将幼小的鹦鹉转移到安全的地方，以保护它们不被想偷它们当宠物的人偷走。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第九章：犀牛保护的未来</h2>
+            <img src="chapter 9.png" alt="第九章：犀牛保护的未来">
+            <p>犀牛的故事告诉我们，保护野生动物需要科学家、公园巡护员、兽医和当地社区之间的创造性思维和团队合作。虽然去角非常成功，但科学家们强调，他们仍然需要其他保护方法——这就像你的前门有多把锁而不是只有一把。</p>
+            <p>研究仍在继续，科学家们致力于寻找更好的方法来保护这些宏伟的动物，并帮助犀牛种群再次变得强大和健康。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>总结</h2>
+            <img src="final.png" alt="总结">
+            <p>这个惊人的侦探故事向我们展示了科学如何帮助解决现实世界的问题。通过仔细研究哪些方法有效，哪些无效，科学家们可以帮助保护濒危动物，并确保子孙后代能够看到犀牛在野外自由漫步。</p>
+            <p>下次你看到犀牛的照片时，请记住那些每天都在努力保护这些不可思议的生物的敬业的科学家和自然保护主义者！</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>给年轻科学家的有趣事实</h2>
+            <ul>
+                <li>犀牛角由角蛋白构成——与你的指甲和头发是同一种材料！</li>
+                <li>去角后，犀牛的角每年可以长回约7厘米</li>
+                <li>世界上只剩下5种犀牛，而且它们都濒临灭绝</li>
+                <li>犀牛已经存在了超过5000万年——它们曾与恐龙生活在同一时代！</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>你能做什么</h2>
+            <ul>
+                <li>了解野生动物保护知识，支持保护濒危动物的组织</li>
+                <li>对科学保持好奇心——每一个重大发现都始于有人问“为什么会这样？”</li>
+                <li>记住，即使是微小的行动也能在保护我们星球上神奇的生物方面产生巨大影响！</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>测试你的知识</h2>
+            <div class="score-board">
+                <h3>得分: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>问题1：根据文章，偷猎犀牛的主要原因是什么？</h3>
+                <div class="options">
+                    <button class="option" data-question="1" data-answer="a">a) 为了它们的肉</button>
+                    <button class="option" data-question="1" data-answer="b">b) 为了它们的角</button>
+                    <button class="option" data-question="1" data-answer="c">c) 为了它们的皮</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">文章重点讲述了传统医学和作为地位象征对象征的犀牛角的需求。</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>问题2：文章中讨论的防止偷猎犀牛的主要方法是什么？</h3>
+                <div class="options">
+                    <button class="option" data-question="2" data-answer="a">a) 加强巡逻</button>
+                    <button class="option" data-question="2" data-answer="b">b) 去角</button>
+                    <button class="option" data-question="2" data-answer="c">c) 使犀牛角贸易合法化</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">文章的标题给出了一个很大的线索！</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>问题3：去角犀牛面临的挑战之一是什么？</h3>
+                <div class="options">
+                    <button class="option" data-question="3" data-answer="a">a) 太贵了</button>
+                    <button class="option" data-question="3" data-answer="b">b) 角会长回来</button>
+                    <button class="option" data-question="3" data-answer="c">c) 会伤害犀牛</button>
+                </div>
+                <div class="feedback"></div>
+                <div class="hint">想一想单次去角手术的长期效果。</div>
+            </div>
+            <div id="confetti-container"></div>
+            <div class="perfect-score">
+                <p>恭喜！你获得了满分！你是一位犀牛保护专家！</p>
+            </div>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>科学汇报：基于证据的反偷猎策略</h2>
+            <h3>关键发现</h3>
+            <p>Kuiper及其同事在南部非洲的11个保护区进行了为期7年的分析，结果表明，<strong>去角使犀牛偷猎减少了78%</strong>，而传统的执法措施尽管花费了7400万美元，却没有显示出统计学上的显著效果。</p>
+            <h3>方法的严谨性</h3>
+            <p>该研究采用了分层贝叶斯回归模型和准实验性回归断点分析，并在不同地点交错实施。这为自然实验条件提供了基础，同时通过与利益相关者的访谈，将定量模型与定性归因方法相结合。</p>
+            <h3>核心发现</h3>
+            <ul>
+                <li><strong>主动减少回报优于被动执法</strong>: 去角仅使用了预算的1.2%，但却是唯一显示出统计学意义的干预措施</li>
+                <li><strong>行为经济学原理得到证实</strong>: 确定的回报减少（去角）比不确定的惩罚（执法）更能影响行为</li>
+                <li><strong>成本效益</strong>: 每拯救一头犀牛花费7133美元，而传统方法则花费数百万美元</li>
+            </ul>
+            <h3>保护意义</h3>
+            <p>这代表了从被动执法到<strong>主动减少机会</strong>的范式转变——这不仅适用于犀牛保护。该方法展示了情景犯罪预防理论如何为全球野生动物保护策略提供信息。</p>
+            <h3>局限性</h3>
+            <p>对去角动物的持续偷猎（尤其是在克鲁格国家公园），潜在的转移效应，以及需要定期进行维护性去角，这些都突出表明，去角作为综合保护策略的一部分效果最好。</p>
+            <p>这项工作是循证保护的典范，展示了严格的评估如何能够识别出具有成本效益的干预措施，并挑战传统的野生动物犯罪应对方法。</p>
+        </div>
+
+        <div class="references">
+            <h2>了解更多</h2>
+            <ol>
+                <li><a href="https://www.science.org/doi/10.1126/science.ado7490">Dehorning reduces rhino poaching | Science</a></li>
+                <li><a href="https://www.savetherhino.org/">Rhino Conservation - Save the Rhino International</a></li>
+                <li><a href="https://www.worldwildlife.org/initiatives/wildlife-conservation">Wildlife Conservation - World Wildlife Fund</a></li>
+                <li><a href="https://www.conservation.org/priorities/wildlife-trafficking">Anti-Poaching Strategies and Technologies</a></li>
+                <li><a href="https://www.natgeokids.com/uk/discover/animals/general-animals/rhino-facts/">Rhino Facts for Kids</a></li>
+                <li><a href="https://www.sanparks.org/conservation/rhino/">Southern African Rhino Conservation</a></li>
+                <li><a href="https://www.nature.org/en-us/about-us/where-we-work/priority-landscapes/behavioral-insights/">Behavioral Economics and Conservation</a></li>
+                <li><a href="https://academic.oup.com/bioscience/article/69/10/784/5554726">Situational Crime Prevention in Wildlife Protection</a></li>
+                <li><a href="https://gkepf.org/">Greater Kruger Environmental Protection Foundation</a></li>
+                <li><a href="https://wildlifeconservationnetwork.org/rhino-recovery-fund/">Rhino Recovery Fund - Wildlife Conservation Network</a></li>
+            </ol>
+        </div>
+
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = {
+            1: 'b',
+            2: 'b',
+            3: 'b'
+        };
+        const praises = {
+            1: "正确！对象犀牛角的高需求是偷猎的主要驱动力。",
+            2: "太棒了！去角是所讨论的主要策略，以使犀牛对偷猎者不那么有吸引力。",
+            3: "没错！角会重新长出来，所以必须重复进行去角。"
+        };
+
+        function checkAnswer(questionNumber, selectedAnswer) {
+            const question = document.getElementById(`question${questionNumber}`);
+            const feedback = question.querySelector('.feedback');
+            const hint = question.querySelector('.hint');
+            const options = question.querySelectorAll('.option');
+            const clickedButton = event.target;
+            const isCorrect = correctAnswers[questionNumber] === selectedAnswer;
+
+            feedback.style.display = 'none';
+            hint.style.display = 'none';
+            hint.classList.remove('show');
+
+            if (isCorrect) {
+                clickedButton.classList.add('correct');
+                feedback.textContent = praises[questionNumber];
+                feedback.className = 'feedback correct';
+                feedback.style.display = 'block';
+
+                if (!answeredQuestions.has(questionNumber)) {
+                    score++;
+                    answeredQuestions.add(questionNumber);
+                    updateScore();
+                }
+
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                clickedButton.classList.add('incorrect');
+                feedback.textContent = "不太对！再试一次！";
+                feedback.className = 'feedback incorrect';
+                feedback.style.display = 'block';
+
+                hint.style.display = 'block';
+                hint.classList.add('show');
+
+                clickedButton.disabled = true;
+            }
+        }
+
+        function updateScore() {
+            const scoreElement = document.getElementById('score');
+            scoreElement.textContent = score;
+
+            if (score === 3) {
+                const perfectScoreMessage = document.querySelector('.perfect-score');
+                perfectScoreMessage.classList.add('show');
+                createConfetti();
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#f0f', '#0ff', '#ff0', '#f00', '#0f0', '#00f'];
+            const confettiTypes = ['confetti', 'confetti-large', 'confetti-wide', 'confetti-star', 'confetti-ribbon', 'confetti-box', 'confetti-ball', 'confetti-flake'];
+
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    const type = confettiTypes[Math.floor(Math.random() * confettiTypes.length)];
+                    confetti.classList.add(type);
+                    confetti.style.left = `${Math.random() * 100}vw`;
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = `${Math.random() * 2}s`;
+                    container.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 7000);
+                }, i * 40);
+            }
+
+            setTimeout(() => {
+                for (let i = 0; i < 50; i++) {
+                    setTimeout(() => {
+                        const confetti = document.createElement('div');
+                        const type = confettiTypes[Math.floor(Math.random() * confettiTypes.length)];
+                        confetti.classList.add(type);
+                        confetti.style.left = `${Math.random() * 100}vw`;
+                        confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                        confetti.style.animationDelay = `${Math.random() * 2}s`;
+                        container.appendChild(confetti);
+
+                        setTimeout(() => {
+                            confetti.remove();
+                        }, 7000);
+                    }, i * 40);
+                }
+            }, 1000);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const options = document.querySelectorAll('.option');
+            options.forEach(option => {
+                option.addEventListener('click', (event) => {
+                    const questionNumber = option.getAttribute('data-question');
+                    const selectedAnswer = option.getAttribute('data-answer');
+                    checkAnswer(questionNumber, selectedAnswer);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
