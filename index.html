@@ -174,6 +174,93 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
+        .navigation-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-select {
+            background-color: var(--bg-200);
+            border: 2px solid var(--primary-100);
+            border-radius: 8px;
+            padding: 12px 40px 12px 15px;
+            font-size: 16px;
+            color: var(--text-100);
+            cursor: pointer;
+            appearance: none;
+            min-width: 250px;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23353535' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-select:hover {
+            border-color: var(--primary-200);
+            background-color: var(--bg-100);
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            box-shadow: 0 0 0 3px rgba(143, 191, 159, 0.3);
+        }
+
+        .search-container {
+            position: relative;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid var(--primary-100);
+            border-radius: 8px;
+            font-size: 16px;
+            color: var(--text-100);
+            background-color: var(--bg-200);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            background-color: var(--bg-100);
+            box-shadow: 0 0 0 3px rgba(143, 191, 159, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .story-card.hidden {
+            display: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-200);
+            font-size: 1.2em;
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -193,6 +280,21 @@
                 padding: 8px 12px;
                 font-size: 14px;
             }
+            
+            .navigation-tools {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            
+            .dropdown-select {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .search-container {
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -209,7 +311,32 @@
             <p>Here you'll find amazing scientific discoveries explained in ways that are fun and easy to understand. Each story takes real research and turns it into an adventure that shows how science affects our daily lives.</p>
         </div>
 
-        <div class="story-grid">
+        <div class="navigation-tools">
+            <div class="dropdown-container">
+                <select class="dropdown-select" id="storyDropdown">
+                    <option value="">📅 Browse Stories by Date</option>
+                    <option value="2025-09-14-cjx">Sep 14, 2025 - The Super Science Detective Story</option>
+                    <option value="2025-09-14-linda">Sep 14, 2025 - The Mystery of the Super-Hot Days</option>
+                    <option value="2025-09-08-cxy">Sep 8, 2025 - Nature's Seasonal Calendar Discovery</option>
+                    <option value="2025-09-07-coco">Sep 7, 2025 - Secret Cities at the Bottom of the World</option>
+                    <option value="2025-09-07-zeyu">Sep 7, 2025 - The Great Rhino Detective Story</option>
+                    <option value="2025-01-08-fish">Jan 8, 2025 - Tiny Fish Brain Factories Adventure</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 Search stories by keywords...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            No stories found matching your search. Try different keywords!
+        </div>
+
+        <div class="story-grid" id="storyGrid">
             <!-- Most Recent Stories -->
             <div class="story-card">
                 <img src="2025_09_14_CJX/chapter 1.png" alt="Detective Story Chapter 1" class="preview-image">
@@ -280,5 +407,135 @@
             <p>This Newsletter is brought to you by <strong>CSTEM Lab: Seeing STEM in A System</strong></p>
         </div>
     </div>
+
+    <script>
+        // Story data for search and navigation
+        const stories = [
+            {
+                id: '2025-09-14-cjx',
+                title: 'The Super Science Detective Story',
+                date: 'September 14, 2025',
+                keywords: ['detective', 'science', 'education', 'learning', 'investigation', 'fake news', 'critical thinking'],
+                element: null
+            },
+            {
+                id: '2025-09-14-linda',
+                title: 'The Mystery of the Super-Hot Days',
+                date: 'September 14, 2025',
+                keywords: ['climate', 'weather', 'hot', 'temperature', 'detective', 'extreme weather', 'global warming'],
+                element: null
+            },
+            {
+                id: '2025-09-08-cxy',
+                title: 'The Amazing Discovery of Nature\'s Seasonal Calendar',
+                date: 'September 8, 2025',
+                keywords: ['nature', 'plants', 'seasons', 'calendar', 'satellite', 'phenology', 'discovery'],
+                element: null
+            },
+            {
+                id: '2025-09-07-coco',
+                title: 'The Secret Cities at the Bottom of the World',
+                date: 'September 7, 2025',
+                keywords: ['deep sea', 'ocean', 'underwater', 'cities', 'marine life', 'exploration', 'chemistry'],
+                element: null
+            },
+            {
+                id: '2025-09-07-zeyu',
+                title: 'The Great Rhino Detective Story',
+                date: 'September 7, 2025',
+                keywords: ['rhino', 'wildlife', 'conservation', 'detective', 'poaching', 'protection', 'animals'],
+                element: null
+            },
+            {
+                id: '2025-01-08-fish',
+                title: 'The Amazing Adventure of the Tiny Fish Brain Factories',
+                date: 'January 8, 2025',
+                keywords: ['fish', 'brain', 'factories', 'cells', 'aging', 'biology', 'research'],
+                element: null
+            }
+        ];
+
+        // Initialize story elements
+        function initializeStories() {
+            const storyCards = document.querySelectorAll('.story-card');
+            stories.forEach((story, index) => {
+                if (storyCards[index]) {
+                    story.element = storyCards[index];
+                }
+            });
+        }
+
+        // Search functionality
+        function searchStories(query) {
+            const searchTerm = query.toLowerCase().trim();
+            let visibleCount = 0;
+
+            stories.forEach(story => {
+                if (!story.element) return;
+
+                const titleMatch = story.title.toLowerCase().includes(searchTerm);
+                const keywordMatch = story.keywords.some(keyword => 
+                    keyword.toLowerCase().includes(searchTerm)
+                );
+                const dateMatch = story.date.toLowerCase().includes(searchTerm);
+
+                if (searchTerm === '' || titleMatch || keywordMatch || dateMatch) {
+                    story.element.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    story.element.classList.add('hidden');
+                }
+            });
+
+            // Show/hide no results message
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Dropdown navigation
+        function navigateToStory(storyId) {
+            const story = stories.find(s => s.id === storyId);
+            if (story && story.element) {
+                story.element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                // Add temporary highlight effect
+                story.element.style.transform = 'scale(1.02)';
+                story.element.style.boxShadow = '0 8px 25px rgba(143, 191, 159, 0.4)';
+                setTimeout(() => {
+                    story.element.style.transform = '';
+                    story.element.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStories();
+
+            // Search box event listener
+            const searchBox = document.getElementById('searchBox');
+            searchBox.addEventListener('input', function() {
+                searchStories(this.value);
+            });
+
+            // Dropdown event listener
+            const dropdown = document.getElementById('storyDropdown');
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    navigateToStory(this.value);
+                    // Reset dropdown after navigation
+                    setTimeout(() => {
+                        this.value = '';
+                    }, 100);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

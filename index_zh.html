@@ -175,6 +175,93 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
+        .navigation-tools {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 30px 0;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .dropdown-container {
+            position: relative;
+        }
+
+        .dropdown-select {
+            background-color: var(--bg-200);
+            border: 2px solid var(--primary-100);
+            border-radius: 8px;
+            padding: 12px 40px 12px 15px;
+            font-size: 16px;
+            color: var(--text-100);
+            cursor: pointer;
+            appearance: none;
+            min-width: 250px;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23353535' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-select:hover {
+            border-color: var(--primary-200);
+            background-color: var(--bg-100);
+        }
+
+        .dropdown-select:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            box-shadow: 0 0 0 3px rgba(143, 191, 159, 0.3);
+        }
+
+        .search-container {
+            position: relative;
+            flex-grow: 1;
+            max-width: 400px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: 2px solid var(--primary-100);
+            border-radius: 8px;
+            font-size: 16px;
+            color: var(--text-100);
+            background-color: var(--bg-200);
+            transition: all 0.3s ease;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            background-color: var(--bg-100);
+            box-shadow: 0 0 0 3px rgba(143, 191, 159, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+        }
+
+        .story-card.hidden {
+            display: none;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-200);
+            font-size: 1.2em;
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -194,6 +281,21 @@
                 padding: 8px 12px;
                 font-size: 14px;
             }
+            
+            .navigation-tools {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 15px;
+            }
+            
+            .dropdown-select {
+                min-width: auto;
+                width: 100%;
+            }
+            
+            .search-container {
+                max-width: none;
+            }
         }
     </style>
 </head>
@@ -210,7 +312,32 @@
             <p>在这里，你会发现用有趣易懂的方式解释的惊人科学发现。每个故事都基于真实的研究，但以冒险的形式呈现，展示科学如何影响我们的日常生活。</p>
         </div>
 
-        <div class="story-grid">
+        <div class="navigation-tools">
+            <div class="dropdown-container">
+                <select class="dropdown-select" id="storyDropdown">
+                    <option value="">📅 按日期浏览故事</option>
+                    <option value="2025-09-14-cjx">2025年9月14日 - 超级科学侦探故事</option>
+                    <option value="2025-09-14-linda">2025年9月14日 - 超热天气之谜</option>
+                    <option value="2025-09-08-cxy">2025年9月8日 - 自然季节日历的惊人发现</option>
+                    <option value="2025-09-07-coco">2025年9月7日 - 世界底部的秘密城市</option>
+                    <option value="2025-09-07-zeyu">2025年9月7日 - 伟大的犀牛侦探故事</option>
+                    <option value="2025-01-08-fish">2025年1月8日 - 小鱼大脑工厂的惊人冒险</option>
+                </select>
+            </div>
+            <div class="search-container">
+                <input type="text" class="search-box" id="searchBox" placeholder="🔍 按关键词搜索故事...">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            没有找到匹配的故事。请尝试不同的关键词！
+        </div>
+
+        <div class="story-grid" id="storyGrid">
             <!-- 最新故事 -->
             <div class="story-card">
                 <img src="2025_09_14_CJX/chapter 1.png" alt="超级科学侦探故事第1章" class="preview-image">
@@ -281,5 +408,135 @@
             <p>这份通讯由 <strong>CSTEM Lab：Seeing STEM in A System</strong> 为您呈现</p>
         </div>
     </div>
+
+    <script>
+        // 故事数据用于搜索和导航
+        const stories = [
+            {
+                id: '2025-09-14-cjx',
+                title: '超级科学侦探故事',
+                date: '2025年9月14日',
+                keywords: ['侦探', '科学', '教育', '学习', '调查', '假新闻', '批判性思维', 'detective', 'science'],
+                element: null
+            },
+            {
+                id: '2025-09-14-linda',
+                title: '超热天气之谜',
+                date: '2025年9月14日',
+                keywords: ['气候', '天气', '炎热', '温度', '侦探', '极端天气', '全球变暖', 'climate', 'weather', 'hot'],
+                element: null
+            },
+            {
+                id: '2025-09-08-cxy',
+                title: '自然季节日历的惊人发现',
+                date: '2025年9月8日',
+                keywords: ['自然', '植物', '季节', '日历', '卫星', '物候学', '发现', 'nature', 'plants', 'seasons'],
+                element: null
+            },
+            {
+                id: '2025-09-07-coco',
+                title: '世界底部的秘密城市',
+                date: '2025年9月7日',
+                keywords: ['深海', '海洋', '水下', '城市', '海洋生物', '探索', '化学', 'deep sea', 'ocean', 'underwater'],
+                element: null
+            },
+            {
+                id: '2025-09-07-zeyu',
+                title: '伟大的犀牛侦探故事',
+                date: '2025年9月7日',
+                keywords: ['犀牛', '野生动物', '保护', '侦探', '偷猎', '保护', '动物', 'rhino', 'wildlife', 'conservation'],
+                element: null
+            },
+            {
+                id: '2025-01-08-fish',
+                title: '小鱼大脑工厂的惊人冒险',
+                date: '2025年1月8日',
+                keywords: ['鱼', '大脑', '工厂', '细胞', '衰老', '生物学', '研究', 'fish', 'brain', 'factories'],
+                element: null
+            }
+        ];
+
+        // 初始化故事元素
+        function initializeStories() {
+            const storyCards = document.querySelectorAll('.story-card');
+            stories.forEach((story, index) => {
+                if (storyCards[index]) {
+                    story.element = storyCards[index];
+                }
+            });
+        }
+
+        // 搜索功能
+        function searchStories(query) {
+            const searchTerm = query.toLowerCase().trim();
+            let visibleCount = 0;
+
+            stories.forEach(story => {
+                if (!story.element) return;
+
+                const titleMatch = story.title.toLowerCase().includes(searchTerm);
+                const keywordMatch = story.keywords.some(keyword => 
+                    keyword.toLowerCase().includes(searchTerm)
+                );
+                const dateMatch = story.date.toLowerCase().includes(searchTerm);
+
+                if (searchTerm === '' || titleMatch || keywordMatch || dateMatch) {
+                    story.element.classList.remove('hidden');
+                    visibleCount++;
+                } else {
+                    story.element.classList.add('hidden');
+                }
+            });
+
+            // 显示/隐藏无结果消息
+            const noResults = document.getElementById('noResults');
+            if (visibleCount === 0 && searchTerm !== '') {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // 下拉菜单导航
+        function navigateToStory(storyId) {
+            const story = stories.find(s => s.id === storyId);
+            if (story && story.element) {
+                story.element.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+                // 添加临时高亮效果
+                story.element.style.transform = 'scale(1.02)';
+                story.element.style.boxShadow = '0 8px 25px rgba(143, 191, 159, 0.4)';
+                setTimeout(() => {
+                    story.element.style.transform = '';
+                    story.element.style.boxShadow = '';
+                }, 2000);
+            }
+        }
+
+        // 事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeStories();
+
+            // 搜索框事件监听器
+            const searchBox = document.getElementById('searchBox');
+            searchBox.addEventListener('input', function() {
+                searchStories(this.value);
+            });
+
+            // 下拉菜单事件监听器
+            const dropdown = document.getElementById('storyDropdown');
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    navigateToStory(this.value);
+                    // 导航后重置下拉菜单
+                    setTimeout(() => {
+                        this.value = '';
+                    }, 100);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
