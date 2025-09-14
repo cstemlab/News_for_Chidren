@@ -584,6 +584,7 @@
     </style>
 </head>
 <body>
+    <script src="../navigation-template.js"></script>
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
@@ -927,87 +928,12 @@
             }
         });
 
-        // Navigation functionality
-        const stories = [
-            { id: 'detective', title: '超级科学侦探故事', file: '2025-09-14_the-super-science-detective-story.html', titleZh: '超级科学侦探故事' },
-            { id: 'hot-days', title: '超级炎热日之谜', file: '2025-09-14_the-mystery-of-super-hot-days.html', titleZh: '超级炎热日之谜' },
-            { id: 'hot-days-zh', title: '超级炎热日之谜（中文版）', file: '2025-09-14_超级炎热日之谜_中文版.html', titleZh: '超级炎热日之谜（中文版）' }
-        ];
-
-        const currentStoryId = 'hot-days-zh';
-
-        function initializeNavigation() {
-            populateDropdown();
-            setupPrevNextButtons();
-            setupSearch();
-        }
-
-        function populateDropdown() {
-            const dropdown = document.getElementById('story-dropdown');
-            if (!dropdown) return;
-
-            dropdown.innerHTML = '<option value="">选择故事...</option>';
-            stories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.file;
-                option.textContent = story.titleZh;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                }
-                dropdown.appendChild(option);
-            });
-
-            dropdown.addEventListener('change', function() {
-                if (this.value) {
-                    window.location.href = this.value;
-                }
-            });
-        }
-
-        function setupPrevNextButtons() {
-            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
-            const prevBtn = document.getElementById('prev-story');
-            const nextBtn = document.getElementById('next-story');
-
-            if (prevBtn) {
-                if (currentIndex > 0) {
-                    prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].file;
-                    prevBtn.disabled = false;
-                } else {
-                    prevBtn.disabled = true;
-                }
-            }
-
-            if (nextBtn) {
-                if (currentIndex < stories.length - 1) {
-                    nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].file;
-                    nextBtn.disabled = false;
-                } else {
-                    nextBtn.disabled = true;
-                }
-            }
-        }
-
-        function setupSearch() {
-            const searchBox = document.getElementById('story-search');
-            if (!searchBox) return;
-
-            searchBox.addEventListener('input', function() {
-                const query = this.value.toLowerCase();
-                const dropdown = document.getElementById('story-dropdown');
-                const options = dropdown.querySelectorAll('option');
-
-                options.forEach(option => {
-                    if (option.value === '') return;
-                    const title = option.textContent.toLowerCase();
-                    option.style.display = title.includes(query) ? 'block' : 'none';
-                });
-            });
-        }
-
+        // Initialize standardized navigation
+        const storyNavigation = new StoryNavigation('hot-days-zh');
+        
         // Initialize navigation when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            initializeNavigation();
+            storyNavigation.initialize();
         });
     </script>
 </body>

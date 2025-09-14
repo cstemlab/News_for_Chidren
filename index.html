@@ -548,13 +548,37 @@
             }
         ];
 
-        // Initialize story elements
+        // Initialize story elements and clickable functionality
         function initializeStories() {
             const storyCards = document.querySelectorAll('.story-card');
             stories.forEach((story, index) => {
                 if (storyCards[index]) {
                     story.element = storyCards[index];
                 }
+            });
+            
+            // Make story cards clickable while preserving language badge functionality
+            storyCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    // Don't navigate if clicking on language badges
+                    if (e.target.classList.contains('language-badge')) {
+                        return;
+                    }
+                    
+                    // Get the default English link from the overlay
+                    const overlayLink = card.querySelector('.story-card-overlay');
+                    if (overlayLink && overlayLink.href) {
+                        window.location.href = overlayLink.href;
+                    }
+                });
+                
+                // Prevent language badges from triggering card click
+                const languageBadges = card.querySelectorAll('.language-badge');
+                languageBadges.forEach(badge => {
+                    badge.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                });
             });
         }
 
@@ -607,27 +631,30 @@
             }
         }
 
-        // Event listeners
+        // Initialize on page load
         document.addEventListener('DOMContentLoaded', function() {
             initializeStories();
-
-            // Search box event listener
-            const searchBox = document.getElementById('searchBox');
-            searchBox.addEventListener('input', function() {
-                searchStories(this.value);
-            });
-
-            // Dropdown event listener
-            const dropdown = document.getElementById('storyDropdown');
-            dropdown.addEventListener('change', function() {
-                if (this.value) {
-                    navigateToStory(this.value);
-                    // Reset dropdown after navigation
-                    setTimeout(() => {
-                        this.value = '';
-                    }, 100);
-                }
-            });
+            
+            const searchInput = document.getElementById('searchBox');
+            const storyDropdown = document.getElementById('storyDropdown');
+            
+            if (searchInput) {
+                searchInput.addEventListener('input', function() {
+                    searchStories(this.value);
+                });
+            }
+            
+            if (storyDropdown) {
+                storyDropdown.addEventListener('change', function() {
+                    if (this.value) {
+                        navigateToStory(this.value);
+                        // Reset dropdown after navigation
+                        setTimeout(() => {
+                            this.value = '';
+                        }, 100);
+                    }
+                });
+            }
         });
     </script>
 </body>

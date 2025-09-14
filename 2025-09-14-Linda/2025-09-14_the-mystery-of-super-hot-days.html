@@ -586,6 +586,7 @@
     </style>
 </head>
 <body>
+    <script src="../navigation-template.js"></script>
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
@@ -888,89 +889,12 @@
             });
         });
 
-        // Navigation functionality
-        const stories = [
-            { id: 'detective-story', title: 'The Super Science Detective Story', date: '2025-09-14', path: '../2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html' },
-            { id: 'hot-days', title: 'The Mystery of Super-Hot Days', date: '2025-09-14', path: './2025-09-14_the-mystery-of-super-hot-days.html' }
-        ];
-
-        const currentStoryId = 'hot-days';
-        let filteredStories = [...stories];
-
-        function initializeNavigation() {
-            populateDropdown();
-            setupPrevNextButtons();
-            setupSearch();
-        }
-
-        function populateDropdown() {
-            const dropdown = document.getElementById('storyDropdown');
-            dropdown.innerHTML = '<option value="">Select Story...</option>';
-            
-            stories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.path;
-                option.textContent = story.title;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                }
-                dropdown.appendChild(option);
-            });
-        }
-
-        function setupPrevNextButtons() {
-            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-
-            if (currentIndex > 0) {
-                prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].path;
-            } else {
-                prevBtn.disabled = true;
-            }
-
-            if (currentIndex < stories.length - 1) {
-                nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].path;
-            } else {
-                nextBtn.disabled = true;
-            }
-        }
-
-        function setupSearch() {
-            const searchBox = document.getElementById('searchBox');
-            const dropdown = document.getElementById('storyDropdown');
-
-            searchBox.addEventListener('input', function() {
-                const searchTerm = this.value.toLowerCase();
-                filteredStories = stories.filter(story => 
-                    story.title.toLowerCase().includes(searchTerm)
-                );
-                updateDropdown();
-            });
-        }
-
-        function updateDropdown() {
-            const dropdown = document.getElementById('storyDropdown');
-            dropdown.innerHTML = '<option value="">Select Story...</option>';
-            
-            filteredStories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.path;
-                option.textContent = story.title;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                }
-                dropdown.appendChild(option);
-            });
-        }
-
+        // Initialize standardized navigation
+        const storyNavigation = new StoryNavigation('hot-days-en');
+        
         // Event listeners
-        document.addEventListener('DOMContentLoaded', initializeNavigation);
-
-        document.getElementById('storyDropdown').addEventListener('change', function() {
-            if (this.value) {
-                window.location.href = this.value;
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            storyNavigation.initialize();
         });
     </script>
 </body>

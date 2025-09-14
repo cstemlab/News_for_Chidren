@@ -198,6 +198,161 @@
             border-bottom: 1px solid var(--primary-200);
         }
 
+        /* Sticky Navigation Bar Styles */
+        .story-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-300);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-home {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .nav-home:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--primary-100);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .nav-button:hover:not(:disabled) {
+            background: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .story-dropdown {
+            background: white;
+            color: var(--primary-100);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            min-width: 200px;
+            font-size: 0.9em;
+        }
+
+        .story-dropdown:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .search-box {
+            background: white;
+            color: var(--primary-100);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 150px;
+            font-size: 0.9em;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: var(--primary-300);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .search-box::placeholder {
+            color: var(--accent-200);
+        }
+
+        .nav-language {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .nav-language:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-controls {
+                order: 2;
+                justify-content: center;
+            }
+
+            .nav-home {
+                order: 1;
+            }
+
+            .nav-language {
+                order: 3;
+            }
+
+            .story-dropdown,
+            .search-box {
+                min-width: 120px;
+                font-size: 0.8em;
+            }
+
+            .nav-button {
+                font-size: 0.8em;
+                padding: 6px 12px;
+            }
+        }
+
         .quote {
             background-color: var(--accent-100);
             border-left: 4px solid var(--primary-100);
@@ -660,7 +815,27 @@
 </head>
 
 <body>
-    <a href="自然季节日历的惊人发现_中文版.html" class="language-switch">中文版</a>
+    <script src="../navigation-template.js"></script>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-home">🏠 Home</a>
+            
+            <div class="nav-controls">
+                <button id="prevBtn" class="nav-button">← Previous</button>
+                
+                <select id="storyDropdown" class="story-dropdown">
+                    <option value="">Select Story...</option>
+                </select>
+                
+                <input type="text" id="searchBox" class="search-box" placeholder="Search stories...">
+                
+                <button id="nextBtn" class="nav-button">Next →</button>
+            </div>
+            
+            <a href="自然季节日历的惊人发现_中文版.html" class="nav-language">中文版</a>
+        </div>
+    </nav>
     
     <div class="container">
         <h1>The Amazing Discovery of Nature's Seasonal Calendar</h1>
@@ -875,6 +1050,15 @@
         </div>
     </div>
     <script>
+        // Initialize standardized navigation
+        const storyNavigation = new StoryNavigation('seasonal-calendar-en');
+        
+        // Initialize navigation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            storyNavigation.initialize();
+        });
+        
+        // Quiz functionality
         let score = 0;
         let answeredQuestions = new Set();
         const correctAnswers = { 1: 'B', 2: 'C', 3: 'C' };
@@ -1086,6 +1270,9 @@
 
         // Initialize quiz - hide all hints initially and setup sticky scoreboard
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize navigation
+            initializeNavigation();
+            
             const hints = document.querySelectorAll('.hint');
             hints.forEach(hint => {
                 hint.style.display = 'none';

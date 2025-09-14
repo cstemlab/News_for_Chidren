@@ -205,6 +205,145 @@
             border-bottom: 1px solid var(--primary-200);
         }
 
+        /* Navigation Styles */
+        .story-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 3px solid var(--accent-100);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .nav-home {
+            background: var(--accent-100);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .nav-home:hover {
+            background: var(--accent-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .nav-button {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .nav-button:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-1px);
+        }
+
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .story-dropdown {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-100);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        .search-box {
+            background: rgba(255,255,255,0.9);
+            color: var(--primary-100);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 150px;
+            max-width: 200px;
+        }
+
+        .search-box::placeholder {
+            color: var(--primary-100);
+            opacity: 0.7;
+        }
+
+        .nav-language {
+            background: var(--accent-100);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .nav-language:hover {
+            background: var(--accent-200);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 15px;
+            }
+            
+            .nav-controls {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .story-dropdown, .search-box {
+                min-width: 120px;
+                max-width: 150px;
+                font-size: 12px;
+            }
+            
+            .nav-button, .nav-language {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+
         .language-switch {
             position: fixed;
             top: 20px;
@@ -249,7 +388,21 @@
     </style>
 </head>
 <body>
-    <a href="The Amazing Discovery of Nature's Seasonal Calendar.html" class="language-switch">English</a>
+    <script src="../navigation-template.js"></script>
+    <nav class="story-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="nav-home">🏠 首页</a>
+            <div class="nav-controls">
+                <button class="nav-button" id="prevStory">← 上一个</button>
+                <select class="story-dropdown" id="storySelect">
+                    <option value="">选择故事...</option>
+                </select>
+                <input type="text" class="search-box" id="searchBox" placeholder="搜索故事...">
+                <button class="nav-button" id="nextStory">下一个 →</button>
+                <a href="The Amazing Discovery of Nature's Seasonal Calendar.html" class="nav-language">English</a>
+            </div>
+        </div>
+    </nav>
     
     <div class="container">
         <h1>自然季节日历的惊人发现</h1>
@@ -382,5 +535,15 @@
             </ol>
         </div>
     </div>
+
+    <script>
+        // Initialize standardized navigation
+        const storyNavigation = new StoryNavigation('seasonal-calendar-zh');
+        
+        // Initialize navigation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            storyNavigation.initialize();
+        });
+    </script>
 </body>
 </html>

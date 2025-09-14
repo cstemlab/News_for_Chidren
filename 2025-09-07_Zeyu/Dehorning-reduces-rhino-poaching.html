@@ -198,6 +198,149 @@
             border-bottom: 1px solid var(--primary-200);
         }
 
+        /* Sticky Navigation Bar Styles */
+        .story-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            padding: 10px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-300);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover:not(:disabled) {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .story-dropdown {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            color: var(--text-100);
+            cursor: pointer;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        .story-search {
+            background: rgba(255,255,255,0.9);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 20px;
+            padding: 8px 15px;
+            font-size: 14px;
+            color: var(--text-100);
+            width: 200px;
+        }
+
+        .story-search::placeholder {
+            color: var(--text-200);
+        }
+
+        .language-switch {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .story-dropdown, .story-search {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .story-dropdown, .story-search {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
         .quiz-section {
             background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
             padding: 30px;
@@ -619,6 +762,26 @@
 </head>
 
 <body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn">🏠 Home</a>
+                <button id="prev-story" class="nav-btn">← Previous</button>
+                <button id="next-story" class="nav-btn">Next →</button>
+            </div>
+            <div class="nav-center">
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
+                </select>
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+            </div>
+            <div class="nav-right">
+                <button id="language-switch" class="language-switch">中文</button>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>The Great Rhino Detective Story: How Scientists Solved a Wildlife Mystery</h1>
         <div class="citation">
@@ -802,6 +965,133 @@
     </div>
 
     <script>
+        // Navigation functionality
+        const allStories = [
+            { id: 'fish-brain-en', title: 'The Amazing Adventure of Tiny Fish Brain Factories', path: '../2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html' },
+            { id: 'fish-brain-zh', title: '小鱼脑中微型工厂的奇妙历险', path: '../2025-08-01/2025-01-08_小鱼脑中微型工厂的奇妙历险_中文版.html' },
+            { id: 'rhino-detective-en', title: 'The Great Rhino Detective Story', path: 'Dehorning-reduces-rhino-poaching_revised.html' },
+            { id: 'rhino-detective-zh', title: '犀牛侦探故事', path: 'Dehorning-reduces-rhino-poaching_Chinese.html' },
+            { id: 'secret-cities-en', title: 'The Secret Cities at the Bottom of the World', path: '../2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html' },
+            { id: 'secret-cities-zh', title: '世界底部的秘密城市', path: '../2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html' },
+            { id: 'seasonal-calendar-en', title: 'The Amazing Discovery of Nature\'s Seasonal Calendar', path: '../2025_09_08 CXY/The Amazing Discovery of Nature\'s Seasonal Calendar.html' },
+            { id: 'seasonal-calendar-zh', title: '自然季节日历的惊人发现', path: '../2025_09_08 CXY/自然季节日历的惊人发现_中文版.html' },
+            { id: 'flying-troublemakers-en', title: 'The Amazing Adventure of Tiny Flying Troublemakers', path: '../13-9-2025-PHC/2025-09-13_the-amazing-adventure-of-tiny-flying-troublemakers.html' },
+            { id: 'flying-troublemakers-zh', title: '微小飞行捣蛋鬼的惊人冒险', path: '../13-9-2025-PHC/2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html' },
+            { id: 'detective-story-en', title: 'The Super Science Detective Story', path: '../2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html' },
+            { id: 'detective-story-zh', title: '超级科学侦探故事', path: '../2025_09_14_CJX/2025-09-14_the-super-science-detective-story_中文版.html' },
+            { id: 'hot-days-en', title: 'The Mystery of Super-Hot Days', path: '../2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html' },
+            { id: 'hot-days-zh', title: '超级炎热日之谜', path: '../2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html' }
+        ];
+
+        let filteredStories = [...allStories];
+        const currentStoryId = 'rhino-detective-en';
+        const currentIndex = allStories.findIndex(story => story.id === currentStoryId);
+
+        function initializeNavigation() {
+            populateDropdown();
+            setupPrevNextButtons();
+            setupSearch();
+            setupLanguageSwitch();
+        }
+
+        function populateDropdown() {
+            updateDropdown();
+            const dropdown = document.getElementById('story-dropdown');
+            if (!dropdown) return;
+
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    window.location.href = this.value;
+                }
+            });
+        }
+
+        function updateDropdown() {
+            const dropdown = document.getElementById('story-dropdown');
+            if (!dropdown) return;
+
+            dropdown.innerHTML = '<option value="">Select a Story...</option>';
+            
+            filteredStories.forEach(story => {
+                const option = document.createElement('option');
+                option.value = story.path;
+                option.textContent = story.title;
+                
+                if (story.id === currentStoryId) {
+                    option.selected = true;
+                }
+                
+                dropdown.appendChild(option);
+            });
+        }
+
+        function setupPrevNextButtons() {
+            const prevBtn = document.getElementById('prev-story');
+            const nextBtn = document.getElementById('next-story');
+
+            if (prevBtn) {
+                if (currentIndex > 0) {
+                    const prevStory = allStories[currentIndex - 1];
+                    prevBtn.onclick = () => window.location.href = prevStory.path;
+                    prevBtn.disabled = false;
+                    prevBtn.title = `Previous: ${prevStory.title}`;
+                } else {
+                    prevBtn.disabled = true;
+                    prevBtn.title = 'No previous story';
+                }
+            }
+
+            if (nextBtn) {
+                if (currentIndex < allStories.length - 1) {
+                    const nextStory = allStories[currentIndex + 1];
+                    nextBtn.onclick = () => window.location.href = nextStory.path;
+                    nextBtn.disabled = false;
+                    nextBtn.title = `Next: ${nextStory.title}`;
+                } else {
+                    nextBtn.disabled = true;
+                    nextBtn.title = 'No next story';
+                }
+            }
+        }
+
+        function setupSearch() {
+            const searchBox = document.getElementById('story-search');
+            if (!searchBox) return;
+
+            searchBox.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase();
+                
+                if (query === '') {
+                    filteredStories = [...allStories];
+                } else {
+                    filteredStories = allStories.filter(story => 
+                        story.title.toLowerCase().includes(query)
+                    );
+                }
+                
+                updateDropdown();
+            });
+
+            searchBox.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const dropdown = document.getElementById('story-dropdown');
+                    if (dropdown && dropdown.value) {
+                        window.location.href = dropdown.value;
+                    }
+                }
+            });
+        }
+
+        function setupLanguageSwitch() {
+            const languageBtn = document.getElementById('language-switch');
+            if (!languageBtn) return;
+
+            languageBtn.addEventListener('click', () => {
+                window.location.href = 'Dehorning-reduces-rhino-poaching_Chinese.html';
+            });
+        }
+
+        // Quiz functionality
         let score = 0;
         const correctAnswers = {
             1: 'b',
@@ -890,7 +1180,12 @@
             }, 1000);
         }
 
+        // Initialize everything when page loads
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize navigation
+            initializeNavigation();
+            
+            // Initialize quiz
             const options = document.querySelectorAll('.option');
             options.forEach(option => {
                 option.addEventListener('click', () => {

@@ -572,16 +572,16 @@
         <div class="nav-container">
             <div class="nav-left">
                 <a href="../index_zh.html" class="nav-btn home-btn">🏠 首页</a>
+                <button id="prevBtn" class="nav-btn">← 上一篇</button>
+                <button id="nextBtn" class="nav-btn">下一篇 →</button>
             </div>
             <div class="nav-center">
-                <button id="prevBtn" class="nav-btn">← 上一篇</button>
                 <select id="storyDropdown" class="story-dropdown">
                     <option value="">选择故事...</option>
                 </select>
-                <button id="nextBtn" class="nav-btn">下一篇 →</button>
+                <input type="text" id="searchBox" class="search-box" placeholder="搜索故事...">
             </div>
             <div class="nav-right">
-                <input type="text" id="searchBox" class="search-box" placeholder="搜索故事...">
                 <a href="2025-09-14_the-super-science-detective-story.html" class="language-switch">English</a>
             </div>
         </div>
@@ -873,160 +873,16 @@
         });
     </script>
 
-    <!-- Navigation Bar JavaScript -->
     <script>
-        // Story data for navigation (Chinese version)
-        const allStories = [
-            {
-                id: '2025-09-14-cjx-zh',
-                title: '超级科学侦探故事',
-                date: '2025年9月14日',
-                url: '../2025_09_14_CJX/2025-09-14_the-super-science-detective-story_中文版.html',
-                keywords: ['侦探', '科学', '教育', '学习', '调查', '假新闻', '批判性思维']
-            },
-            {
-                id: '2025-09-14-linda-zh',
-                title: '超级炎热日之谜',
-                date: '2025年9月14日',
-                url: '../2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html',
-                keywords: ['气候', '天气', '炎热', '温度', '侦探', '极端天气', '全球变暖']
-            },
-            {
-                id: '2025-09-13-phc-zh',
-                title: '微小飞行捣蛋鬼的惊人冒险',
-                date: '2025年9月13日',
-                url: '../13-9-2025-PHC/2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html',
-                keywords: ['蚊子', '气候变化', '欧洲', '疾病', '昆虫', '全球变暖', '健康']
-            },
-            {
-                id: '2025-09-08-cxy-zh',
-                title: '自然季节日历的惊人发现',
-                date: '2025年9月8日',
-                url: '../2025_09_08 CXY/自然季节日历的惊人发现_中文版.html',
-                keywords: ['自然', '植物', '季节', '日历', '卫星', '物候学', '发现']
-            },
-            {
-                id: '2025-09-07-coco-zh',
-                title: '世界底部的秘密城市',
-                date: '2025年9月7日',
-                url: '../2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html',
-                keywords: ['深海', '海洋', '水下', '城市', '海洋生物', '探索', '化学']
-            },
-            {
-                id: '2025-09-07-zeyu-zh',
-                title: '伟大的犀牛侦探故事',
-                date: '2025年9月7日',
-                url: '../2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_Chinese.html',
-                keywords: ['犀牛', '野生动物', '保护', '侦探', '偷猎', '保护', '动物']
-            },
-            {
-                id: '2025-08-01-fish-zh',
-                title: '小鱼脑中微型工厂的奇妙历险',
-                date: '2025年8月1日',
-                url: '../2025-08-01/2025-01-08_小鱼脑中微型工厂的奇妙历险_中文版.html',
-                keywords: ['鱼', '大脑', '工厂', '细胞', '衰老', '生物学', '研究']
-            }
-        ];
-
-        // Current story identification
-        const currentStoryId = '2025-09-14-cjx-zh';
-        const currentIndex = allStories.findIndex(story => story.id === currentStoryId);
-
-        // Initialize navigation
-        function initializeNavigation() {
-            // Populate dropdown
-            const dropdown = document.getElementById('storyDropdown');
-            allStories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.url;
-                option.textContent = story.title;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                    option.textContent += ' (当前)';
-                }
-                dropdown.appendChild(option);
-            });
-
-            // Setup prev/next buttons
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-
-            if (currentIndex > 0) {
-                prevBtn.onclick = () => window.location.href = allStories[currentIndex - 1].url;
-            } else {
-                prevBtn.disabled = true;
-            }
-
-            if (currentIndex < allStories.length - 1) {
-                nextBtn.onclick = () => window.location.href = allStories[currentIndex + 1].url;
-            } else {
-                nextBtn.disabled = true;
-            }
-        }
-
-        // Search functionality
-        function searchStories(query) {
-            const searchTerm = query.toLowerCase().trim();
-            if (searchTerm === '') {
-                // Reset dropdown to show all stories
-                const dropdown = document.getElementById('storyDropdown');
-                dropdown.innerHTML = '<option value="">选择故事...</option>';
-                allStories.forEach(story => {
-                    const option = document.createElement('option');
-                    option.value = story.url;
-                    option.textContent = story.title;
-                    if (story.id === currentStoryId) {
-                        option.selected = true;
-                        option.textContent += ' (当前)';
-                    }
-                    dropdown.appendChild(option);
-                });
-                return;
-            }
-
-            // Filter stories based on search
-            const filteredStories = allStories.filter(story => {
-                const titleMatch = story.title.toLowerCase().includes(searchTerm);
-                const keywordMatch = story.keywords.some(keyword => 
-                    keyword.toLowerCase().includes(searchTerm)
-                );
-                const dateMatch = story.date.toLowerCase().includes(searchTerm);
-                return titleMatch || keywordMatch || dateMatch;
-            });
-
-            // Update dropdown with filtered results
-            const dropdown = document.getElementById('storyDropdown');
-            dropdown.innerHTML = '<option value="">选择故事...</option>';
-            filteredStories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.url;
-                option.textContent = story.title;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                    option.textContent += ' (当前)';
-                }
-                dropdown.appendChild(option);
-            });
-        }
-
-        // Event listeners
+        // Initialize navigation using the standardized template
         document.addEventListener('DOMContentLoaded', function() {
-            initializeNavigation();
-
-            // Search box event listener
-            const searchBox = document.getElementById('searchBox');
-            searchBox.addEventListener('input', function() {
-                searchStories(this.value);
-            });
-
-            // Dropdown event listener
-            const dropdown = document.getElementById('storyDropdown');
-            dropdown.addEventListener('change', function() {
-                if (this.value && this.value !== window.location.href) {
-                    window.location.href = this.value;
-                }
-            });
+            if (typeof StoryNavigation !== 'undefined') {
+                new StoryNavigation('science-detective-zh');
+            }
         });
     </script>
+    
+    <!-- Navigation Template Script -->
+    <script src="../navigation-template.js"></script>
 </body>
 </html>

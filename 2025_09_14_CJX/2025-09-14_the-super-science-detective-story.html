@@ -685,18 +685,18 @@
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="../index.html" class="nav-btn home-btn">🏠 Home</a>
+                <a href="../index.html" class="nav-btn">🏠 Home</a>
+                <button id="prev-story" class="nav-btn">← Previous</button>
+                <button id="next-story" class="nav-btn">Next →</button>
             </div>
             <div class="nav-center">
-                <button id="prev-story" class="nav-btn">← Previous</button>
                 <select id="story-dropdown" class="story-dropdown">
                     <option value="">Select a Story...</option>
                 </select>
-                <button id="next-story" class="nav-btn">Next →</button>
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
             </div>
             <div class="nav-right">
-                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
-                <a href="2025-09-14_the-super-science-detective-story_中文版.html" class="nav-btn">中文版</a>
+                <a href="2025-09-14_the-super-science-detective-story_中文版.html" id="language-switch" class="language-switch">中文版</a>
             </div>
         </div>
     </nav>
@@ -985,90 +985,15 @@
                 hint.style.display = 'none';
             });
         });
-    </script>
 
-        // Navigation functionality
-        const stories = [
-            { id: 'detective', title: 'The Super Science Detective Story', file: '2025-09-14_the-super-science-detective-story.html', titleZh: '超级科学侦探故事' },
-            { id: 'hot-days', title: 'The Mystery of the Super-Hot Days', file: '../2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html', titleZh: '超级炎热日之谜' },
-            { id: 'hot-days-zh', title: 'The Mystery of the Super-Hot Days (Chinese)', file: '../2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html', titleZh: '超级炎热日之谜（中文版）' }
-        ];
-
-        const currentStoryId = 'detective';
-
-        function initializeNavigation() {
-            populateDropdown();
-            setupPrevNextButtons();
-            setupSearch();
-        }
-
-        function populateDropdown() {
-            const dropdown = document.getElementById('story-dropdown');
-            if (!dropdown) return;
-
-            dropdown.innerHTML = '<option value="">Select a Story...</option>';
-            stories.forEach(story => {
-                const option = document.createElement('option');
-                option.value = story.file;
-                option.textContent = story.title;
-                if (story.id === currentStoryId) {
-                    option.selected = true;
-                }
-                dropdown.appendChild(option);
-            });
-
-            dropdown.addEventListener('change', function() {
-                if (this.value) {
-                    window.location.href = this.value;
-                }
-            });
-        }
-
-        function setupPrevNextButtons() {
-            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
-            const prevBtn = document.getElementById('prev-story');
-            const nextBtn = document.getElementById('next-story');
-
-            if (prevBtn) {
-                if (currentIndex > 0) {
-                    prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].file;
-                    prevBtn.disabled = false;
-                } else {
-                    prevBtn.disabled = true;
-                }
-            }
-
-            if (nextBtn) {
-                if (currentIndex < stories.length - 1) {
-                    nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].file;
-                    nextBtn.disabled = false;
-                } else {
-                    nextBtn.disabled = true;
-                }
-            }
-        }
-
-        function setupSearch() {
-            const searchBox = document.getElementById('story-search');
-            if (!searchBox) return;
-
-            searchBox.addEventListener('input', function() {
-                const query = this.value.toLowerCase();
-                const dropdown = document.getElementById('story-dropdown');
-                const options = dropdown.querySelectorAll('option');
-
-                options.forEach(option => {
-                    if (option.value === '') return;
-                    const title = option.textContent.toLowerCase();
-                    option.style.display = title.includes(query) ? 'block' : 'none';
-                });
-            });
-        }
-
-        // Initialize navigation when page loads
+        // Initialize navigation using the standardized template
         document.addEventListener('DOMContentLoaded', function() {
-            initializeNavigation();
+            const navigation = new StoryNavigation('science-detective-en');
+            navigation.init();
         });
     </script>
+    
+    <!-- Navigation Template Script -->
+    <script src="../navigation-template.js"></script>
 </body>
 </html>

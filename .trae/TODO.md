@@ -1,8 +1,9 @@
 # TODO:
 
-- [x] analyze-story-structure: Examine current story page structure and identify all story HTML files (priority: High)
-- [x] design-nav-bar: Design sticky navigation bar with home, prev/next, dropdown, search, and language switch (priority: High)
-- [x] implement-nav-functionality: Implement JavaScript functionality for story navigation and search (priority: High)
-- [x] apply-to-all-stories: Apply navigation bar to all story HTML files in the project (priority: High)
-- [x] apply-to-remaining-stories: Apply navigation bar to remaining story files in other directories (2025_09_14_CJX, 13-9-2025-PHC, 2025-08-01, etc.) (priority: High)
-- [x] test-navigation: Test navigation functionality and responsive design (priority: Medium)
+- [x] update-navigation-template: Update navigation-template.js with standardized language filtering and proper story titles (priority: High)
+- [x] standardize-detective-story-nav: Fix The Super Science Detective Story (English) navigation bar as the reference implementation with correct layout order and English-only dropdown (priority: High)
+- [x] fix-detective-story-chinese-nav: Ensure The Super Science Detective Story (Chinese) navigation bar matches the reference with Chinese-only dropdown (priority: High)
+- [x] fix-flying-troublemakers-nav: Fix The Amazing Adventure of Tiny Flying Troublemakers navigation bar with proper color contrast and layout (priority: High)
+- [x] fix-hot-days-nav: Fix The Mystery of Super-Hot Days navigation bars (English and Chinese versions) (priority: High)
+- [x] fix-remaining-story-navs: Fix navigation bars for all remaining story pages (fish brain, rhino detective, secret cities, seasonal calendar, etc.) (priority: Medium)
+- [x] test-all-navigation: Test all navigation functionality across all pages to ensure consistency and proper operation (priority: Medium)

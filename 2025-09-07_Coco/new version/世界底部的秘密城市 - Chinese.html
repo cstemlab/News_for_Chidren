@@ -66,6 +66,156 @@
         .references li { margin-bottom: 8px; }
         .references a { color: var(--primary-100); text-decoration: none; border-bottom: 1px dotted var(--primary-100); }
         .references a:hover { color: var(--primary-200); border-bottom: 1px solid var(--primary-200); }
+        
+        /* Navigation Bar Styles */
+        .story-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            border-bottom: 3px solid var(--primary-300);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-home {
+            background-color: var(--accent-100);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .nav-home:hover {
+            background-color: var(--accent-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-button {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .nav-button:hover {
+            background-color: rgba(255,255,255,0.3);
+            border-color: rgba(255,255,255,0.5);
+            transform: translateY(-1px);
+        }
+        
+        .nav-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .story-dropdown {
+            background-color: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 200px;
+            cursor: pointer;
+        }
+        
+        .story-dropdown:focus {
+            outline: none;
+            border-color: var(--accent-100);
+            box-shadow: 0 0 0 3px rgba(0,191,255,0.3);
+        }
+        
+        .search-box {
+            background-color: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            border: 2px solid rgba(255,255,255,0.3);
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            min-width: 150px;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: var(--accent-100);
+            box-shadow: 0 0 0 3px rgba(0,191,255,0.3);
+        }
+        
+        .search-box::placeholder {
+            color: var(--text-200);
+            opacity: 0.7;
+        }
+        
+        .nav-language {
+            background-color: var(--accent-200);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .nav-language:hover {
+            background-color: var(--primary-300);
+            color: var(--text-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .nav-controls {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .story-dropdown,
+            .search-box {
+                min-width: 120px;
+                font-size: 14px;
+            }
+            
+            .nav-button {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+        }
+        
         .quiz-section { background: linear-gradient(135deg, var(--primary-300), var(--accent-100)); padding: 30px; border-radius: 15px; margin: 30px 0; border: 2px solid var(--primary-200); }
         .quiz-section h2 { background: none; border: none; color: var(--text-100); margin-top: 0; text-align: center; margin-bottom: 25px; }
         .score-board { text-align: center; margin-bottom: 30px; padding: 15px; background-color: var(--bg-100); border-radius: 10px; border: 2px solid var(--primary-100); transition: all 0.3s ease; }
@@ -100,7 +250,28 @@
     </style>
 </head>
 <body>
-    <a href="The Secret Cities at the Bottom of the World - English.html" class="language-switch">English</a>
+    <script src="../../navigation-template.js"></script>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <a href="../../../index.html" class="nav-home">🏠 首页</a>
+            
+            <div class="nav-controls">
+                <button id="prevBtn" class="nav-button">← 上一个</button>
+                
+                <select id="storyDropdown" class="story-dropdown">
+                    <option value="">选择故事...</option>
+                </select>
+                
+                <input type="text" id="searchBox" class="search-box" placeholder="搜索故事...">
+                
+                <button id="nextBtn" class="nav-button">下一个 →</button>
+            </div>
+            
+            <a href="The Secret Cities at the Bottom of the World - English.html" class="nav-language">English</a>
+        </div>
+    </nav>
+    
     <div class="container">
         <div class="header">
             <h1>世界底部的秘密城市</h1>
@@ -288,6 +459,14 @@
     <div id="confetti-container"></div>
     
     <script>
+        // Initialize standardized navigation
+        const storyNavigation = new StoryNavigation('secret-cities-zh');
+        
+        // Initialize navigation when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            storyNavigation.initialize();
+        });
+        
         const correctAnswers = { 1: 'B', 2: 'C', 3: 'C' };
         const praises = {
             1: "太棒了！深海生物使用化学能，而不是阳光！",
@@ -499,6 +678,9 @@
             }
         }
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize navigation
+            initializeNavigation();
+            
             const scoreBoard = document.getElementById('score-board');
             const quizSection = document.querySelector('.quiz-section');
             if (scoreBoard && quizSection) {

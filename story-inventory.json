@@ -1,0 +1,109 @@
+{
+  "stories": [
+    {
+      "title": "The Super Science Detective Story",
+      "path": "2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html",
+      "date": "2025-09-14",
+      "language": "English",
+      "hasNavBar": true
+    },
+    {
+      "title": "超级科学侦探故事",
+      "path": "2025_09_14_CJX/2025-09-14_the-super-science-detective-story_中文版.html",
+      "date": "2025-09-14",
+      "language": "Chinese",
+      "hasNavBar": true
+    },
+    {
+      "title": "The Mystery of Super-Hot Days",
+      "path": "2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html",
+      "date": "2025-09-14",
+      "language": "English",
+      "hasNavBar": true
+    },
+    {
+      "title": "超级炎热日之谜",
+      "path": "2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html",
+      "date": "2025-09-14",
+      "language": "Chinese",
+      "hasNavBar": true
+    },
+    {
+      "title": "The Amazing Adventure of Tiny Flying Troublemakers",
+      "path": "13-9-2025-PHC/2025-09-13_the-amazing-adventure-of-tiny-flying-troublemakers.html",
+      "date": "2025-09-13",
+      "language": "English",
+      "hasNavBar": false
+    },
+    {
+      "title": "微小飞行捣蛋鬼的惊人冒险",
+      "path": "13-9-2025-PHC/2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html",
+      "date": "2025-09-13",
+      "language": "Chinese",
+      "hasNavBar": false
+    },
+    {
+      "title": "The Amazing Discovery of Nature's Seasonal Calendar",
+      "path": "2025_09_08 CXY/The Amazing Discovery of Nature's Seasonal Calendar.html",
+      "date": "2025-09-08",
+      "language": "English",
+      "hasNavBar": false
+    },
+    {
+      "title": "自然季节日历的惊人发现",
+      "path": "2025_09_08 CXY/自然季节日历的惊人发现_中文版.html",
+      "date": "2025-09-08",
+      "language": "Chinese",
+      "hasNavBar": false
+    },
+    {
+      "title": "The Secret Cities at the Bottom of the World",
+      "path": "2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html",
+      "date": "2025-09-07",
+      "language": "English",
+      "hasNavBar": true
+    },
+    {
+      "title": "世界底部的秘密城市",
+      "path": "2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html",
+      "date": "2025-09-07",
+      "language": "Chinese",
+      "hasNavBar": false
+    },
+    {
+      "title": "The Secret Cities at the Bottom of the World (Old)",
+      "path": "2025-09-07_Coco/old version/The Secret Cities at the Bottom of the World.html",
+      "date": "2025-09-07",
+      "language": "English",
+      "hasNavBar": false
+    },
+    {
+      "title": "The Great Rhino Detective Story",
+      "path": "2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_revised.html",
+      "date": "2025-09-07",
+      "language": "English",
+      "hasNavBar": false
+    },
+    {
+      "title": "犀牛侦探故事",
+      "path": "2025-09-07_Zeyu/Dehorning-reduces-rhino-poaching_Chinese.html",
+      "date": "2025-09-07",
+      "language": "Chinese",
+      "hasNavBar": false
+    },
+    {
+      "title": "The Amazing Adventure of Tiny Fish Brain Factories",
+      "path": "2025-08-01/2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html",
+      "date": "2025-01-08",
+      "language": "English",
+      "hasNavBar": false
+    },
+    {
+      "title": "小鱼脑中微型工厂的奇妙历险",
+      "path": "2025-08-01/2025-01-08_小鱼脑中微型工厂的奇妙历险_中文版.html",
+      "date": "2025-01-08",
+      "language": "Chinese",
+      "hasNavBar": false
+    }
+  ]
+}

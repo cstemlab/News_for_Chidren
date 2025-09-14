@@ -197,6 +197,161 @@
             margin-bottom: 25px;
         }
 
+        /* Sticky Navigation Bar Styles */
+        .story-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--primary-300);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            gap: 15px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-left {
+            flex: 0 0 auto;
+        }
+
+        .nav-center {
+            flex: 1;
+            justify-content: center;
+            max-width: 500px;
+        }
+
+        .nav-right {
+            flex: 0 0 auto;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .nav-btn:disabled:hover {
+            background: rgba(255,255,255,0.2);
+            transform: none;
+            box-shadow: none;
+        }
+
+        #story-dropdown {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: var(--text-100);
+            cursor: pointer;
+            min-width: 200px;
+            max-width: 300px;
+        }
+
+        #story-search {
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 6px;
+            padding: 8px 12px;
+            font-size: 14px;
+            color: var(--text-100);
+            width: 150px;
+        }
+
+        #story-search::placeholder {
+            color: var(--text-200);
+        }
+
+        .language-switch {
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-center {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            #story-dropdown, #story-search {
+                width: 100%;
+                max-width: none;
+            }
+        }
+
+        /* Add top padding to body to account for fixed nav */
+        body {
+            padding-top: 80px;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 140px;
+            }
+        }
+
         .score-board {
             text-align: center;
             margin-bottom: 30px;
@@ -465,7 +620,27 @@
     </style>
 </head>
 <body>
-    <a href="2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="language-switch">English</a>
+    <script src="../navigation-template.js"></script>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../../index.html" class="nav-btn">🏠 首页</a>
+                <button id="prev-story" class="nav-btn">← 上一个</button>
+                <button id="next-story" class="nav-btn">下一个 →</button>
+            </div>
+            <div class="nav-center">
+                <select id="story-dropdown" title="选择一个故事">
+                    <option value="">选择一个故事...</option>
+                </select>
+                <input type="text" id="story-search" placeholder="搜索故事..." title="搜索故事">
+            </div>
+            <div class="nav-right">
+                <a href="2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="language-switch">English</a>
+            </div>
+        </div>
+    </nav>
+
     <div class="container">
         <h1>小鱼脑中微型工厂的奇妙历险</h1>
 
@@ -730,6 +905,10 @@
             hints.forEach(hint => {
                 hint.style.display = 'none';
             });
+            
+            // Initialize navigation
+            const storyNavigation = new StoryNavigation('fish-brain-zh');
+            storyNavigation.initialize();
         });
     </script>
 </body>
