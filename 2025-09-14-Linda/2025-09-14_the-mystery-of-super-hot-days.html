@@ -34,10 +34,130 @@
 
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 80px auto 0 auto;
             padding: 20px;
             background-color: var(--bg-100);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .story-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--primary-300);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-center {
+            flex: 1;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 200px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            font-size: 14px;
+        }
+
+        .search-box::placeholder {
+            color: var(--text-200);
+        }
+
+        .story-dropdown {
+            background: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            max-width: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-center {
+                max-width: 100%;
+            }
+
+            .search-box {
+                max-width: 150px;
+            }
+
+            .story-dropdown {
+                max-width: 120px;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .container {
+                margin-top: 120px;
+            }
         }
 
         h1 {
@@ -466,7 +586,24 @@
     </style>
 </head>
 <body>
-    <a href="2025-09-14_超级炎热日之谜_中文版.html" class="language-switch">中文版</a>
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../../index.html" class="nav-btn">🏠 Home</a>
+                <button id="prevBtn" class="nav-btn">← Previous</button>
+                <button id="nextBtn" class="nav-btn">Next →</button>
+            </div>
+            <div class="nav-center">
+                <select id="storyDropdown" class="story-dropdown">
+                    <option value="">Select Story...</option>
+                </select>
+                <input type="text" id="searchBox" class="search-box" placeholder="Search stories...">
+            </div>
+            <div class="nav-right">
+                <a href="2025-09-14_超级炎热日之谜_中文版.html" class="nav-btn">中文版</a>
+            </div>
+        </div>
+    </nav>
     
     <div class="container">
         <h1>The Mystery of the Super-Hot Days</h1>
@@ -749,6 +886,91 @@
             hints.forEach(hint => {
                 hint.style.display = 'none';
             });
+        });
+
+        // Navigation functionality
+        const stories = [
+            { id: 'detective-story', title: 'The Super Science Detective Story', date: '2025-09-14', path: '../2025_09_14_CJX/2025-09-14_the-super-science-detective-story.html' },
+            { id: 'hot-days', title: 'The Mystery of Super-Hot Days', date: '2025-09-14', path: './2025-09-14_the-mystery-of-super-hot-days.html' }
+        ];
+
+        const currentStoryId = 'hot-days';
+        let filteredStories = [...stories];
+
+        function initializeNavigation() {
+            populateDropdown();
+            setupPrevNextButtons();
+            setupSearch();
+        }
+
+        function populateDropdown() {
+            const dropdown = document.getElementById('storyDropdown');
+            dropdown.innerHTML = '<option value="">Select Story...</option>';
+            
+            stories.forEach(story => {
+                const option = document.createElement('option');
+                option.value = story.path;
+                option.textContent = story.title;
+                if (story.id === currentStoryId) {
+                    option.selected = true;
+                }
+                dropdown.appendChild(option);
+            });
+        }
+
+        function setupPrevNextButtons() {
+            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            if (currentIndex > 0) {
+                prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].path;
+            } else {
+                prevBtn.disabled = true;
+            }
+
+            if (currentIndex < stories.length - 1) {
+                nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].path;
+            } else {
+                nextBtn.disabled = true;
+            }
+        }
+
+        function setupSearch() {
+            const searchBox = document.getElementById('searchBox');
+            const dropdown = document.getElementById('storyDropdown');
+
+            searchBox.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                filteredStories = stories.filter(story => 
+                    story.title.toLowerCase().includes(searchTerm)
+                );
+                updateDropdown();
+            });
+        }
+
+        function updateDropdown() {
+            const dropdown = document.getElementById('storyDropdown');
+            dropdown.innerHTML = '<option value="">Select Story...</option>';
+            
+            filteredStories.forEach(story => {
+                const option = document.createElement('option');
+                option.value = story.path;
+                option.textContent = story.title;
+                if (story.id === currentStoryId) {
+                    option.selected = true;
+                }
+                dropdown.appendChild(option);
+            });
+        }
+
+        // Event listeners
+        document.addEventListener('DOMContentLoaded', initializeNavigation);
+
+        document.getElementById('storyDropdown').addEventListener('change', function() {
+            if (this.value) {
+                window.location.href = this.value;
+            }
         });
     </script>
 </body>

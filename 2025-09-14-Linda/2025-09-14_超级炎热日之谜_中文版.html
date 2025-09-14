@@ -34,10 +34,130 @@
 
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 80px auto 0 auto;
             padding: 20px;
             background-color: var(--bg-100);
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .story-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-bottom: 2px solid var(--primary-300);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-center {
+            flex: 1;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .search-box {
+            flex: 1;
+            max-width: 200px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            font-size: 14px;
+        }
+
+        .search-box::placeholder {
+            color: var(--text-200);
+        }
+
+        .story-dropdown {
+            background: rgba(255,255,255,0.9);
+            color: var(--text-100);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            max-width: 150px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 10px;
+                gap: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-center {
+                max-width: 100%;
+            }
+
+            .search-box {
+                max-width: 150px;
+            }
+
+            .story-dropdown {
+                max-width: 120px;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .container {
+                margin-top: 120px;
+            }
         }
 
         h1 {
@@ -464,7 +584,24 @@
     </style>
 </head>
 <body>
-    <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="language-switch">English</a>
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../../index.html" class="nav-btn">🏠 首页</a>
+                <button id="prevBtn" class="nav-btn">← 上一个</button>
+                <button id="nextBtn" class="nav-btn">下一个 →</button>
+            </div>
+            <div class="nav-center">
+                <select id="storyDropdown" class="story-dropdown">
+                    <option value="">选择故事...</option>
+                </select>
+                <input type="text" id="searchBox" class="search-box" placeholder="搜索故事...">
+            </div>
+            <div class="nav-right">
+                <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="nav-btn">English</a>
+            </div>
+        </div>
+    </nav>
     
     <div class="container">
         <h1>超级炎热日之谜</h1>
@@ -788,6 +925,89 @@
                     }
                 });
             }
+        });
+
+        // Navigation functionality
+        const stories = [
+            { id: 'detective', title: '超级科学侦探故事', file: '2025-09-14_the-super-science-detective-story.html', titleZh: '超级科学侦探故事' },
+            { id: 'hot-days', title: '超级炎热日之谜', file: '2025-09-14_the-mystery-of-super-hot-days.html', titleZh: '超级炎热日之谜' },
+            { id: 'hot-days-zh', title: '超级炎热日之谜（中文版）', file: '2025-09-14_超级炎热日之谜_中文版.html', titleZh: '超级炎热日之谜（中文版）' }
+        ];
+
+        const currentStoryId = 'hot-days-zh';
+
+        function initializeNavigation() {
+            populateDropdown();
+            setupPrevNextButtons();
+            setupSearch();
+        }
+
+        function populateDropdown() {
+            const dropdown = document.getElementById('story-dropdown');
+            if (!dropdown) return;
+
+            dropdown.innerHTML = '<option value="">选择故事...</option>';
+            stories.forEach(story => {
+                const option = document.createElement('option');
+                option.value = story.file;
+                option.textContent = story.titleZh;
+                if (story.id === currentStoryId) {
+                    option.selected = true;
+                }
+                dropdown.appendChild(option);
+            });
+
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    window.location.href = this.value;
+                }
+            });
+        }
+
+        function setupPrevNextButtons() {
+            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
+            const prevBtn = document.getElementById('prev-story');
+            const nextBtn = document.getElementById('next-story');
+
+            if (prevBtn) {
+                if (currentIndex > 0) {
+                    prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].file;
+                    prevBtn.disabled = false;
+                } else {
+                    prevBtn.disabled = true;
+                }
+            }
+
+            if (nextBtn) {
+                if (currentIndex < stories.length - 1) {
+                    nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].file;
+                    nextBtn.disabled = false;
+                } else {
+                    nextBtn.disabled = true;
+                }
+            }
+        }
+
+        function setupSearch() {
+            const searchBox = document.getElementById('story-search');
+            if (!searchBox) return;
+
+            searchBox.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const dropdown = document.getElementById('story-dropdown');
+                const options = dropdown.querySelectorAll('option');
+
+                options.forEach(option => {
+                    if (option.value === '') return;
+                    const title = option.textContent.toLowerCase();
+                    option.style.display = title.includes(query) ? 'block' : 'none';
+                });
+            });
+        }
+
+        // Initialize navigation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
         });
     </script>
 </body>

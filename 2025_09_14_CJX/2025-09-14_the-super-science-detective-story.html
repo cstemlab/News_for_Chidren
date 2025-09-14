@@ -35,8 +35,122 @@
 
         .container {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 80px auto 0;
             padding: 20px;
+        }
+
+        /* Sticky Navigation Bar */
+        .story-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .story-dropdown {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-100);
+            cursor: pointer;
+            min-width: 150px;
+        }
+
+        .story-search {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-100);
+            width: 200px;
+        }
+
+        .story-search::placeholder {
+            color: var(--text-200);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 120px;
+                padding: 15px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .story-dropdown, .story-search {
+                font-size: 12px;
+                padding: 6px 10px;
+                min-width: 120px;
+            }
+
+            .story-search {
+                width: 150px;
+            }
         }
 
         .citation {
@@ -384,30 +498,138 @@
             }
         }
 
-        .language-switch {
+        /* Sticky Navigation Bar */
+        .story-nav {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-100);
+            border-bottom: 3px solid var(--primary-100);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
             background-color: var(--primary-100);
             color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-btn:disabled {
+            background-color: var(--accent-200);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .home-btn {
+            background-color: var(--primary-100);
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        .search-box {
+            padding: 8px 15px;
+            border: 2px solid var(--accent-200);
+            border-radius: 20px;
+            font-size: 14px;
+            width: 200px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box:focus {
+            border-color: var(--primary-100);
+        }
+
+        .story-dropdown {
+            padding: 8px 15px;
+            border: 2px solid var(--accent-200);
+            border-radius: 20px;
+            font-size: 14px;
+            background-color: white;
+            cursor: pointer;
+            outline: none;
+            min-width: 150px;
+        }
+
+        .story-dropdown:focus {
+            border-color: var(--primary-100);
+        }
+
+        .language-switch {
+            background-color: var(--primary-100);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
             transition: all 0.3s ease;
         }
 
         .language-switch:hover {
             background-color: var(--primary-200);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transform: translateY(-1px);
+        }
+
+        /* Add top margin to container to account for fixed nav */
+        .container {
+            margin-top: 80px;
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
+                margin-top: 120px;
             }
             h1 {
                 font-size: 2em;
@@ -422,18 +644,63 @@
                 font-size: 18px;
                 padding: 18px;
             }
-            .language-switch {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+            .nav-center {
+                order: 2;
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-left {
+                order: 1;
+            }
+            .nav-right {
+                order: 3;
+            }
+            .search-box {
+                width: 120px;
+                font-size: 12px;
+            }
+            .story-dropdown {
+                font-size: 12px;
+                min-width: 120px;
+            }
+            .nav-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            .home-btn {
                 font-size: 14px;
+                padding: 8px 16px;
             }
         }
     </style>
 </head>
 
 <body>
-    <a href="2025-09-14_the-super-science-detective-story_中文版.html" class="language-switch">中文版</a>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn home-btn">🏠 Home</a>
+            </div>
+            <div class="nav-center">
+                <button id="prev-story" class="nav-btn">← Previous</button>
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
+                </select>
+                <button id="next-story" class="nav-btn">Next →</button>
+            </div>
+            <div class="nav-right">
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+                <a href="2025-09-14_the-super-science-detective-story_中文版.html" class="nav-btn">中文版</a>
+            </div>
+        </div>
+    </nav>
+    
     <div class="container">
         <h1>The Super Science Detective Story</h1>
 
@@ -719,6 +986,89 @@
             });
         });
     </script>
-</body>
 
+        // Navigation functionality
+        const stories = [
+            { id: 'detective', title: 'The Super Science Detective Story', file: '2025-09-14_the-super-science-detective-story.html', titleZh: '超级科学侦探故事' },
+            { id: 'hot-days', title: 'The Mystery of the Super-Hot Days', file: '../2025-09-14-Linda/2025-09-14_the-mystery-of-super-hot-days.html', titleZh: '超级炎热日之谜' },
+            { id: 'hot-days-zh', title: 'The Mystery of the Super-Hot Days (Chinese)', file: '../2025-09-14-Linda/2025-09-14_超级炎热日之谜_中文版.html', titleZh: '超级炎热日之谜（中文版）' }
+        ];
+
+        const currentStoryId = 'detective';
+
+        function initializeNavigation() {
+            populateDropdown();
+            setupPrevNextButtons();
+            setupSearch();
+        }
+
+        function populateDropdown() {
+            const dropdown = document.getElementById('story-dropdown');
+            if (!dropdown) return;
+
+            dropdown.innerHTML = '<option value="">Select a Story...</option>';
+            stories.forEach(story => {
+                const option = document.createElement('option');
+                option.value = story.file;
+                option.textContent = story.title;
+                if (story.id === currentStoryId) {
+                    option.selected = true;
+                }
+                dropdown.appendChild(option);
+            });
+
+            dropdown.addEventListener('change', function() {
+                if (this.value) {
+                    window.location.href = this.value;
+                }
+            });
+        }
+
+        function setupPrevNextButtons() {
+            const currentIndex = stories.findIndex(story => story.id === currentStoryId);
+            const prevBtn = document.getElementById('prev-story');
+            const nextBtn = document.getElementById('next-story');
+
+            if (prevBtn) {
+                if (currentIndex > 0) {
+                    prevBtn.onclick = () => window.location.href = stories[currentIndex - 1].file;
+                    prevBtn.disabled = false;
+                } else {
+                    prevBtn.disabled = true;
+                }
+            }
+
+            if (nextBtn) {
+                if (currentIndex < stories.length - 1) {
+                    nextBtn.onclick = () => window.location.href = stories[currentIndex + 1].file;
+                    nextBtn.disabled = false;
+                } else {
+                    nextBtn.disabled = true;
+                }
+            }
+        }
+
+        function setupSearch() {
+            const searchBox = document.getElementById('story-search');
+            if (!searchBox) return;
+
+            searchBox.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
+                const dropdown = document.getElementById('story-dropdown');
+                const options = dropdown.querySelectorAll('option');
+
+                options.forEach(option => {
+                    if (option.value === '') return;
+                    const title = option.textContent.toLowerCase();
+                    option.style.display = title.includes(query) ? 'block' : 'none';
+                });
+            });
+        }
+
+        // Initialize navigation when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeNavigation();
+        });
+    </script>
+</body>
 </html>
