@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微小飞行捣蛋鬼的惊人冒险</title>
+    <style>
+        :root {
+            --primary-100: #4CAF50;    /* Green theme for nature/mosquitoes */
+            --primary-200: #66BB6A;    /* Light green */
+            --primary-300: #A5D6A7;    /* Very light green */
+            --accent-100: #F5F5F5;     /* Light gray */
+            --accent-200: #929292;     /* Medium gray */
+            --text-100: #1d1f21;       /* Dark text */
+            --text-200: #444648;       /* Medium text */
+            --bg-100: #ffffff;         /* White background */
+            --bg-200: #f5f5f5;         /* Light background */
+            --bg-300: #cccccc;         /* Gray background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial Unicode MS', sans-serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-100);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-300);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--primary-200);
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        .citation {
+            background-color: var(--accent-100);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-100);
+            font-size: 0.9em;
+            color: var(--text-200);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fun-facts li {
+            background-color: var(--bg-100);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-100);
+            position: relative;
+        }
+
+        .fun-facts li:before {
+            content: "🦟";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background-color: var(--primary-100);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-100);
+            color: var(--bg-100);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do h2 {
+            background: none;
+            border: none;
+            color: var(--bg-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .what-you-can-do li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--bg-100);
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-200);
+            border: 2px solid var(--accent-200);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial Unicode MS', sans-serif;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            color: #856404;
+            display: none;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -10px;
+            animation-fill-mode: forwards;
+        }
+
+        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
+        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
+        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
+        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
+        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
+        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="2025-09-13_the-amazing-adventure-of-tiny-flying-troublemakers.html" class="language-switch">English</a>
+    
+    <div class="container">
+        <h1>微小飞行捣蛋鬼的惊人冒险</h1>
+
+        <div class="citation">
+            <strong>引用文献：</strong> 蚊媒病毒在变暖的欧洲激增。《科学》杂志，2025年。
+        </div>
+
+        <div class="chapter">
+            <h2>第一章：认识欧洲的新微小旅行者</h2>
+            <img src="chapter 1.png" alt="欧洲的亚洲虎蚊">
+            <p>想象一下，有些微小的生物小到你几乎看不见，但却强大到能改变数百万人的生活！这些不是漫画书里的超级英雄——它们是蚊子，现在正在欧洲进行一场相当精彩的冒险。把蚊子想象成微小的飞行快递车，但它们不是送披萨或包裹，而是意外地携带着叫做病毒的隐形乘客。</p>
+            
+            <p>现在欧洲正在发生一些非常有趣的事情！这是蚊媒疾病破纪录的一个季节，健康专家警告说，气候变暖将带来更多这样的情况。把欧洲想象成一座每年都在变暖的巨大房子，这让我们的微小飞行访客感到更加舒适！</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第二章：条纹入侵者</h2>
+            <img src="chapter 2.png" alt="亚洲虎蚊条纹特写">
+            <p>这些蚊子旅行者中最著名的叫做"亚洲虎蚊"——是的，它有像老虎一样的条纹！这些条纹蚊子原本生活在遥远的亚洲，但它们一直在探索欧洲各地的新社区，就像你的家人可能搬到新城镇一样。</p>
+            
+            <p>这些蚊子携带着一些不受欢迎的客人——有着奇怪名字的病毒，比如"基孔肯雅病毒"和"西尼罗河病毒"。当蚊子叮咬感染了这些病毒的人时，就像蚊子意外地搭载了一个搭便车的人。然后，当同一只蚊子叮咬其他人时，它可能会放下那个搭便车的人，让新的人生病。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第三章：破纪录的一年</h2>
+            <img src="chapter 3.png" alt="显示欧洲蚊媒疾病病例的地图">
+            <p>今年对这些微小的快递服务来说特别忙碌！法国报告了111例基孔肯雅病毒病病例，意大利报告了7例。就像大自然意外地为蚊子创造了完美的游乐场，有更温暖的气温和更多的洪水。</p>
+            
+            <p>科学家发现，在极端洪水期间，蚊子数量可能会膨胀到平常估计的十倍。想象一下，如果你的社区突然有十倍多的快递车——这就是欧洲蚊子正在发生的情况！</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第四章：气候联系</h2>
+            <img src="chapter 4.png" alt="气候变化对蚊子栖息地的影响">
+            <p>但为什么现在有这么多蚊子呢？答案在于我们不断变化的气候。随着欧洲变得更温暖，它变得更像这些蚊子最初来自的热带家园。更长的夏季、更温和的冬季和降雨模式的变化正在创造完美的繁殖条件。</p>
+            
+            <p>这就像调高房子里的恒温器——突然间，以前无法生存的生物发现这里足够舒适，可以搬进来并建立家庭。科学家预测，如果全球变暖继续以极端水平发展，到2080年，近十亿人可能面临首次接触蚊媒疾病。</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>年轻科学家的趣味事实</h2>
+            <ul>
+                <li>亚洲虎蚊因其黑白条纹图案而得名——就像老虎的条纹一样！</li>
+                <li>在极端洪水期间，蚊子数量可能会膨胀到平常估计的十倍——就像大自然意外地创造了完美的蚊子游乐场！</li>
+                <li>在欧洲，登革热、寨卡病毒和基孔肯雅病毒病例增加了700%——这就像从1个蚊子问题变成7个蚊子问题！</li>
+                <li>如果全球变暖继续以极端水平发展，到2080年，近十亿人可能面临首次接触蚊媒疾病</li>
+                <li>亚洲虎蚊可以在小到瓶盖装满水的容器中产卵！</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>你能做什么</h2>
+            <ul>
+                <li>清除家周围的积水——蚊子在水坑、旧花盆或任何有水的容器中产卵</li>
+                <li>外出时使用驱蚊剂，特别是在黎明和黄昏蚊子最活跃的时候</li>
+                <li>在蚊子多的地区穿长袖和长裤，保持窗户关闭或确保有纱窗</li>
+                <li>了解气候变化并支持减少温室气体排放的努力</li>
+                <li>通过报告你所在地区的异常蚊子活动来帮助科学家</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>让我们看看我们发现了什么！</h2>
+            <div class="score-board" id="score-board">
+                <h3>你的得分：<span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>问题1：亚洲虎蚊的名字来源于什么？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) 它像老虎一样的黑白条纹图案</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) 它像老虎一样大</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) 它生活在与老虎相同的地方</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) 它像老虎一样咆哮</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">想想老虎和这些蚊子有什么共同点是你能看到的！</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>问题2：为什么蚊媒疾病在欧洲增加？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) 更多人在旅行</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) 气候变化使欧洲变得更温暖，更适合蚊子生存</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) 有更多医院报告疾病</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) 人们变得更虚弱</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">想想蚊子需要什么来生存和繁殖——温度是关键！</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>问题3：登革热、寨卡病毒和基孔肯雅病毒在欧洲增加了多少？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) 62%</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) 200%</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) 700%</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) 50%</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">这是一个非常大的数字——比疟疾增加的62%大得多！</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 恭喜！你答对了所有3个问题！你是真正的科学侦探！🎉
+            </div>
+        </div>
+
+        <div class="big-picture">
+            <h2>大局观</h2>
+            <p>这个故事教会了我们关于世界的重要事情：一切都是相互联系的！当气候变化时，它影响微小的蚊子，蚊子影响它们携带的病毒，病毒影响人们的健康。这就像一个巨大的拼图，每一块都很重要。</p>
+            <p>但最重要的部分是：科学家、医生和像你父母这样的人都在共同努力解决这个拼图，保持每个人的健康。欧洲蚊子的故事并不可怕——它实际上是地球上生命如何不断变化和适应的迷人例子，以及人类如何使用科学和团队合作来面对新挑战。</p>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>科学简报：变暖欧洲的蚊媒疾病激增</h2>
+            <h3>关键发现</h3>
+            <p>欧洲在2025年经历了蚊媒疾病的破纪录季节，气候变化为像亚洲虎蚊这样的携带疾病的蚊子创造了有利条件，使它们能够在整个大陆繁衍并扩大地理范围。</p>
+            
+            <h3>核心发现</h3>
+            <p>亚洲虎蚊（埃及伊蚊白纹亚种）在过去10年中在欧洲的传播导致了输入性病毒病例的本地传播。法国报告了111例基孔肯雅病毒病病例，意大利报告了7例。包括气温上升、夏季延长、冬季温和以及降雨模式变化在内的气候因素正在为蚊子创造最佳繁殖条件。</p>
+            
+            <h3>意义</h3>
+            <p>这代表了欧洲的一个新阶段，更长时间、更广泛和更强烈的蚊媒疾病传播正在成为新常态。早期预警系统显示登革热、寨卡病毒和基孔肯雅病毒病例增加了700%，而疟疾病例增加了62%。</p>
+            
+            <h3>教育价值</h3>
+            <p>这个故事展示了气候、生态和人类健康的相互联系，向学生展示环境变化如何对疾病模式和公共卫生应对产生连锁反应。</p>
+        </div>
+
+        <div class="references">
+            <h2>了解更多</h2>
+            <ol>
+                <li><a href="https://www.science.org/content/article/mosquito-borne-viruses-surge-warming-europe">蚊媒病毒在变暖的欧洲激增 - 《科学》杂志</a></li>
+                <li><a href="https://www.ecdc.europa.eu/en/news-events/world-mosquito-day-2025-europe-sets-new-records-mosquito-borne-diseases-ecdc-supporting">2025年世界蚊子日：欧洲创下蚊媒疾病新纪录 - ECDC</a></li>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/vector-borne-diseases">媒介传播疾病 - 世界卫生组织</a></li>
+                <li><a href="https://www.cdc.gov/mosquitoes/about/life-cycles/index.html">蚊子生命周期 - CDC</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' };
+        const praises = {
+            1: "太棒了！你记住了亚洲虎蚊因其独特的黑白条纹而得名！",
+            2: "完美！你理解了气候变化正在使欧洲变得更温暖，更适合蚊子生存！",
+            3: "惊人！你答对了这个大数字——700%是蚊媒疾病的巨大增长！"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+            } else {
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "不太对！再试一次！";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+                
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+                clickedButton.disabled = true;
+                
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#4CAF50', '#66BB6A', '#A5D6A7', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB'];
+
+            for (let wave = 0; wave < 4; wave++) {
+                setTimeout(() => {
+                    for (let i = 0; i < 120; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+
+                            if (rand < 0.05) {
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.1) {
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.2) {
+                                confetti.className = 'confetti';
+                            } else if (rand < 0.4) {
+                                confetti.className = 'confetti confetti-star';
+                            } else if (rand < 0.6) {
+                                confetti.className = 'confetti confetti-box';
+                            } else if (rand < 0.8) {
+                                confetti.className = 'confetti confetti-ball';
+                            } else {
+                                confetti.className = 'confetti confetti-flake';
+                            }
+
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 9000);
+                        }, i * 12);
+                    }
+                }, wave * 400);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+
+            const scoreBoard = document.getElementById('score-board');
+            const quizSection = document.querySelector('.quiz-section');
+            
+            if (scoreBoard && quizSection) {
+                window.addEventListener('scroll', function() {
+                    const quizSectionRect = quizSection.getBoundingClientRect();
+                    
+                    if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
+                        scoreBoard.classList.add('sticky');
+                    } else {
+                        scoreBoard.classList.remove('sticky');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

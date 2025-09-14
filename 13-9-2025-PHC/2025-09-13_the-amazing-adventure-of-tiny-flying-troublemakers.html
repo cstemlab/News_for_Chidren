@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Amazing Adventure of the Tiny Flying Troublemakers</title>
+    <style>
+        :root {
+            --primary-100: #4CAF50;    /* Green theme for nature/mosquitoes */
+            --primary-200: #66BB6A;    /* Light green */
+            --primary-300: #A5D6A7;    /* Very light green */
+            --accent-100: #F5F5F5;     /* Light gray */
+            --accent-200: #929292;     /* Medium gray */
+            --text-100: #1d1f21;       /* Dark text */
+            --text-200: #444648;       /* Medium text */
+            --bg-100: #ffffff;         /* White background */
+            --bg-200: #f5f5f5;         /* Light background */
+            --bg-300: #cccccc;         /* Gray background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-100);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-300);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--primary-200);
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        .citation {
+            background-color: var(--accent-100);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-100);
+            font-size: 0.9em;
+            color: var(--text-200);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fun-facts li {
+            background-color: var(--bg-100);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-100);
+            position: relative;
+        }
+
+        .fun-facts li:before {
+            content: "🦟";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background-color: var(--primary-100);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-100);
+            color: var(--bg-100);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do h2 {
+            background: none;
+            border: none;
+            color: var(--bg-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .what-you-can-do li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--bg-100);
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-200);
+            border: 2px solid var(--accent-200);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            color: #856404;
+            display: none;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -10px;
+            animation-fill-mode: forwards;
+        }
+
+        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
+        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
+        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
+        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
+        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
+        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html" class="language-switch">中文版</a>
+    
+    <div class="container">
+        <h1>The Amazing Adventure of the Tiny Flying Troublemakers</h1>
+
+        <div class="citation">
+            <strong>Citation:</strong> Mosquito-borne viruses surge in a warming Europe. Science, 2025.
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 1: Meet Europe's New Tiny Travelers</h2>
+            <img src="chapter 1.png" alt="Asian tiger mosquitoes in Europe">
+            <p>Imagine tiny creatures so small you can barely see them, but so powerful they can change the lives of millions of people! These aren't superheroes from comic books - they're mosquitoes, and they're having quite an adventure across Europe right now. Think of mosquitoes like tiny flying delivery trucks, but instead of delivering pizza or packages, some of them accidentally carry invisible passengers called viruses.</p>
+            
+            <p>Something really interesting is happening in Europe right now! It's a record-breaking season for mosquito-borne diseases, and health experts are warning that a warming climate will bring more like it. Picture Europe like a giant house that's getting warmer every year, making it much more comfortable for our tiny flying visitors!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: The Striped Invaders</h2>
+            <img src="chapter 2.png" alt="Close-up of Asian tiger mosquito stripes">
+            <p>The most famous of these mosquito travelers is called the "Asian tiger mosquito" - and yes, it has stripes just like a tiger! These striped mosquitoes originally lived far away in Asia, but they've been exploring new neighborhoods across Europe, kind of like how your family might move to a new town.</p>
+            
+            <p>These mosquitoes carry some uninvited guests - viruses with funny-sounding names like "chikungunya" and "West Nile virus." When a mosquito bites someone who has one of these viruses, it's like the mosquito accidentally picks up a hitchhiker. Then, when that same mosquito bites someone else, it might drop off that hitchhiker, making the new person sick.</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: A Record-Breaking Year</h2>
+            <img src="chapter 3.png" alt="Map showing mosquito-borne disease cases in Europe">
+            <p>This year has been particularly busy for these tiny delivery services! France has reported 111 cases of chikungunya virus disease and Italy has reported seven cases. It's like nature accidentally created the perfect mosquito playground with warmer temperatures and more flooding.</p>
+            
+            <p>Scientists have discovered that mosquito numbers can swell up to ten times the usual estimates during extreme flooding. Imagine if your neighborhood suddenly had ten times more delivery trucks - that's what's happening with mosquitoes in Europe!</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 4: The Climate Connection</h2>
+            <img src="chapter 4.png" alt="Climate change effects on mosquito habitats">
+            <p>But why are there so many more mosquitoes now? The answer lies in our changing climate. As Europe gets warmer, it becomes more like the tropical homes these mosquitoes originally came from. Longer summers, milder winters, and changes in rainfall patterns are creating perfect breeding conditions.</p>
+            
+            <p>It's like turning up the thermostat in a house - suddenly, creatures that couldn't survive before find it comfortable enough to move in and start families. Scientists predict that nearly one billion people could face their first exposure to mosquito-borne diseases by 2080 if global warming continues at extreme levels.</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>Asian tiger mosquitoes got their name because of their black and white striped pattern - just like a tiger's stripes!</li>
+                <li>Mosquito numbers can swell up to ten times the usual estimates during extreme flooding - it's like nature accidentally created the perfect mosquito playground!</li>
+                <li>In Europe, dengue, Zika and chikungunya cases have increased by 700% - that's like going from having 1 mosquito problem to having 7 mosquito problems!</li>
+                <li>Nearly one billion people could face their first exposure to mosquito-borne diseases by 2080 if global warming continues at extreme levels</li>
+                <li>The Asian tiger mosquito can lay eggs in containers as small as a bottle cap filled with water!</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>Remove standing water around your home - mosquitoes lay their eggs in puddles, old flower pots, or any container with water</li>
+                <li>Use mosquito repellent when you're outside, especially during dawn and dusk when mosquitoes are most active</li>
+                <li>Wear long sleeves and pants when you're in areas with lots of mosquitoes and keep your windows closed or make sure they have screens</li>
+                <li>Learn about climate change and support efforts to reduce greenhouse gas emissions</li>
+                <li>Help scientists by reporting unusual mosquito activity in your area</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board" id="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: What gives the Asian tiger mosquito its name?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) Its black and white striped pattern like a tiger</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) It's as big as a tiger</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) It lives in the same places as tigers</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) It roars like a tiger</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">Think about what tigers and these mosquitoes have in common that you can see!</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: Why are mosquito-borne diseases increasing in Europe?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) More people are traveling</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) Climate change is making Europe warmer and more suitable for mosquitoes</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) There are more hospitals to report diseases</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) People are getting weaker</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">Think about what mosquitoes need to survive and multiply - temperature is key!</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: How much have dengue, Zika and chikungunya cases increased in Europe?</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) 62%</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) 200%</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) 700%</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) 50%</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">This is a really big number - much bigger than the malaria increase of 62%!</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
+            </div>
+        </div>
+
+        <div class="big-picture">
+            <h2>The Big Picture</h2>
+            <p>This story teaches us something important about our world: everything is connected! When the climate changes, it affects tiny mosquitoes, which affects the viruses they carry, which affects people's health. It's like a giant puzzle where every piece matters.</p>
+            <p>But here's the most important part: scientists, doctors, and people like your parents are all working together to solve this puzzle and keep everyone healthy. The story of mosquitoes in Europe isn't scary - it's actually a fascinating example of how life on Earth is always changing and adapting, and how humans use science and teamwork to face new challenges.</p>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>Scientific Debrief: Mosquito-Borne Disease Surge in Warming Europe</h2>
+            <h3>Key Discovery</h3>
+            <p>Europe is experiencing a record-breaking season for mosquito-borne diseases in 2025, with climate change creating favorable conditions for disease-carrying mosquitoes like the Asian tiger mosquito to thrive and expand their geographical range across the continent.</p>
+            
+            <h3>Core Findings</h3>
+            <p>The spread of the Asian tiger mosquito (Aedes albopictus) across Europe in the past 10 years has led to local transmission of imported virus cases. France has reported 111 cases of chikungunya virus disease and Italy seven cases. Climate factors including rising temperatures, longer summer seasons, milder winters, and changes in rainfall patterns are creating optimal breeding conditions for mosquitoes.</p>
+            
+            <h3>Significance</h3>
+            <p>This represents a new phase for Europe where longer, more widespread and intense transmission of mosquito-borne diseases is becoming the new normal. The Early Warning System shows dengue, Zika and chikungunya cases increasing by 700%, while malaria cases have increased by 62%.</p>
+            
+            <h3>Educational Value</h3>
+            <p>This story demonstrates the interconnectedness of climate, ecology, and human health, showing students how environmental changes can have cascading effects on disease patterns and public health responses.</p>
+        </div>
+
+        <div class="references">
+            <h2>Learn More</h2>
+            <ol>
+                <li><a href="https://www.science.org/content/article/mosquito-borne-viruses-surge-warming-europe">Mosquito-borne viruses surge in a warming Europe - Science Magazine</a></li>
+                <li><a href="https://www.ecdc.europa.eu/en/news-events/world-mosquito-day-2025-europe-sets-new-records-mosquito-borne-diseases-ecdc-supporting">World Mosquito Day 2025: Europe sets new records for mosquito-borne diseases - ECDC</a></li>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/vector-borne-diseases">Vector-borne diseases - World Health Organization</a></li>
+                <li><a href="https://www.cdc.gov/mosquitoes/about/life-cycles/index.html">Mosquito Life Cycles - CDC</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' };
+        const praises = {
+            1: "Excellent! You remembered that Asian tiger mosquitoes get their name from their distinctive black and white stripes!",
+            2: "Perfect! You understand that climate change is making Europe warmer and more suitable for mosquitoes!",
+            3: "Amazing! You got the big number right - 700% is a huge increase in mosquito-borne diseases!"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+            } else {
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "Not quite right! Try again!";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+                
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+                clickedButton.disabled = true;
+                
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#4CAF50', '#66BB6A', '#A5D6A7', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB'];
+
+            for (let wave = 0; wave < 4; wave++) {
+                setTimeout(() => {
+                    for (let i = 0; i < 120; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+
+                            if (rand < 0.05) {
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.1) {
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.2) {
+                                confetti.className = 'confetti';
+                            } else if (rand < 0.4) {
+                                confetti.className = 'confetti confetti-star';
+                            } else if (rand < 0.6) {
+                                confetti.className = 'confetti confetti-box';
+                            } else if (rand < 0.8) {
+                                confetti.className = 'confetti confetti-ball';
+                            } else {
+                                confetti.className = 'confetti confetti-flake';
+                            }
+
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 9000);
+                        }, i * 12);
+                    }
+                }, wave * 400);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+
+            const scoreBoard = document.getElementById('score-board');
+            const quizSection = document.querySelector('.quiz-section');
+            
+            if (scoreBoard && quizSection) {
+                window.addEventListener('scroll', function() {
+                    const quizSectionRect = quizSection.getBoundingClientRect();
+                    
+                    if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
+                        scoreBoard.classList.add('sticky');
+                    } else {
+                        scoreBoard.classList.remove('sticky');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
