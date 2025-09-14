@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>超级炎热日之谜：一场科学侦探故事</title>
+    <style>
+        :root {
+            --primary-100: #e74c3c;    /* Red theme for heat/climate */
+            --primary-200: #ff6b5b;    /* Light red */
+            --primary-300: #ffb3b3;    /* Very light red */
+            --accent-100: #F5F5F5;     /* Light gray */
+            --accent-200: #929292;     /* Medium gray */
+            --text-100: #1d1f21;       /* Dark text */
+            --text-200: #444648;       /* Medium text */
+            --bg-100: #ffffff;         /* White background */
+            --bg-200: #f5f5f5;         /* Light background */
+            --bg-300: #cccccc;         /* Gray background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial Unicode MS', sans-serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-100);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-300);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--primary-200);
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        .citation {
+            background-color: var(--accent-100);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-100);
+            font-size: 0.9em;
+            color: var(--text-200);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fun-facts li {
+            background-color: var(--bg-100);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-100);
+            position: relative;
+        }
+
+        .fun-facts li:before {
+            content: "🔥";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background-color: var(--primary-100);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-100);
+            color: var(--bg-100);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do h2 {
+            background: none;
+            border: none;
+            color: var(--bg-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .what-you-can-do li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--bg-100);
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-200);
+            border: 2px solid var(--accent-200);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+            font-family: 'Microsoft YaHei', 'SimHei', 'Arial Unicode MS', sans-serif;
+            text-align: left;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            color: #856404;
+            display: none;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -10px;
+            animation-fill-mode: forwards;
+        }
+
+        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
+        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
+        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
+        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
+        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
+        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="language-switch">English</a>
+    
+    <div class="container">
+        <h1>超级炎热日之谜</h1>
+
+        <div class="citation">
+            <strong>引用文献：</strong> Thompson, R., et al. (2025). 极端高温事件与气候变化模式中的城市热岛效应. 今日气候科学, 12(3), 45-67.
+        </div>
+
+        <div class="chapter">
+            <h2>第一章：侦探玛雅的炎热案件</h2>
+            <img src="chapter 1.png" alt="侦探玛雅调查炎热天气">
+            <p>侦探玛雅从空调车里走出来时，擦了擦额头上的汗水。现在才上午9点，但气温已经攀升到接近40°C（104°F）——而这本应该是春天！</p>
+            <p>"这是本月第三个破纪录的炎热日子，"她嘟囔着，拿出她的特殊气候调查工具包。玛雅不是普通的侦探——她是一名气候科学侦探，她有一个非常重要的谜团要解决：为什么地球上的一些地方会经历如此极端的高温？</p>
+            <p>当她环顾城市时，玛雅注意到了一些有趣的事情。有着混凝土建筑和道路的市中心似乎比有树木的公园更热。"嗯，"她想，"这可能是一个重要的线索！"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第二章：城市热岛线索</h2>
+            <img src="chapter 2.png" alt="城市与公园温度对比">
+            <p>玛雅拿出她的特殊红外线温度计——一种可以通过检测我们眼睛看不见的热波来远距离测量温度的工具。她把它对准混凝土人行道：45°C！然后她把它对准附近公园的草地：只有28°C！</p>
+            <p>"啊哈！"玛雅惊呼道。"混凝土和沥青就像巨大的热量吸收器！"她记得学过，深色表面比浅色或天然表面吸收更多来自太阳的热量。这就像在阳光明媚的日子里穿黑色T恤和白色T恤的区别。</p>
+            <p>玛雅做出了她的第一个重要发现：城市创造了自己的"热岛"——比周围乡村温度高得多的区域。但这只是谜题的一部分。她需要调查更大的图景。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第三章：温室气体调查</h2>
+            <img src="chapter 3.png" alt="温室效应图解">
+            <p>回到她的气候实验室，玛雅研究了来自世界各地的卫星数据。证据很清楚：全球气温一直在稳步上升，极端高温事件变得更加频繁和强烈。</p>
+            <p>"这就像地球穿了一条额外的毯子，"玛雅向她的助手解释。她向他展示了大气中的某些气体——称为温室气体——如何像温室的玻璃墙为植物保温一样，捕获来自太阳的热量。</p>
+            <p>主要的罪魁祸首是燃烧化石燃料产生的二氧化碳、农业产生的甲烷，以及人类活动产生的其他气体。这些看不见的气体在大气中积累，使地球的自然温室效应变得越来越强。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第四章：洋流连接</h2>
+            <img src="chapter 4.png" alt="洋流和天气模式">
+            <p>玛雅的调查引导她研究洋流——流经海洋的巨大水流河流。这些洋流通常帮助在地球周围分配热量，使一些地区保持凉爽，其他地区保持温暖。</p>
+            <p>"但是看这个！"玛雅指着她的电脑屏幕显示的海洋温度变化。"由于气候变化，洋流正在发生变化。一些过去被冷海水冷却的地区现在得到的是温暖的海水！"</p>
+            <p>这就像改变巨大建筑物中空调的方向——突然一些房间变得更热，而其他房间保持不变。这解释了为什么一些地方比其他地方经历更极端的高温。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第五章：急流之谜</h2>
+            <img src="chapter 5.png" alt="急流模式">
+            <p>玛雅在大气高层发现了另一个重要线索：急流。这条快速移动的空气河流通常快速地将天气系统移动到全球各地。但气候变化正在使急流摆动和减速！</p>
+            <p>"当急流被卡住时，"玛雅意识到，"天气模式也被卡住了！"这意味着高压系统——带来晴朗天空和炎热天气——可以在同一地区停留数周，而不是几天后就移动。</p>
+            <p>这就像天空中的交通堵塞，炎热的天气系统无法沿着它们的正常路径移动。这创造了"热穹顶"——热空气被困住并不断变得越来越热的区域。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第六章：反馈循环发现</h2>
+            <img src="chapter 6.png" alt="气候反馈循环">
+            <p>随着玛雅深入挖掘，她发现了使谜团更加复杂的东西：反馈循环。这些就像多米诺骨牌的连锁反应，一个变化引起另一个变化，又引起另一个变化！</p>
+            <p>例如，随着冰因变暖而融化，它暴露了下面较暗的海水。深色水比白色冰吸收更多热量，导致更多变暖和更多冰融化。玛雅意识到这就是为什么北极变暖速度是地球其他地方的两倍！</p>
+            <p>"这就像雪球滚下山，"玛雅解释道，"除了在这种情况下，它是一个热球滚上山，随着它的前进变得更大更强大！"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第七章：解决超级炎热之谜</h2>
+            <img src="chapter 7.png" alt="侦探玛雅展示她的发现">
+            <p>侦探玛雅收集了所有证据，准备解决这个案件。超级炎热日子的谜团不是由一件事引起的——它是几个因素像完美风暴一样共同作用的结果。</p>
+            <p>温室气体引起的气候变化是主要驱动因素，使整个地球平均变暖。城市热岛使城市更加炎热。洋流和急流的变化导致热量在某些地区被困更长时间。反馈循环使一切发生得更快更强烈。</p>
+            <p>"案件解决了！"玛雅宣布。"但现在我们有一个更重要的工作——我们需要共同努力减少温室气体排放，适应已经发生的变化。我们防止的每一度变暖都将有助于保护人们免受危险的极端高温！"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第八章：解决方案的希望</h2>
+            <img src="chapter 8.png" alt="清洁能源和绿色解决方案">
+            <p>玛雅的调查不仅仅是识别问题。像任何好侦探一样，她也寻找解决方案。在世界各地，她发现科学家、工程师和社区正在研究惊人的创新来对抗气候变化和减少极端高温。</p>
+            <p>她发现城市将屋顶涂成白色以反射热量，社区种植更多树木来创造阴凉和降温，国家建设由风能和太阳能而不是化石燃料驱动的清洁能源系统。甚至还有可以直接从空气中捕获二氧化碳的新技术！</p>
+            <p>"每个解决方案都像反向的证据，"玛雅微笑着说。"我们不是收集关于问题的线索，而是收集解决问题的方案。最好的部分是，每个人都可以成为气候侦探并帮助解决这个案件！"</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第九章：最终报告</h2>
+            <img src="chapter 9.png" alt="玛雅写她的报告">
+            <p>当侦探玛雅写她的最终报告时，她反思了她学到的一切。超级炎热日子的谜团很复杂，但理解它是解决它的第一步。气候变化是真实的，它正在发生，它正在影响世界各地的人们。</p>
+            <p>但玛雅感到充满希望。她看到了科学如何帮助我们理解问题，技术如何提供解决方案，人们共同努力如何产生真正的差异。超级炎热日子的案件教会了她，即使是最大的谜团也可以通过好奇心、仔细调查和团队合作来解决。</p>
+            <p>"案件结案，"玛雅在她的报告底部写道。"但工作还在继续。每天，世界各地的气候侦探都在收集新证据并找到新解决方案。未来在我们手中，我们可以一起保持我们的星球凉爽！"</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>年轻科学家的趣味事实</h2>
+            <ul>
+                <li>地球上可靠记录的最高温度是在加利福尼亚死亡谷的54.4°C（129.9°F）！</li>
+                <li>由于城市热岛效应，城市可以比周围地区温暖1-7°C</li>
+                <li>北极变暖速度是全球平均速度的两倍——科学家称之为"北极放大"</li>
+                <li>热浪杀死的人比飓风、龙卷风、洪水和闪电加起来还多</li>
+                <li>种植一棵树可以像10台空调运行20小时一样冷却空气！</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>你能做什么</h2>
+            <ul>
+                <li>成为气候侦探：保持天气日记，跟踪你所在地区的温度模式</li>
+                <li>创造凉爽空间：在你的院子或社区种植树木或创造阴凉</li>
+                <li>减少能源使用：不使用时关闭灯光和电子设备以减少温室气体排放</li>
+                <li>传播意识：与朋友和家人分享你学到的气候科学知识</li>
+                <li>支持清洁能源：鼓励你的家人考虑太阳能电池板或选择可再生能源选项</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>让我们看看我们发现了什么！</h2>
+            <div class="score-board" id="score-board">
+                <h3>你的得分：<span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>问题1：什么是"城市热岛"？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) 城市中由于混凝土和沥青吸收热量而比周围乡村更温暖的区域</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) 位于城市附近的热带岛屿</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) 在城市地区发现的温泉</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) 城市中使用的一种空调系统</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">记住玛雅如何发现混凝土是45°C而草地只有28°C？深色表面吸收更多热量！</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>问题2：当急流减速或"卡住"时会发生什么？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) 它会在各地造成更多降雨</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) 天气模式也会卡住，创造可以持续数周的热穹顶</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) 它使风吹得更快</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) 它对天气没有影响</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">想想玛雅的交通堵塞类比——当交通堵塞时，汽车无法到达目的地！</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>问题3：气候科学中的"反馈循环"是什么？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) 一种天气测量工具</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) 风在暴风雨中发出的声音</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) 一个连锁反应，其中一个变化引起另一个变化，又引起更多变化</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) 飞机绕暴风雨飞行的圆形路径</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">记住玛雅关于冰融化暴露深色水的例子，深色水吸收更多热量并融化更多冰！</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 恭喜！你答对了所有3个问题！你是真正的气候侦探！🎉
+            </div>
+        </div>
+
+        <div class="big-picture">
+            <h2>大局观</h2>
+            <p>侦探玛雅的调查向我们展示了气候科学就像解决一个复杂的谜团，有许多相互关联的线索。理解极端高温事件需要观察整个地球系统——从大气中的温室气体到洋流，从城市设计到自然反馈循环。</p>
+            <p>玛雅案件中最重要的教训是，科学为我们提供了理解不断变化的世界和找到解决方案的工具。每个气候科学家都像侦探一样，收集证据并努力解决我们时代最大的挑战。</p>
+            <p>就像玛雅发现的那样，每个人都可以成为解决方案的一部分。无论是减少能源使用、支持清洁技术，还是简单地学习更多气候科学知识，我们都在保持地球温度平衡方面发挥作用。</p>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>科学简报：理解极端高温事件</h2>
+            <h3>关键发现</h3>
+            <p>最近的研究表明，由于气候变化，极端高温事件变得更加频繁、更加强烈和持续时间更长。全球气温上升、城市热岛效应和大气环流模式变化的结合为人类健康和生态系统创造了复合风险。</p>
+            
+            <h3>核心发现</h3>
+            <p><strong>归因科学：</strong> 科学家现在可以量化气候变化如何增加特定高温事件的可能性和强度</p>
+            <p><strong>城市放大：</strong> 由于城市热岛效应，城市比农村地区经历1-7°C的额外变暖</p>
+            <p><strong>大气动力学：</strong> 急流模式和阻塞事件的变化导致持续的热穹顶</p>
+            
+            <h3>意义</h3>
+            <p>理解极端高温对公共卫生准备、城市规划和气候适应策略至关重要。与热相关的死亡率经常被低估，但代表了气候变化最重要的直接健康影响之一。当社区准备好时，早期预警系统和热行动计划可以拯救生命。</p>
+            
+            <h3>教育价值</h3>
+            <p>这个故事向学生介绍了气候科学中的系统思维，展示了多个因素如何相互作用创造极端天气事件。它强调了科学素养在理解和应对气候变化方面的重要性。</p>
+        </div>
+
+        <div class="references">
+            <h2>了解更多</h2>
+            <ol>
+                <li><a href="https://www.ipcc.ch/report/ar6/wg1/">IPCC第六次评估报告：气候变化的物理科学基础</a></li>
+                <li><a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health">世界卫生组织：气候变化、高温与健康</a></li>
+                <li><a href="https://www.epa.gov/heatislands">美国环保署：热岛效应</a></li>
+                <li><a href="https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts">NOAA：气候变化影响</a></li>
+                <li><a href="https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-climate-change-k4.html">NASA儿童：什么是气候变化</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' };
+        const praises = {
+            1: "太棒了！你记住了城市热岛是由于混凝土和沥青吸收热量造成的！",
+            2: "完美！你理解了当急流卡住时，天气模式也会卡住，创造热穹顶！",
+            3: "惊人！你明白了反馈循环是一个连锁反应，一个变化引起更多变化！"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+            } else {
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "不太对！再试一次！";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+                
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+                clickedButton.disabled = true;
+                
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#e74c3c', '#ff6b5b', '#ffb3b3', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1', '#FF69B4', '#32CD32', '#FF4500', '#9370DB'];
+
+            for (let wave = 0; wave < 4; wave++) {
+                setTimeout(() => {
+                    for (let i = 0; i < 120; i++) {
+                        setTimeout(() => {
+                            const confetti = document.createElement('div');
+                            const rand = Math.random();
+
+                            if (rand < 0.05) {
+                                confetti.className = 'confetti confetti-ribbon';
+                            } else if (rand < 0.1) {
+                                confetti.className = 'confetti confetti-large';
+                            } else if (rand < 0.2) {
+                                confetti.className = 'confetti';
+                            } else if (rand < 0.4) {
+                                confetti.className = 'confetti confetti-star';
+                            } else if (rand < 0.6) {
+                                confetti.className = 'confetti confetti-box';
+                            } else if (rand < 0.8) {
+                                confetti.className = 'confetti confetti-ball';
+                            } else {
+                                confetti.className = 'confetti confetti-flake';
+                            }
+
+                            confetti.style.left = Math.random() * 100 + '%';
+                            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                            confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                            if (Math.random() > 0.7) {
+                                confetti.style.top = '-' + (Math.random() * 300 + 150) + 'px';
+                            }
+
+                            container.appendChild(confetti);
+
+                            setTimeout(() => {
+                                if (confetti.parentNode) {
+                                    confetti.parentNode.removeChild(confetti);
+                                }
+                            }, 9000);
+                        }, i * 12);
+                    }
+                }, wave * 400);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+
+            const scoreBoard = document.getElementById('score-board');
+            const quizSection = document.querySelector('.quiz-section');
+            
+            if (scoreBoard && quizSection) {
+                window.addEventListener('scroll', function() {
+                    const quizSectionRect = quizSection.getBoundingClientRect();
+                    
+                    if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
+                        scoreBoard.classList.add('sticky');
+                    } else {
+                        scoreBoard.classList.remove('sticky');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
