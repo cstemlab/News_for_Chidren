@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小鱼脑中微型工厂的奇妙历险</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;    /* Main orange */
+            --primary-200: #ff983f;    /* Light orange */
+            --primary-300: #ffffa1;    /* Yellow accent */
+            --accent-100: #F5F5F5;     /* Light gray */
+            --accent-200: #929292;     /* Medium gray */
+            --text-100: #1d1f21;       /* Dark text */
+            --text-200: #444648;       /* Medium text */
+            --bg-100: #ffffff;         /* White background */
+            --bg-200: #f5f5f5;         /* Light background */
+            --bg-300: #cccccc;         /* Gray background */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: var(--bg-100);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            border-bottom: 3px solid var(--primary-300);
+            padding-bottom: 15px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 25px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 8px;
+        }
+
+        h3 {
+            color: var(--primary-200);
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+
+        .citation {
+            background-color: var(--accent-100);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary-100);
+            font-size: 0.9em;
+            color: var(--text-200);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .chapter p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .fun-facts h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+        }
+
+        .fun-facts ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .fun-facts li {
+            background-color: var(--bg-100);
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-100);
+            position: relative;
+        }
+
+        .fun-facts li:before {
+            content: "🧬";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background-color: var(--primary-100);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-100);
+            color: var(--bg-100);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do h2 {
+            background: none;
+            border: none;
+            color: var(--bg-100);
+            margin-top: 0;
+        }
+
+        .what-you-can-do ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .what-you-can-do li {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            border-left: 4px solid var(--bg-100);
+        }
+
+        .big-picture {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+            transition: all 0.3s ease;
+        }
+
+        .score-board.sticky {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border: 3px solid var(--primary-100);
+            background-color: var(--bg-100);
+            min-width: 200px;
+        }
+
+        .score-board h3 {
+            color: var(--primary-100);
+            margin: 0;
+            font-size: 1.3em;
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .option {
+            background-color: var(--bg-200);
+            border: 2px solid var(--accent-200);
+            padding: 15px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
+            font-family: 'Microsoft YaHei', 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
+            font-weight: bold;
+            color: var(--text-100);
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+        }
+
+        .option.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .option.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 2px solid #28a745;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 2px solid #dc3545;
+        }
+
+        .hint {
+            margin-top: 10px;
+            padding: 12px;
+            background-color: #fff3cd;
+            border: 2px solid #ffc107;
+            border-radius: 8px;
+            color: #856404;
+            display: none;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 300% 300%;
+            animation: gradient-shift 3s ease infinite;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .confetti {
+            position: absolute;
+            top: -10px;
+            animation-fill-mode: forwards;
+        }
+
+        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
+        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
+        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
+        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
+        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
+        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+
+        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
+        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
+        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
+        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
+        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
+        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2,
+        .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: var(--primary-200);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            body {
+                font-size: 16px;
+            }
+            .option {
+                font-size: 18px;
+                padding: 18px;
+            }
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="2025-01-08_the-amazing-adventure-of-tiny-fish-brain-factories.html" class="language-switch">English</a>
+    <div class="container">
+        <h1>小鱼脑中微型工厂的奇妙历险</h1>
+
+        <div class="citation">
+            <strong>引用文献：</strong> Di Fraia, D., et al. (2025). Altered translation elongation contributes to key hallmarks of aging in the killifish brain. Science, 389, eadk3079.
+        </div>
+
+        <div class="chapter">
+            <h2>第1章：认识超高速鱼</h2>
+            <img src="chapter 1.png" alt="超高速青鳉鱼">
+            <p>很久很久以前，在非洲温暖的水池里，生活着一种非常特别的鱼，叫做青鳉鱼。它们可不是普通的鱼——它们就像大自然里的短跑冠军！大多数鱼能活很多年，但这些色彩斑斓的小生物在短短4到6个月内就过完了一生。这就像把人的一辈子浓缩在一个季节里！</p>
+            <p>科学家们发现，这些青鳉鱼是研究一个非常重要问题的完美对象：我们的大脑随着年龄增长会发生什么变化。你看，尽管这些鱼的生命转瞬即逝，但它们经历了和人类一样的所有衰老变化——只是速度快得多！</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第2章：沉睡大脑工厂之谜</h2>
+            <img src="chapter 2.png" alt="细胞中的核糖体工厂">
+            <p>在你身体的每一个细胞里——当然也包括青鳉鱼的身体里——都有成千上万个叫做核糖体的微型工厂。你可以把核糖体想象成你能想到的最小的工厂，小到需要用超强显微镜才能看到。它们的工作是制造蛋白质，蛋白质就像是帮助我们身体运作的积木和工人。</p>
+            <p>这些核糖体工厂就像汽车工厂的流水线一样工作。它们阅读一种叫做mRNA（信使RNA）的特殊指令手册——有点像一本食谱——然后用这些指令把叫做氨基酸的微小积木一个一个地连接起来，从而制造出蛋白质。</p>
+            <p>但谜题就从这里开始了：科学家们注意到，随着青鳉鱼变老，它们大脑的工厂里发生了一些奇怪的事情。核糖体开始变慢、卡住，甚至相互碰撞。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第3章：大堵车</h2>
+            <img src="chapter 3.png" alt="细胞中的交通堵塞">
+            <p>想象一下，你正行驶在一条繁忙的高速公路上，路上的汽车（核糖体）本应平稳行驶并运送重要包裹（制造蛋白质）。但突然间，一些汽车开始开得很慢，甚至完全停下来，造成了交通堵塞！</p>
+            <p>这正是科学家们在衰老的鱼脑中发现的情况。核糖体在试图阅读指令手册的某些部分时被卡住了——特别是当它们读到制造含有大量特殊成分"碱性氨基酸"（如赖氨酸和精氨酸）的蛋白质指令时。</p>
+            <p>这些碱性氨基酸超级重要，因为它们存在于帮助维护我们DNA（主指令书）和RNA（指令副本）的蛋白质中。这就好比负责维护图书馆和复印机的工人们都消失了。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第4章：侦探工作</h2>
+            <img src="chapter 4.png" alt="科学家研究鱼脑">
+            <p>科学家们变成了超级侦探，使用神奇的工具来窥探微小的鱼脑内部，看看究竟是哪里出了问题。他们比较了年轻的鱼脑（像孩子）、成年的鱼脑（像大人）和年老的鱼脑（像爷爷奶奶），以观察事物随时间的变化。</p>
+            <p>他们的发现令人难以置信！他们发现在衰老的大脑中，核糖体工厂在沿着指令手册移动时遇到了困难。它们不断地卡住和暂停，尤其是在遇到某些"难读的词"——也就是那些重要的碱性氨基酸的编码时。</p>
+            <p>这就像在读一本书，其中有些页面很难翻过去，导致读者停顿和挣扎，从而减慢了整个故事的阅读速度！</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第5章：失踪的工人们</h2>
+            <img src="chapter 5.png" alt="缺少的蛋白质工人">
+            <p>由于核糖体工厂经常被卡住，它们无法制造出足够多的重要蛋白质来维护DNA和RNA。这就产生了一个大问题——就像一个城市里所有的修理工、图书管理员和维护人员突然都消失了一样。</p>
+            <p>科学家们意识到这是个大问题，因为这些缺失的蛋白质通常帮助：</p>
+            <ul>
+                <li>修复我们DNA的损伤（就像修复书中撕破的页面）</li>
+                <li>制作重要指令的副本</li>
+                <li>保持一切井然有序并正常运作</li>
+            </ul>
+            <p>这一发现有助于解释为什么大脑随着年龄增长更容易患上像阿尔茨海默病这样的疾病——因为细胞的维护团队不再正常工作了。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第6章：这为什么对你很重要</h2>
+            <img src="chapter 6.png" alt="从鱼到人的连接">
+            <p>现在你可能会想，"我为什么要关心小鱼和它们微小的工厂呢？"嗯，神奇的部分来了：在青鳉鱼大脑中发生的基本过程同样也发生在人类大脑中！科学家们可以利用从这些生命短暂的鱼身上学到的知识来理解人类大脑是如何衰老的。</p>
+            <p>这项研究就像找到了一个巨大拼图的第一块。通过确切地了解我们的细胞工厂随着年龄增长会出什么问题，科学家们希望能够开发出新药，帮助我们的大脑更长时间地保持健康，甚至可能预防影响老年人的疾病。</p>
+        </div>
+
+        <div class="chapter">
+            <h2>第7章：了不起的科学团队</h2>
+            <img src="chapter 7.png" alt="国际科学团队">
+            <p>这个不可思议的发现是由一个来自世界各地的科学家团队完成的——他们来自加州的斯坦福大学以及德国和意大利的研究中心。正如首席科学家之一的朱迪思·弗莱德曼（Judith Frydman）教授所解释的："我们知道许多过程随着衰老会变得功能失调，但我们并不真正理解我们为什么会衰老的根本分子原理。我们的新研究开始提供一个机制性的解释。"</p>
+            <p>就像侦探破案一样，这些科学家使用超先进的工具来窥探细胞内部，观察微型工厂的工作情况。他们使用的技术名字听起来很酷，比如"核糖体分析"和"质谱分析"——这些基本上都是用来给那些用普通显微镜无法看到的微小事物拍摄极其详细的照片和进行测量的方法。</p>
+        </div>
+
+        <div class="fun-facts">
+            <h2>给小科学家的趣味知识</h2>
+            <ul>
+                <li>一个细胞内可以有多达1000万个核糖体在工作！</li>
+                <li>这些细胞工厂非常重要，它们存在于每一个生物体中——从最小的细菌到最大的鲸鱼。</li>
+                <li>你细胞中的指令（DNA）包含大约30亿个"字母"——足以填满200本电话簿！</li>
+                <li>科学家们仍在不断发现关于我们身体如何工作的新事物，就像我们刚刚读到的侦探故事一样。</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>你能做什么</h2>
+            <ul>
+                <li>对科学保持好奇心——每一个伟大的发现都始于有人问"为什么会这样？"</li>
+                <li>通过健康饮食、充足睡眠和保持活跃来照顾好你的大脑。</li>
+                <li>记住，即使是最小的生物也能教会我们关于生命的最重要的道理！</li>
+            </ul>
+        </div>
+
+        <div class="quiz-section">
+            <h2>看看我们发现了什么！</h2>
+            <div class="score-board" id="score-board">
+                <h3>你的得分：<span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>问题1：青鳉鱼能活多久？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) 4-6个月</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) 4-6年</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) 10-12个月</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) 2-3年</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">记住，故事里说这些鱼就像"大自然里的短跑冠军"，它们在一个季节里就过完了一生！</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>问题2：在故事中，核糖体被比作什么？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) 赛车</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) 微型工厂</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) 图书馆</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) 高速公路</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">想想核糖体是做什么的——它们像流水线一样制造蛋白质，就像一个生产东西的地方的工人们一样！</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>问题3：随着青鳉鱼变老，核糖体会发生什么变化？</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) 它们工作得更快更好</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) 它们完全消失了</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) 它们变慢并卡住了</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) 它们制造了太多的蛋白质</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">故事里把这比作一场交通堵塞——还记得高速公路上的汽车开始出现行驶不畅的问题时会发生什么吗？</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 恭喜你！3个问题全部答对！你真是一个科学小侦探！🎉
+            </div>
+        </div>
+
+        <div class="big-picture">
+            <h2>总结</h2>
+            <p>这个故事告诉我们，我们身体里的一切都是相互关联的——从细胞中最小的工厂到我们大脑随着年龄增长的工作方式。生活在非洲水池里、生命飞逝的青鳉鱼，帮助科学家们理解了一些可能有助于我们所有人活得更健康、更长久的事情。</p>
+            <p>研究仍在继续，科学家们正努力更多地了解我们如何能让细胞工厂平稳运行，以及我们能做些什么来帮助我们的大脑在衰老过程中保持健康。</p>
+            <p>下次你看到一条鱼时——即使只是鱼缸里的一条金鱼——请记住，在它微小的大脑里，有数百万个微型工厂，日夜不停地工作，让它保持健康、强壮地游动！</p>
+        </div>
+
+        <div class="scientific-debrief">
+            <h2>科学简报：核糖体功能障碍驱动大脑衰老</h2>
+            <h3>关键发现</h3>
+            <p>Di Fraia、Marino、Lee及其同事利用短寿的非洲青鳉鱼，将核糖体暂停确定为大脑衰老的一个基本机制。他们的多组学分析显示，在蛋白质合成过程中，核糖体越来越频繁地停滞，尤其是在翻译碱性氨基酸（赖氨酸和精氨酸）的密码子时。</p>
+            
+            <h3>核心发现</h3>
+            <p><strong>翻译功能障碍先于其他衰老标志出现：</strong> 核糖体停滞减少了对DNA修复、RNA处理和细胞维护至关重要的蛋白质的产生。</p>
+            <p><strong>蛋白质的选择性脆弱性：</strong> 富含碱性氨基酸的蛋白质——对基因组完整性至关重要——在衰老过程中优先减少。</p>
+            <p><strong>进化上的保守性：</strong> 观察到的蛋白质-转录本解偶联现象反映了跨物种的模式，表明这是一种普遍的衰老机制。</p>
+            
+            <h3>重要意义</h3>
+            <p>这项工作将翻译过程确定为连接多个衰老过程的中心枢纽，并为细胞维护系统在衰老过程中为何会失效提供了一个机制性解释。这些发现与人类神经退行性疾病直接相关，因为受影响的蛋白质包括那些与阿尔茨海默病和肌萎缩侧索硬化症（ALS）相关的蛋白质。</p>
+            
+            <h3>治疗启示</h3>
+            <p>该研究提出了针对以下方面的潜在干预措施：核糖体功能和翻译保真度、蛋白质合成机制的维护、预防翻译延伸缺陷。这代表了衰老研究的范式转变，将蛋白质合成功能障碍定位为细胞衰老的主要驱动因素，而非其结果。</p>
+        </div>
+
+        <div class="references">
+            <h2>了解更多</h2>
+            <ol>
+                <li><a href="https://www.science.org/doi/10.1126/science.adk3079">改变的翻译延伸导致青鳉鱼大脑衰老的关键标志 | Science</a></li>
+                <li><a href="https://news.stanford.edu/stories/2025/01/killifish-research-points-key-mechanism-brain-aging">涉及青鳉鱼的研究指出了大脑衰老的关键机制 | 斯坦福报告</a></li>
+                <li><a href="https://www.britannica.com/science/ribosome">核糖体 | 定义、功能、形成、作用、重要性及事实 | 大英百科全书</a></li>
+                <li><a href="https://kids.frontiersin.org/articles/10.3389/frym.2019.00027">儿童生物学：细胞核糖体</a></li>
+                <li><a href="https://www.ducksters.com/science/biology/proteins_and_amino_acids.php">儿童生物学：蛋白质和氨基酸</a></li>
+                <li><a href="https://www.miragenews.com/killifish-brain-aging-linked-to-slower-protein-1364825/">青鳉鱼大脑衰老与蛋白质翻译减慢有关 | Mirage News</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const totalQuestions = 3;
+        
+        const correctAnswers = {
+            1: 'A',
+            2: 'B',
+            3: 'C'
+        };
+        
+        const praises = {
+            1: "太棒了！你记住了这些神奇的鱼在短短4-6个月内就过完了它们飞速的一生！",
+            2: "完美！你答对了——核糖体就像制造蛋白质的微型工厂！",
+            3: "真了不起！你明白了衰老的核糖体会变慢并卡住，就像交通堵塞中的汽车一样！"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            if (answeredQuestions.has(questionNum)) return;
+            
+            const question = document.getElementById(`question${questionNum}`);
+            const options = question.querySelectorAll('.option');
+            const feedback = document.getElementById(`feedback${questionNum}`);
+            const hint = document.getElementById(`hint${questionNum}`);
+            
+            // Mark this question as answered
+            answeredQuestions.add(questionNum);
+            
+            // Disable all options for this question
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option.textContent.startsWith(correctAnswers[questionNum])) {
+                    option.classList.add('correct');
+                } else if (option.textContent.startsWith(selectedAnswer)) {
+                    option.classList.add('incorrect');
+                }
+            });
+            
+            // Show feedback
+            feedback.classList.add('show');
+            if (isCorrect) {
+                feedback.classList.add('correct');
+                feedback.textContent = praises[questionNum];
+                score++;
+            } else {
+                feedback.classList.add('incorrect');
+                feedback.textContent = "不太对。再想想看...";
+                hint.classList.add('show');
+            }
+            
+            updateScore();
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+            
+            if (answeredQuestions.size === totalQuestions) {
+                if (score === totalQuestions) {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }
+                
+                // Make scoreboard sticky
+                const scoreboard = document.getElementById('score-board');
+                scoreboard.classList.add('sticky');
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeaa7', '#dda0dd', '#98d8c8'];
+            const shapes = ['confetti-large', 'confetti-box', 'confetti-ball', 'confetti-flake', 'confetti-star', 'confetti-ribbon'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = `confetti ${shapes[Math.floor(Math.random() * shapes.length)]}`;
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 3 + 's';
+                    container.appendChild(confetti);
+                    
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 4000);
+                }, i * 50);
+            }
+        }
+
+        // Hide hints initially
+        document.addEventListener('DOMContentLoaded', function() {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
