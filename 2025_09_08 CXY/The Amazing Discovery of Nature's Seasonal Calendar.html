@@ -202,152 +202,178 @@
         .story-nav {
             position: sticky;
             top: 0;
-            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-            padding: 10px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            border-bottom: 3px solid var(--primary-300);
+            padding: 0;
+            margin: 0;
         }
 
         .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
             max-width: 1200px;
             margin: 0 auto;
+            gap: 15px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 20px;
-            flex-wrap: wrap;
             gap: 10px;
         }
 
-        .nav-home {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
+        .nav-left {
+            flex: 0 0 auto;
         }
 
-        .nav-home:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-        }
-
-        .nav-controls {
-            display: flex;
-            align-items: center;
+        .nav-center {
+            flex: 1;
+            justify-content: center;
             gap: 15px;
-            flex-wrap: wrap;
         }
 
-        .nav-button {
+        .nav-right {
+            flex: 0 0 auto;
+        }
+
+        .nav-btn {
             background: rgba(255, 255, 255, 0.9);
-            color: var(--primary-100);
-            border: none;
-            padding: 8px 15px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #333;
+            padding: 8px 16px;
             border-radius: 20px;
-            cursor: pointer;
-            font-weight: bold;
+            text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            font-size: 0.9em;
+            cursor: pointer;
+            font-size: 14px;
         }
 
-        .nav-button:hover:not(:disabled) {
-            background: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        .nav-button:disabled {
+        .nav-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
         .story-dropdown {
-            background: white;
-            color: var(--primary-100);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
             min-width: 200px;
-            font-size: 0.9em;
+            cursor: pointer;
         }
 
-        .story-dropdown:focus {
-            outline: none;
-            border-color: var(--primary-300);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-        }
-
-        .search-box {
-            background: white;
-            color: var(--primary-100);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            padding: 8px 12px;
+        .story-search {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            font-weight: bold;
-            min-width: 150px;
-            font-size: 0.9em;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
+            width: 150px;
         }
 
-        .search-box:focus {
-            outline: none;
-            border-color: var(--primary-300);
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        .story-search::placeholder {
+            color: #666;
         }
 
-        .search-box::placeholder {
-            color: var(--accent-200);
-        }
-
-        .nav-language {
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: var(--primary-100);
             color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            padding: 8px 15px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
-            font-size: 0.9em;
         }
 
-        .nav-language:hover {
-            background: rgba(255, 255, 255, 0.3);
+        .language-switch:hover {
+            background-color: var(--primary-200);
             transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
-                gap: 15px;
+                gap: 10px;
+                padding: 0 15px;
             }
-
-            .nav-controls {
-                order: 2;
+            
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
                 justify-content: center;
             }
-
-            .nav-home {
+            
+            .nav-center {
                 order: 1;
             }
-
-            .nav-language {
+            
+            .nav-left {
+                order: 2;
+            }
+            
+            .nav-right {
                 order: 3;
             }
-
-            .story-dropdown,
-            .search-box {
+            
+            .story-dropdown, .story-search {
                 min-width: 120px;
-                font-size: 0.8em;
+                font-size: 12px;
             }
+            
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
 
-            .nav-button {
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .nav-left, .nav-center, .nav-right {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .story-dropdown {
+                min-width: 100px;
+                max-width: 150px;
+            }
+            
+            .story-search {
+                min-width: 100px;
+            }
+        }
                 font-size: 0.8em;
                 padding: 6px 12px;
             }
@@ -819,21 +845,20 @@
     <!-- Sticky Navigation Bar -->
     <nav class="story-nav">
         <div class="nav-container">
-            <a href="../index.html" class="nav-home">🏠 Home</a>
-            
-            <div class="nav-controls">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn home-btn" id="home-btn">🏠 Home</a>
                 <button id="prev-story" class="nav-btn">← Previous</button>
-                
-                <select id="story-dropdown" class="story-dropdown">
-                    <option value="">Select Story...</option>
-                </select>
-                
-                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
-                
                 <button id="next-story" class="nav-btn">Next →</button>
             </div>
-            
-            <a href="自然季节日历的惊人发现_中文版.html" class="nav-language">中文版</a>
+            <div class="nav-center">
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
+                </select>
+            </div>
+            <div class="nav-right">
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+                <a href="自然季节日历的惊人发现_中文版.html" class="language-switch">中文版</a>
+            </div>
         </div>
     </nav>
     

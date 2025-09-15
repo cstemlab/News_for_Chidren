@@ -803,22 +803,24 @@
 
 <body>
     <script src="../navigation-template.js"></script>
+
     <!-- Sticky Navigation Bar -->
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="../../index_zh.html" class="nav-btn home-btn">🏠 首页</a>
+                <a href="../index_zh.html" class="nav-btn home-btn" id="home-btn">🏠 首页</a>
                 <button id="prev-story" class="nav-btn">← 上一篇</button>
                 <button id="next-story" class="nav-btn">下一篇 →</button>
             </div>
             <div class="nav-center">
-                <select id="story-dropdown">
+                <select id="story-dropdown" class="story-dropdown">
                     <option value="">选择故事...</option>
                 </select>
-                <input type="text" id="story-search" placeholder="搜索故事...">
+                
             </div>
             <div class="nav-right">
-                <a href="Dehorning-reduces-rhino-poaching_revised.html" class="language-switch">English</a>
+                <input type="text" id="story-search" class="story-search" placeholder="搜索故事...">
+                <a href="Dehorning-reduces-rhino-poaching_revised.html" class="nav-btn language-switch">English</a>
             </div>
         </div>
     </nav>

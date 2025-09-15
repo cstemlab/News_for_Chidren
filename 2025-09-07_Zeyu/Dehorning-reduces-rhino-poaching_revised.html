@@ -804,22 +804,24 @@
 
 <body>
     <script src="../navigation-template.js"></script>
+
     <!-- Sticky Navigation Bar -->
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="../../index.html" class="nav-btn home-btn">🏠 Home</a>
+                <a href="../index.html" class="nav-btn home-btn" id="home-btn">🏠 Home</a>
                 <button id="prev-story" class="nav-btn">← Previous</button>
                 <button id="next-story" class="nav-btn">Next →</button>
             </div>
             <div class="nav-center">
-                <select id="story-dropdown">
-                    <option value="">Select a story...</option>
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
                 </select>
-                <input type="text" id="story-search" placeholder="Search stories...">
+                
             </div>
             <div class="nav-right">
-                <a href="Dehorning-reduces-rhino-poaching_Chinese.html" class="language-switch">中文版</a>
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+                <a href="Dehorning-reduces-rhino-poaching_Chinese.html" class="nav-btn language-switch">中文版</a>
             </div>
         </div>
     </nav>

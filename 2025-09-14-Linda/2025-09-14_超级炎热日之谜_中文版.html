@@ -1,21 +1,32 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>超级炎热日之谜：一场科学侦探故事</title>
     <style>
         :root {
-            --primary-100: #e74c3c;    /* Red theme for heat/climate */
-            --primary-200: #ff6b5b;    /* Light red */
-            --primary-300: #ffb3b3;    /* Very light red */
-            --accent-100: #F5F5F5;     /* Light gray */
-            --accent-200: #929292;     /* Medium gray */
-            --text-100: #1d1f21;       /* Dark text */
-            --text-200: #444648;       /* Medium text */
-            --bg-100: #ffffff;         /* White background */
-            --bg-200: #f5f5f5;         /* Light background */
-            --bg-300: #cccccc;         /* Gray background */
+            --primary-100: #e74c3c;
+            /* Red theme for heat/climate */
+            --primary-200: #ff6b5b;
+            /* Light red */
+            --primary-300: #ffb3b3;
+            /* Very light red */
+            --accent-100: #F5F5F5;
+            /* Light gray */
+            --accent-200: #929292;
+            /* Medium gray */
+            --text-100: #1d1f21;
+            /* Dark text */
+            --text-200: #444648;
+            /* Medium text */
+            --bg-100: #ffffff;
+            /* White background */
+            --bg-200: #f5f5f5;
+            /* Light background */
+            --bg-300: #cccccc;
+            /* Gray background */
         }
 
         * {
@@ -34,130 +45,10 @@
 
         .container {
             max-width: 800px;
-            margin: 80px auto 0 auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: var(--bg-100);
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-        }
-
-        .story-nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-bottom: 2px solid var(--primary-300);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-        }
-
-        .nav-left, .nav-center, .nav-right {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .nav-center {
-            flex: 1;
-            justify-content: center;
-            max-width: 400px;
-        }
-
-        .nav-btn {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .nav-btn:hover {
-            background: rgba(255,255,255,0.3);
-            transform: translateY(-1px);
-        }
-
-        .nav-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .search-box {
-            flex: 1;
-            max-width: 200px;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(255,255,255,0.9);
-            color: var(--text-100);
-            font-size: 14px;
-        }
-
-        .search-box::placeholder {
-            color: var(--text-200);
-        }
-
-        .story-dropdown {
-            background: rgba(255,255,255,0.9);
-            color: var(--text-100);
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 14px;
-            max-width: 150px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                height: auto;
-                padding: 10px;
-                gap: 10px;
-            }
-
-            .nav-left, .nav-center, .nav-right {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .nav-center {
-                max-width: 100%;
-            }
-
-            .search-box {
-                max-width: 150px;
-            }
-
-            .story-dropdown {
-                max-width: 120px;
-            }
-
-            .nav-btn {
-                padding: 6px 12px;
-                font-size: 12px;
-            }
-
-            .container {
-                margin-top: 120px;
-            }
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
@@ -165,7 +56,7 @@
             text-align: center;
             font-size: 2.5em;
             margin-bottom: 30px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
             border-bottom: 3px solid var(--primary-300);
             padding-bottom: 15px;
         }
@@ -199,7 +90,7 @@
             margin: 30px 0;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--accent-100);
         }
 
@@ -208,7 +99,7 @@
             height: auto;
             border-radius: 10px;
             margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--accent-100);
         }
 
@@ -286,7 +177,7 @@
         .what-you-can-do li {
             margin: 15px 0;
             padding: 15px;
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255, 255, 255, 0.1);
             border-radius: 10px;
             border-left: 4px solid var(--bg-100);
         }
@@ -296,7 +187,7 @@
             margin: 30px 0;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             border: 2px solid var(--accent-100);
         }
 
@@ -333,7 +224,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             border: 3px solid var(--primary-100);
             background-color: var(--bg-100);
             min-width: 200px;
@@ -452,9 +343,17 @@
         }
 
         @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         #confetti-container {
@@ -473,19 +372,141 @@
             animation-fill-mode: forwards;
         }
 
-        .confetti-large { width: 20px; height: 20px; animation: confetti-fall-large 3s linear; }
-        .confetti-box { width: 15px; height: 15px; animation: confetti-fall-box 2.5s linear; }
-        .confetti-ball { width: 12px; height: 12px; border-radius: 50%; animation: confetti-fall-ball 3.5s linear; }
-        .confetti-flake { width: 18px; height: 18px; animation: confetti-fall-flake 4s linear; }
-        .confetti-star { width: 16px; height: 16px; animation: confetti-fall-star 3.2s linear; }
-        .confetti-ribbon { width: 25px; height: 8px; animation: confetti-fall-ribbon 2.8s linear; }
+        .confetti-large {
+            width: 20px;
+            height: 20px;
+            animation: confetti-fall-large 3s linear;
+        }
 
-        @keyframes confetti-fall-large { 0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(720deg); opacity: 0; } }
-        @keyframes confetti-fall-box { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(900deg) scale(0.3); opacity: 0; } }
-        @keyframes confetti-fall-ball { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 100% { transform: translateY(100vh) rotate(1080deg) scale(0.5); opacity: 0; } }
-        @keyframes confetti-fall-flake { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 10% { transform: translateY(-80vh) rotate(150deg) scale(1.2); opacity: 1; } 90% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.4); opacity: 0; } }
-        @keyframes confetti-fall-star { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 20% { transform: translateY(-60vh) rotate(200deg) scale(1.1); opacity: 1; } 80% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1200deg) scale(0.2); opacity: 0; } }
-        @keyframes confetti-fall-ribbon { 0% { transform: translateY(-100vh) rotate(0deg) scale(1); opacity: 1; } 15% { transform: translateY(-70vh) rotate(180deg) scale(1.3); opacity: 1; } 85% { opacity: 1; } 100% { transform: translateY(100vh) rotate(1440deg) scale(0.6); opacity: 0; } }
+        .confetti-box {
+            width: 15px;
+            height: 15px;
+            animation: confetti-fall-box 2.5s linear;
+        }
+
+        .confetti-ball {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            animation: confetti-fall-ball 3.5s linear;
+        }
+
+        .confetti-flake {
+            width: 18px;
+            height: 18px;
+            animation: confetti-fall-flake 4s linear;
+        }
+
+        .confetti-star {
+            width: 16px;
+            height: 16px;
+            animation: confetti-fall-star 3.2s linear;
+        }
+
+        .confetti-ribbon {
+            width: 25px;
+            height: 8px;
+            animation: confetti-fall-ribbon 2.8s linear;
+        }
+
+        @keyframes confetti-fall-large {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-box {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(900deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ball {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-flake {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            10% {
+                transform: translateY(-80vh) rotate(150deg) scale(1.2);
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.4);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-star {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            20% {
+                transform: translateY(-60vh) rotate(200deg) scale(1.1);
+                opacity: 1;
+            }
+
+            80% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1200deg) scale(0.2);
+                opacity: 0;
+            }
+        }
+
+        @keyframes confetti-fall-ribbon {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+
+            15% {
+                transform: translateY(-70vh) rotate(180deg) scale(1.3);
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(1440deg) scale(0.6);
+                opacity: 0;
+            }
+        }
 
         .scientific-debrief {
             background-color: var(--accent-100);
@@ -547,33 +568,38 @@
             border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
         }
 
         .language-switch:hover {
             background-color: var(--primary-200);
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
             }
+
             h1 {
                 font-size: 2em;
             }
+
             h2 {
                 font-size: 1.5em;
             }
+
             body {
                 font-size: 16px;
             }
+
             .option {
                 font-size: 18px;
                 padding: 18px;
             }
+
             .language-switch {
                 top: 10px;
                 right: 10px;
@@ -583,27 +609,11 @@
         }
     </style>
 </head>
+
 <body>
     <script src="../navigation-template.js"></script>
-    <nav class="story-nav">
-        <div class="nav-container">
-            <div class="nav-left">
-                <a href="../index_zh.html" class="nav-btn home-btn">🏠 首页</a>
-                <button id="prev-story" class="nav-btn">← 上一个</button>
-                <button id="next-story" class="nav-btn">下一个 →</button>
-            </div>
-            <div class="nav-center">
-                <select id="story-dropdown" class="story-dropdown">
-                    <option value="">选择故事...</option>
-                </select>
-                <input type="text" id="story-search" class="story-search" placeholder="搜索故事...">
-            </div>
-            <div class="nav-right">
-                <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="nav-btn language-switch">English</a>
-            </div>
-        </div>
-    </nav>
-    
+    <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="language-switch">English</a>
+
     <div class="container">
         <h1>超级炎热日之谜</h1>
 
@@ -764,15 +774,15 @@
             <h2>科学简报：理解极端高温事件</h2>
             <h3>关键发现</h3>
             <p>最近的研究表明，由于气候变化，极端高温事件变得更加频繁、更加强烈和持续时间更长。全球气温上升、城市热岛效应和大气环流模式变化的结合为人类健康和生态系统创造了复合风险。</p>
-            
+
             <h3>核心发现</h3>
             <p><strong>归因科学：</strong> 科学家现在可以量化气候变化如何增加特定高温事件的可能性和强度</p>
             <p><strong>城市放大：</strong> 由于城市热岛效应，城市比农村地区经历1-7°C的额外变暖</p>
             <p><strong>大气动力学：</strong> 急流模式和阻塞事件的变化导致持续的热穹顶</p>
-            
+
             <h3>意义</h3>
             <p>理解极端高温对公共卫生准备、城市规划和气候适应策略至关重要。与热相关的死亡率经常被低估，但代表了气候变化最重要的直接健康影响之一。当社区准备好时，早期预警系统和热行动计划可以拯救生命。</p>
-            
+
             <h3>教育价值</h3>
             <p>这个故事向学生介绍了气候科学中的系统思维，展示了多个因素如何相互作用创造极端天气事件。它强调了科学素养在理解和应对气候变化方面的重要性。</p>
         </div>
@@ -781,10 +791,16 @@
             <h2>了解更多</h2>
             <ol>
                 <li><a href="https://www.ipcc.ch/report/ar6/wg1/">IPCC第六次评估报告：气候变化的物理科学基础</a></li>
-                <li><a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health">世界卫生组织：气候变化、高温与健康</a></li>
+                <li><a
+                        href="https://www.who.int/news-room/fact-sheets/detail/climate-change-heat-and-health">世界卫生组织：气候变化、高温与健康</a>
+                </li>
                 <li><a href="https://www.epa.gov/heatislands">美国环保署：热岛效应</a></li>
-                <li><a href="https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts">NOAA：气候变化影响</a></li>
-                <li><a href="https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-climate-change-k4.html">NASA儿童：什么是气候变化</a></li>
+                <li><a
+                        href="https://www.noaa.gov/education/resource-collections/climate/climate-change-impacts">NOAA：气候变化影响</a>
+                </li>
+                <li><a
+                        href="https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-climate-change-k4.html">NASA儿童：什么是气候变化</a>
+                </li>
             </ol>
         </div>
     </div>
@@ -833,11 +849,11 @@
                 feedbackDiv.textContent = "不太对！再试一次！";
                 feedbackDiv.className = 'feedback incorrect';
                 feedbackDiv.style.display = 'block';
-                
+
                 hintDiv.style.display = 'block';
                 hintDiv.classList.add('show');
                 clickedButton.disabled = true;
-                
+
                 setTimeout(() => {
                     options.forEach(option => {
                         if (!option.classList.contains('incorrect')) {
@@ -906,7 +922,7 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const hints = document.querySelectorAll('.hint');
             hints.forEach(hint => {
                 hint.style.display = 'none';
@@ -914,11 +930,11 @@
 
             const scoreBoard = document.getElementById('score-board');
             const quizSection = document.querySelector('.quiz-section');
-            
+
             if (scoreBoard && quizSection) {
-                window.addEventListener('scroll', function() {
+                window.addEventListener('scroll', function () {
                     const quizSectionRect = quizSection.getBoundingClientRect();
-                    
+
                     if (quizSectionRect.top <= 0 && quizSectionRect.bottom > 100) {
                         scoreBoard.classList.add('sticky');
                     } else {
@@ -927,14 +943,7 @@
                 });
             }
         });
-
-        // Initialize standardized navigation
-        const storyNavigation = new StoryNavigation('hot-days-zh');
-        
-        // Initialize navigation when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            storyNavigation.initialize();
-        });
     </script>
 </body>
+
 </html>
