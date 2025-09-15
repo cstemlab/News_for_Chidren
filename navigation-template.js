@@ -195,6 +195,7 @@ class StoryNavigation {
 
         dropdown.addEventListener('change', function() {
             if (this.value) {
+                console.log('Dropdown navigation to:', this.value);
                 window.location.href = this.value;
             }
         });
@@ -220,7 +221,11 @@ class StoryNavigation {
         if (prevBtn) {
             if (currentIndexInLanguage > 0) {
                 const prevStory = languageStories[currentIndexInLanguage - 1];
-                prevBtn.onclick = () => window.location.href = encodeURI(this.getRelativePath(prevStory.path));
+                const prevUrl = encodeURI(this.getRelativePath(prevStory.path));
+                prevBtn.onclick = () => {
+                    console.log('Previous button navigation to:', prevUrl);
+                    window.location.href = prevUrl;
+                };
                 prevBtn.disabled = false;
                 prevBtn.title = `Previous: ${prevStory.title}`;
             } else {
@@ -232,7 +237,11 @@ class StoryNavigation {
         if (nextBtn) {
             if (currentIndexInLanguage < languageStories.length - 1) {
                 const nextStory = languageStories[currentIndexInLanguage + 1];
-                nextBtn.onclick = () => window.location.href = encodeURI(this.getRelativePath(nextStory.path));
+                const nextUrl = encodeURI(this.getRelativePath(nextStory.path));
+                nextBtn.onclick = () => {
+                    console.log('Next button navigation to:', nextUrl);
+                    window.location.href = nextUrl;
+                };
                 nextBtn.disabled = false;
                 nextBtn.title = `Next: ${nextStory.title}`;
             } else {
@@ -329,15 +338,17 @@ class StoryNavigation {
         const prefix = '../'.repeat(currentDepth);
         
         // Debug logging for path issues
+        const result = prefix + filePath;
         console.log('Path calculation:', {
             currentStoryId: this.currentStoryId,
             currentPath: currentStory.path,
             targetPath: filePath,
             depth: currentDepth,
-            result: prefix + filePath
+            result: result,
+            encoded: encodeURI(result)
         });
         
-        return prefix + filePath;
+        return result;
     }
 
     // Get home page URL based on language
