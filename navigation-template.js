@@ -185,7 +185,7 @@ class StoryNavigation {
         
         languageStories.forEach(story => {
             const option = document.createElement('option');
-            option.value = this.getRelativePath(story.path);
+            option.value = encodeURI(this.getRelativePath(story.path));
             option.textContent = story.title;
             if (story.id === this.currentStoryId) {
                 option.selected = true;
@@ -220,7 +220,7 @@ class StoryNavigation {
         if (prevBtn) {
             if (currentIndexInLanguage > 0) {
                 const prevStory = languageStories[currentIndexInLanguage - 1];
-                prevBtn.onclick = () => window.location.href = this.getRelativePath(prevStory.path);
+                prevBtn.onclick = () => window.location.href = encodeURI(this.getRelativePath(prevStory.path));
                 prevBtn.disabled = false;
                 prevBtn.title = `Previous: ${prevStory.title}`;
             } else {
@@ -232,7 +232,7 @@ class StoryNavigation {
         if (nextBtn) {
             if (currentIndexInLanguage < languageStories.length - 1) {
                 const nextStory = languageStories[currentIndexInLanguage + 1];
-                nextBtn.onclick = () => window.location.href = this.getRelativePath(nextStory.path);
+                nextBtn.onclick = () => window.location.href = encodeURI(this.getRelativePath(nextStory.path));
                 nextBtn.disabled = false;
                 nextBtn.title = `Next: ${nextStory.title}`;
             } else {
@@ -265,7 +265,7 @@ class StoryNavigation {
             dropdown.innerHTML = '<option value="">Select a Story...</option>';
             filteredStories.forEach(story => {
                 const option = document.createElement('option');
-                option.value = this.getRelativePath(story.path);
+                option.value = encodeURI(this.getRelativePath(story.path));
                 option.textContent = story.title;
                 if (story.id === this.currentStoryId) {
                     option.selected = true;
@@ -301,10 +301,10 @@ class StoryNavigation {
         if (!languageSwitch) return;
 
         if (currentStory.language === 'en' && currentStory.counterpart) {
-            languageSwitch.href = this.getRelativePath(currentStory.counterpart);
+            languageSwitch.href = encodeURI(this.getRelativePath(currentStory.counterpart));
             languageSwitch.textContent = '中文版';
         } else if (currentStory.language === 'zh' && currentStory.counterpart) {
-            languageSwitch.href = this.getRelativePath(currentStory.counterpart);
+            languageSwitch.href = encodeURI(this.getRelativePath(currentStory.counterpart));
             languageSwitch.textContent = 'English';
         }
     }
@@ -359,58 +359,67 @@ class StoryNavigation {
 
 // CSS for the navigation bar (to be included in each story page)
 const navigationCSS = `
-/* Sticky Navigation Bar Styles */
+/* Reset body margin to prevent spacing issues */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Sticky Navigation Bar Styles - Override any existing styles */
 .story-nav {
-    position: sticky;
-    top: 0;
-    background: linear-gradient(135deg, #8FBF9F 0%, #68a67d 100%);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    z-index: 1000;
-    padding: 0;
-    margin: 0;
+    position: sticky !important;
+    top: 0 !important;
+    background: linear-gradient(135deg, #8FBF9F 0%, #68a67d 100%) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    z-index: 1000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100% !important;
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-    gap: 15px;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 12px 20px !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    gap: 15px !important;
 }
 
 .nav-left, .nav-center, .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
 }
 
 .nav-left {
-    flex: 0 0 auto;
+    flex: 0 0 auto !important;
 }
 
 .nav-center {
-    flex: 1;
-    justify-content: center;
-    gap: 15px;
+    flex: 1 !important;
+    justify-content: center !important;
+    gap: 15px !important;
 }
 
 .nav-right {
-    flex: 0 0 auto;
+    flex: 0 0 auto !important;
 }
 
 .nav-btn {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: #333;
-    padding: 8px 16px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    font-size: 14px;
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #333 !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
 }
 
 .nav-btn:hover {
