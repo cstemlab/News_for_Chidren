@@ -254,21 +254,20 @@
     <!-- Sticky Navigation Bar -->
     <nav class="story-nav">
         <div class="nav-container">
-            <a href="../../../index.html" class="nav-home">🏠 首页</a>
-            
-            <div class="nav-controls">
-                <button id="prevBtn" class="nav-button">← 上一个</button>
-                
-                <select id="storyDropdown" class="story-dropdown">
+            <div class="nav-left">
+                <a href="../../index_zh.html" class="nav-btn home-btn">🏠 首页</a>
+                <button id="prev-story" class="nav-btn">← 上一个</button>
+                <button id="next-story" class="nav-btn">下一个 →</button>
+            </div>
+            <div class="nav-center">
+                <select id="story-dropdown" class="story-dropdown">
                     <option value="">选择故事...</option>
                 </select>
-                
-                <input type="text" id="searchBox" class="search-box" placeholder="搜索故事...">
-                
-                <button id="nextBtn" class="nav-button">下一个 →</button>
+                <input type="text" id="story-search" class="story-search" placeholder="搜索故事...">
             </div>
-            
-            <a href="The Secret Cities at the Bottom of the World - English.html" class="nav-language">English</a>
+            <div class="nav-right">
+                <a href="The Secret Cities at the Bottom of the World - English.html" class="nav-btn language-switch">English</a>
+            </div>
         </div>
     </nav>
     

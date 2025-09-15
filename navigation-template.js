@@ -309,16 +309,12 @@ class StoryNavigation {
     // Get home page URL based on language
     getHomeUrl() {
         const currentStory = allStories.find(story => story.id === this.currentStoryId);
-        if (!currentStory) {
-            return '../index.html';
-        }
+        const isChinesePage = currentStory && currentStory.language === 'zh';
         
-        // Count directory levels in current story path
-        const currentDepth = (currentStory.path.match(/\//g) || []).length;
-        const prefix = '../'.repeat(currentDepth);
-        
-        const isChinesePage = currentStory.language === 'zh';
-        return isChinesePage ? prefix + 'index_zh.html' : prefix + 'index.html';
+        // Use absolute GitHub Pages URLs
+        return isChinesePage ? 
+            'https://cstemlab.github.io/News_for_Chidren/index_zh.html' : 
+            'https://cstemlab.github.io/News_for_Chidren/index.html';
     }
 
     // Add both init and initialize methods for compatibility
