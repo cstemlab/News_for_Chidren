@@ -141,11 +141,23 @@ class StoryNavigation {
 
     // Initialize all navigation functionality
     initialize() {
+        this.injectCSS();
         this.populateDropdown();
         this.setupPrevNextButtons();
         this.setupSearch();
         this.setupLanguageSwitch();
         this.setupHomeButton();
+    }
+
+    // Inject consistent navigation CSS
+    injectCSS() {
+        // Check if CSS is already injected
+        if (document.getElementById('navigation-css')) return;
+        
+        const style = document.createElement('style');
+        style.id = 'navigation-css';
+        style.textContent = navigationCSS;
+        document.head.appendChild(style);
     }
 
     // Setup home button with correct language URL
@@ -300,7 +312,7 @@ class StoryNavigation {
     // Convert absolute paths to relative paths based on current location
     getRelativePath(filePath) {
         // If already relative, return as is
-        if (filePath.startsWith('../')) {
+        if (filePath.startsWith('../') || filePath.startsWith('./')) {
             return filePath;
         }
         
@@ -315,6 +327,16 @@ class StoryNavigation {
         
         // Add appropriate number of '../' based on depth
         const prefix = '../'.repeat(currentDepth);
+        
+        // Debug logging for path issues
+        console.log('Path calculation:', {
+            currentStoryId: this.currentStoryId,
+            currentPath: currentStory.path,
+            targetPath: filePath,
+            depth: currentDepth,
+            result: prefix + filePath
+        });
+        
         return prefix + filePath;
     }
 
