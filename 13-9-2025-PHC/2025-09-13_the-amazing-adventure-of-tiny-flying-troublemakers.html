@@ -462,120 +462,115 @@
             }
         }
 
-        /* Navigation Styles */
+        /* Sticky Navigation Bar Styles */
         .story-nav {
             position: sticky;
             top: 0;
-            background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-            padding: 15px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             z-index: 1000;
-            border-bottom: 3px solid var(--accent-100);
+            padding: 0;
+            margin: 0;
         }
 
         .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 20px;
-            flex-wrap: wrap;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
             gap: 15px;
         }
 
-        .nav-home {
-            background: var(--accent-100);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .nav-home:hover {
-            background: var(--accent-200);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-        }
-
-        .nav-controls {
+        .nav-left, .nav-center, .nav-right {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 10px;
         }
 
-        .nav-button {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.3);
+        .nav-left {
+            flex: 0 0 auto;
+        }
+
+        .nav-center {
+            flex: 1;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-right {
+            flex: 0 0 auto;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #333;
             padding: 8px 16px;
             border-radius: 20px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: all 0.3s ease;
             cursor: pointer;
             font-size: 14px;
         }
 
-        .nav-button:hover {
-            background: rgba(255,255,255,0.3);
-            border-color: rgba(255,255,255,0.5);
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 1);
             transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
-        .nav-button:disabled {
+        .nav-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+            transform: none;
         }
 
         .story-dropdown {
-            background: rgba(255,255,255,0.9);
-            color: var(--primary-100);
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            font-weight: bold;
-            cursor: pointer;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
             min-width: 200px;
-            max-width: 300px;
+            cursor: pointer;
         }
 
-        .search-box {
-            background: rgba(255,255,255,0.9);
-            color: var(--primary-100);
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 8px 12px;
+        .story-search {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
-            font-weight: bold;
-            min-width: 150px;
-            max-width: 200px;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
+            width: 150px;
         }
 
-        .search-box::placeholder {
-            color: var(--primary-100);
-            opacity: 0.7;
+        .story-search::placeholder {
+            color: #666;
         }
 
-        .nav-language {
-            background: var(--accent-100);
-            color: white;
+        .language-switch {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #333;
             padding: 8px 16px;
             border-radius: 20px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 500;
             transition: all 0.3s ease;
             font-size: 14px;
         }
 
-        .nav-language:hover {
-            background: var(--accent-200);
+        .language-switch:hover {
+            background: rgba(255, 255, 255, 1);
             transform: translateY(-1px);
         }
 
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
@@ -583,21 +578,51 @@
                 padding: 0 15px;
             }
             
-            .nav-controls {
+            .nav-left, .nav-center, .nav-right {
                 width: 100%;
                 justify-content: center;
-                flex-wrap: wrap;
             }
             
-            .story-dropdown, .search-box {
+            .nav-center {
+                order: 1;
+            }
+            
+            .nav-left {
+                order: 2;
+            }
+            
+            .nav-right {
+                order: 3;
+            }
+            
+            .story-dropdown, .story-search {
                 min-width: 120px;
-                max-width: 150px;
                 font-size: 12px;
             }
             
-            .nav-button, .nav-language {
-                font-size: 12px;
+            .nav-btn {
                 padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 10px;
+            }
+            
+            .nav-left, .nav-center, .nav-right {
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+            
+            .story-dropdown {
+                min-width: 100px;
+                max-width: 150px;
+            }
+            
+            .story-search {
+                min-width: 100px;
             }
         }
     </style>
@@ -606,18 +631,18 @@
     <nav class="story-nav">
         <div class="nav-container">
             <div class="nav-left">
-                <a href="../index.html" class="nav-btn home-btn">🏠 Home</a>
-                <button id="prevBtn" class="nav-btn">← Previous</button>
-                <button id="nextBtn" class="nav-btn">Next →</button>
+                <a href="../index.html" class="nav-btn home-btn" id="home-btn">🏠 Home</a>
+                <button id="prev-story" class="nav-btn">← Previous</button>
+                <button id="next-story" class="nav-btn">Next →</button>
             </div>
             <div class="nav-center">
-                <select id="storyDropdown" class="story-dropdown">
-                    <option value="">Select Story...</option>
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
                 </select>
-                <input type="text" id="searchBox" class="search-box" placeholder="Search stories...">
             </div>
             <div class="nav-right">
-                <a href="2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html" class="language-switch">中文版</a>
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+                <a href="2025-09-13_微小飞行捣蛋鬼的惊人冒险_中文版.html" class="nav-btn language-switch">中文版</a>
             </div>
         </div>
     </nav>

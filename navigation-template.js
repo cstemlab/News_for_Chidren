@@ -145,6 +145,15 @@ class StoryNavigation {
         this.setupPrevNextButtons();
         this.setupSearch();
         this.setupLanguageSwitch();
+        this.setupHomeButton();
+    }
+
+    // Setup home button with correct language URL
+    setupHomeButton() {
+        const homeBtn = document.getElementById('home-btn');
+        if (homeBtn) {
+            homeBtn.href = this.getHomeUrl();
+        }
     }
 
     populateDropdown() {
@@ -187,7 +196,7 @@ class StoryNavigation {
         if (prevBtn) {
             if (this.currentIndex > 0) {
                 const prevStory = this.stories[this.currentIndex - 1];
-                prevBtn.onclick = () => window.location.href = this.getRelativePath(prevStory.file);
+                prevBtn.onclick = () => window.location.href = this.getRelativePath(prevStory.path);
                 prevBtn.disabled = false;
                 prevBtn.title = `Previous: ${prevStory.title}`;
             } else {
@@ -199,7 +208,7 @@ class StoryNavigation {
         if (nextBtn) {
             if (this.currentIndex < this.stories.length - 1) {
                 const nextStory = this.stories[this.currentIndex + 1];
-                nextBtn.onclick = () => window.location.href = this.getRelativePath(nextStory.file);
+                nextBtn.onclick = () => window.location.href = this.getRelativePath(nextStory.path);
                 nextBtn.disabled = false;
                 nextBtn.title = `Next: ${nextStory.title}`;
             } else {
@@ -287,7 +296,14 @@ class StoryNavigation {
 
     // Get home page URL based on language
     getHomeUrl() {
-        return this.isChinesePage ? '../index_zh.html' : '../index.html';
+        const currentStory = allStories.find(story => story.id === this.currentStoryId);
+        const isChinesePage = currentStory && currentStory.language === 'zh';
+        return isChinesePage ? '../index_zh.html' : '../index.html';
+    }
+
+    // Add both init and initialize methods for compatibility
+    init() {
+        return this.initialize();
     }
 }
 
@@ -464,7 +480,7 @@ const navigationHTML = `
 <nav class="story-nav">
     <div class="nav-container">
         <div class="nav-left">
-            <a href="../index.html" class="nav-btn home-btn">🏠 Home</a>
+            <a href="#" class="nav-btn home-btn" id="home-btn">🏠 Home</a>
             <button id="prev-story" class="nav-btn">← Previous</button>
             <button id="next-story" class="nav-btn">Next →</button>
         </div>
