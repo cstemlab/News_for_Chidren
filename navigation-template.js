@@ -46,12 +46,12 @@ const allStories = [
         path: '2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html',
         date: '2025-09-08',
         language: 'en',
-        counterpart: '2025-09-07_Coco/new version/世界底部的秘密城市_中文版.html'
+        counterpart: '2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html'
     },
     {
         id: 'secret-cities-zh',
         title: '世界底部的秘密城市',
-        path: '2025-09-07_Coco/new version/世界底部的秘密城市_中文版.html',
+        path: '2025-09-07_Coco/new version/世界底部的秘密城市 - Chinese.html',
         date: '2025-09-08',
         language: 'zh',
         counterpart: '2025-09-07_Coco/new version/The Secret Cities at the Bottom of the World - English.html'
@@ -61,10 +61,10 @@ const allStories = [
     {
         id: 'seasonal-calendar-en',
         title: 'The Amazing Discovery of Nature\'s Seasonal Calendar',
-        path: '2025-09-08 CXY/自然季节日历的惊人发现.html',
+        path: '2025_09_08 CXY/The Amazing Discovery of Nature\'s Seasonal Calendar.html',
         date: '2025-09-08',
         language: 'en',
-        counterpart: '2025-09-08 CXY/自然季节日历的惊人发现_中文版.html'
+        counterpart: '2025_09_08 CXY/自然季节日历的惊人发现_中文版.html'
     },
     {
         id: 'seasonal-calendar-zh',
@@ -72,7 +72,7 @@ const allStories = [
         path: '2025-09-08 CXY/自然季节日历的惊人发现_中文版.html',
         date: '2025-09-08',
         language: 'zh',
-        counterpart: '2025-09-08 CXY/自然季节日历的惊人发现.html'
+        counterpart: '2025_09_08 CXY/The Amazing Discovery of Nature\'s Seasonal Calendar.html'
     },
     
     // 2025-09-13 - Flying Troublemakers
@@ -150,7 +150,7 @@ class StoryNavigation {
 
     // Setup home button with correct language URL
     setupHomeButton() {
-        const homeBtn = document.getElementById('home-btn');
+        const homeBtn = document.querySelector('.home-btn');
         if (homeBtn) {
             homeBtn.href = this.getHomeUrl();
         }
@@ -287,18 +287,38 @@ class StoryNavigation {
 
     // Convert absolute paths to relative paths based on current location
     getRelativePath(filePath) {
-        // Add '../' prefix if it doesn't exist
-        if (!filePath.startsWith('../')) {
+        // If already relative, return as is
+        if (filePath.startsWith('../')) {
+            return filePath;
+        }
+        
+        // Determine the depth of the current story
+        const currentStory = allStories.find(story => story.id === this.currentStoryId);
+        if (!currentStory) {
             return '../' + filePath;
         }
-        return filePath;
+        
+        // Count directory levels in current story path
+        const currentDepth = (currentStory.path.match(/\//g) || []).length;
+        
+        // Add appropriate number of '../' based on depth
+        const prefix = '../'.repeat(currentDepth);
+        return prefix + filePath;
     }
 
     // Get home page URL based on language
     getHomeUrl() {
         const currentStory = allStories.find(story => story.id === this.currentStoryId);
-        const isChinesePage = currentStory && currentStory.language === 'zh';
-        return isChinesePage ? '../index_zh.html' : '../index.html';
+        if (!currentStory) {
+            return '../index.html';
+        }
+        
+        // Count directory levels in current story path
+        const currentDepth = (currentStory.path.match(/\//g) || []).length;
+        const prefix = '../'.repeat(currentDepth);
+        
+        const isChinesePage = currentStory.language === 'zh';
+        return isChinesePage ? prefix + 'index_zh.html' : prefix + 'index.html';
     }
 
     // Add both init and initialize methods for compatibility
