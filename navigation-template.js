@@ -166,10 +166,10 @@ class StoryNavigation {
         const currentStory = allStories.find(story => story.id === this.currentStoryId);
         const currentLanguage = currentStory ? currentStory.language : 'en';
         
-        // Get stories in the same language, sorted by date
+        // Get stories in the same language, sorted by date (newest first)
         const languageStories = allStories
             .filter(story => story.language === currentLanguage)
-            .sort((a, b) => new Date(a.date) - new Date(b.date));
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
         
         languageStories.forEach(story => {
             const option = document.createElement('option');
@@ -193,9 +193,21 @@ class StoryNavigation {
         const prevBtn = document.getElementById('prev-story');
         const nextBtn = document.getElementById('next-story');
 
+        // Get current story and its language
+        const currentStory = this.stories.find(story => story.id === this.currentStoryId);
+        if (!currentStory) return;
+
+        // Filter stories by the same language and sort by date (newest first)
+        const languageStories = this.stories
+            .filter(story => story.language === currentStory.language)
+            .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+        // Find current story index in the filtered language-specific list
+        const currentIndexInLanguage = languageStories.findIndex(story => story.id === this.currentStoryId);
+
         if (prevBtn) {
-            if (this.currentIndex > 0) {
-                const prevStory = this.stories[this.currentIndex - 1];
+            if (currentIndexInLanguage > 0) {
+                const prevStory = languageStories[currentIndexInLanguage - 1];
                 prevBtn.onclick = () => window.location.href = this.getRelativePath(prevStory.path);
                 prevBtn.disabled = false;
                 prevBtn.title = `Previous: ${prevStory.title}`;
@@ -206,8 +218,8 @@ class StoryNavigation {
         }
 
         if (nextBtn) {
-            if (this.currentIndex < this.stories.length - 1) {
-                const nextStory = this.stories[this.currentIndex + 1];
+            if (currentIndexInLanguage < languageStories.length - 1) {
+                const nextStory = languageStories[currentIndexInLanguage + 1];
                 nextBtn.onclick = () => window.location.href = this.getRelativePath(nextStory.path);
                 nextBtn.disabled = false;
                 nextBtn.title = `Next: ${nextStory.title}`;
