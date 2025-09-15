@@ -607,12 +607,185 @@
                 font-size: 14px;
             }
         }
+
+        /* Sticky Navigation Bar Styles */
+        .story-nav {
+            position: sticky;
+            top: 0;
+            background: linear-gradient(135deg, #8FBF9F 0%, #68a67d 100%);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 15px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-left {
+            flex: 0 0 auto;
+        }
+
+        .nav-center {
+            flex: 1;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nav-right {
+            flex: 0 0 auto;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .story-dropdown {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
+            min-width: 200px;
+            cursor: pointer;
+        }
+
+        .story-search {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 8px 16px;
+            color: #333;
+            font-size: 14px;
+            width: 150px;
+        }
+
+        .story-search::placeholder {
+            color: #666;
+        }
+
+        .language-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #8FBF9F;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .language-switch:hover {
+            background-color: #68a67d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 15px;
+            }
+            
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-center {
+                order: 1;
+            }
+            
+            .nav-left {
+                order: 2;
+            }
+            
+            .nav-right {
+                order: 3;
+            }
+            
+            .story-dropdown, .story-search {
+                min-width: 120px;
+                font-size: 12px;
+            }
+            
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .language-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <script src="../navigation-template.js"></script>
-    <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="language-switch">English</a>
+    
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../index_zh.html" class="nav-btn home-btn">🏠 首页</a>
+                <button id="prev-story" class="nav-btn">← 上一个</button>
+                <button id="next-story" class="nav-btn">下一个 →</button>
+            </div>
+            <div class="nav-center">
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">选择故事...</option>
+                </select>
+            </div>
+            <div class="nav-right">
+                <input type="text" id="story-search" class="story-search" placeholder="搜索故事...">
+                <a href="2025-09-14_the-mystery-of-super-hot-days.html" class="language-switch">English</a>
+            </div>
+        </div>
+    </nav>
 
     <div class="container">
         <h1>超级炎热日之谜</h1>
@@ -923,6 +1096,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', function () {
+            // Initialize navigation
+            if (typeof StoryNavigation !== 'undefined') {
+                const navigation = new StoryNavigation('hot-days-zh', true);
+                navigation.initialize();
+            }
+            
             const hints = document.querySelectorAll('.hint');
             hints.forEach(hint => {
                 hint.style.display = 'none';

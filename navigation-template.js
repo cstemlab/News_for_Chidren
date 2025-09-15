@@ -341,7 +341,7 @@ const navigationCSS = `
 .story-nav {
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #8FBF9F 0%, #68a67d 100%);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;
     padding: 0;
