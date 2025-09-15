@@ -69,7 +69,7 @@ const allStories = [
     {
         id: 'seasonal-calendar-zh',
         title: '自然季节日历的惊人发现',
-        path: '2025-09-08 CXY/自然季节日历的惊人发现_中文版.html',
+        path: '2025_09_08 CXY/自然季节日历的惊人发现_中文版.html',
         date: '2025-09-08',
         language: 'zh',
         counterpart: '2025_09_08 CXY/The Amazing Discovery of Nature\'s Seasonal Calendar.html'
