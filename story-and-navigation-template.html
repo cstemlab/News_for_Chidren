@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[STORY_TITLE]</title>
+    <style>
+        :root {
+            --primary-100: #FF6600;
+            --primary-200: #ff983f;
+            --primary-300: #ffffa1;
+            --accent-100: #F5F5F5;
+            --accent-200: #929292;
+            --text-100: #1d1f21;
+            --text-200: #444648;
+            --bg-100: #ffffff;
+            --bg-200: #f5f5f5;
+            --bg-300: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: var(--text-100);
+            background-color: var(--bg-100);
+            font-size: 18px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 20px;
+        }
+
+        /* Sticky Navigation Bar */
+        .story-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, #8FBF9F 0%, #68a67d 100%);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .nav-left, .nav-center, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .story-dropdown {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #333;
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .story-search {
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #333;
+            width: 150px;
+        }
+
+        .story-search::placeholder {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin-top: 120px;
+                padding: 15px;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px;
+            }
+
+            .nav-left, .nav-center, .nav-right {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .nav-btn {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+
+            .story-dropdown, .story-search {
+                font-size: 12px;
+                padding: 6px 10px;
+                min-width: 120px;
+            }
+
+            .story-search {
+                width: 150px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                margin-top: 140px;
+                padding: 10px;
+            }
+
+            .nav-btn {
+                padding: 5px 10px;
+                font-size: 11px;
+            }
+
+            .story-dropdown, .story-search {
+                font-size: 11px;
+                padding: 5px 8px;
+                min-width: 100px;
+            }
+
+            .story-search {
+                width: 120px;
+            }
+        }
+
+        .citation {
+            background-color: var(--bg-200);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--primary-100);
+            font-style: italic;
+            color: var(--text-200);
+        }
+
+        h1 {
+            color: var(--primary-100);
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid var(--primary-200);
+            padding-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-100);
+            font-size: 1.8em;
+            margin: 40px 0 20px 0;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--bg-200), var(--accent-100));
+            border-left: 5px solid var(--primary-100);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            color: var(--primary-100);
+            font-size: 1.4em;
+            margin: 30px 0 15px 0;
+            border-bottom: 2px solid var(--primary-300);
+            padding-bottom: 5px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-100);
+            text-align: justify;
+        }
+
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            border: 3px solid var(--primary-300);
+        }
+
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: var(--text-100);
+        }
+
+        .chapter {
+            background-color: var(--bg-200);
+            margin: 30px 0;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-100);
+        }
+
+        .fun-facts {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .what-you-can-do {
+            background-color: var(--primary-200);
+            color: var(--bg-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .what-you-can-do h2 {
+            color: var(--bg-100);
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .what-you-can-do li {
+            color: var(--bg-100);
+        }
+
+        .scientific-debrief {
+            background-color: var(--accent-100);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--accent-200);
+        }
+
+        .scientific-debrief h2, .scientific-debrief h3 {
+            background: none;
+            border: none;
+            margin-top: 0;
+            color: var(--text-100);
+        }
+
+        .references {
+            background-color: var(--bg-200);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--bg-300);
+        }
+
+        .references h2 {
+            background: none;
+            border: none;
+            margin-top: 0;
+        }
+
+        .references ol {
+            padding-left: 20px;
+        }
+
+        .references li {
+            margin-bottom: 8px;
+        }
+
+        .references a {
+            color: var(--primary-100);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--primary-100);
+        }
+
+        .references a:hover {
+            color: var(--primary-200);
+            border-bottom: 1px solid var(--primary-200);
+        }
+
+        .quote {
+            background-color: var(--accent-100);
+            border-left: 4px solid var(--primary-100);
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quiz-section {
+            background: linear-gradient(135deg, var(--primary-300), var(--accent-100));
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid var(--primary-200);
+        }
+
+        .quiz-section h2 {
+            background: none;
+            border: none;
+            color: var(--text-100);
+            margin-top: 0;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .score-board {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--bg-100);
+            border-radius: 10px;
+            border: 2px solid var(--primary-100);
+        }
+
+        .question {
+            background-color: var(--bg-100);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 12px;
+            border: 2px solid var(--accent-200);
+        }
+
+        .question h3 {
+            color: var(--primary-100);
+            margin-bottom: 20px;
+            border: none;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .option {
+            background-color: var(--accent-100);
+            border: 3px solid var(--accent-200);
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            color: var(--text-100);
+            text-align: left;
+            transition: all 0.3s ease;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .option:hover {
+            background-color: var(--primary-300);
+            border-color: var(--primary-100);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .option.correct {
+            background-color: #4CAF50;
+            color: white;
+            border-color: #45a049;
+            font-weight: bold;
+        }
+
+        .option.incorrect {
+            background-color: #f44336;
+            color: white;
+            border-color: #da190b;
+            font-weight: bold;
+        }
+
+        .option:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+        }
+
+        .feedback.correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+            display: block;
+        }
+
+        .feedback.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+            display: block;
+        }
+
+        .hint {
+            background-color: var(--primary-200);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            display: none;
+            font-style: italic;
+        }
+
+        .hint.show {
+            display: block;
+        }
+
+        .perfect-score {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: var(--text-100);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 30px;
+            display: none;
+            animation: bounce 1s ease-in-out;
+        }
+
+        .perfect-score.show {
+            display: block;
+        }
+
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 8px;
+            height: 40px;
+            background: #f0f;
+            border-radius: 4px;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(1080deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Sticky Navigation Bar -->
+    <nav class="story-nav">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="../index.html" class="nav-btn home-btn" id="home-btn">🏠 Home</a>
+                <button id="prev-story" class="nav-btn">← Previous</button>
+                <button id="next-story" class="nav-btn">Next →</button>
+            </div>
+            <div class="nav-center">
+                <select id="story-dropdown" class="story-dropdown">
+                    <option value="">Select a Story...</option>
+                </select>
+                <input type="text" id="story-search" class="story-search" placeholder="Search stories...">
+            </div>
+            <div class="nav-right">
+                <a href="[CHINESE_VERSION_LINK]" class="nav-btn language-switch">中文版</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <h1>[STORY_TITLE]</h1>
+
+        <div class="citation">
+            <strong>Citation:</strong> [CITATION_TEXT]
+        </div>
+
+        <!-- Story Chapters -->
+        <div class="chapter">
+            <h2>Chapter 1: [CHAPTER_1_TITLE]</h2>
+            <img src="[CHAPTER_1_IMAGE]" alt="[CHAPTER_1_ALT_TEXT]">
+            <p>[CHAPTER_1_CONTENT]</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 2: [CHAPTER_2_TITLE]</h2>
+            <img src="[CHAPTER_2_IMAGE]" alt="[CHAPTER_2_ALT_TEXT]">
+            <p>[CHAPTER_2_CONTENT]</p>
+        </div>
+
+        <div class="chapter">
+            <h2>Chapter 3: [CHAPTER_3_TITLE]</h2>
+            <img src="[CHAPTER_3_IMAGE]" alt="[CHAPTER_3_ALT_TEXT]">
+            <p>[CHAPTER_3_CONTENT]</p>
+        </div>
+
+        <!-- Add more chapters as needed -->
+
+        <div class="fun-facts">
+            <h2>Fun Facts for Young Scientists</h2>
+            <ul>
+                <li>[FUN_FACT_1]</li>
+                <li>[FUN_FACT_2]</li>
+                <li>[FUN_FACT_3]</li>
+                <li>[FUN_FACT_4]</li>
+            </ul>
+        </div>
+
+        <div class="what-you-can-do">
+            <h2>What You Can Do</h2>
+            <ul>
+                <li>[ACTION_ITEM_1]</li>
+                <li>[ACTION_ITEM_2]</li>
+                <li>[ACTION_ITEM_3]</li>
+                <li>[ACTION_ITEM_4]</li>
+            </ul>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section">
+            <h2>Let's See What We Discovered!</h2>
+            <div class="score-board">
+                <h3>Your Score: <span id="score">0</span>/3</h3>
+            </div>
+
+            <div class="question" id="question1">
+                <h3>Question 1: [QUESTION_1_TEXT]</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(1, 'A', true)">A) [OPTION_1A]</button>
+                    <button class="option" onclick="checkAnswer(1, 'B', false)">B) [OPTION_1B]</button>
+                    <button class="option" onclick="checkAnswer(1, 'C', false)">C) [OPTION_1C]</button>
+                    <button class="option" onclick="checkAnswer(1, 'D', false)">D) [OPTION_1D]</button>
+                </div>
+                <div class="feedback" id="feedback1"></div>
+                <div class="hint" id="hint1">[HINT_1_TEXT]</div>
+            </div>
+
+            <div class="question" id="question2">
+                <h3>Question 2: [QUESTION_2_TEXT]</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(2, 'A', false)">A) [OPTION_2A]</button>
+                    <button class="option" onclick="checkAnswer(2, 'B', true)">B) [OPTION_2B]</button>
+                    <button class="option" onclick="checkAnswer(2, 'C', false)">C) [OPTION_2C]</button>
+                    <button class="option" onclick="checkAnswer(2, 'D', false)">D) [OPTION_2D]</button>
+                </div>
+                <div class="feedback" id="feedback2"></div>
+                <div class="hint" id="hint2">[HINT_2_TEXT]</div>
+            </div>
+
+            <div class="question" id="question3">
+                <h3>Question 3: [QUESTION_3_TEXT]</h3>
+                <div class="options">
+                    <button class="option" onclick="checkAnswer(3, 'A', false)">A) [OPTION_3A]</button>
+                    <button class="option" onclick="checkAnswer(3, 'B', false)">B) [OPTION_3B]</button>
+                    <button class="option" onclick="checkAnswer(3, 'C', true)">C) [OPTION_3C]</button>
+                    <button class="option" onclick="checkAnswer(3, 'D', false)">D) [OPTION_3D]</button>
+                </div>
+                <div class="feedback" id="feedback3"></div>
+                <div class="hint" id="hint3">[HINT_3_TEXT]</div>
+            </div>
+
+            <div id="confetti-container"></div>
+            <div class="perfect-score" id="perfect-score">
+                🎉 Congratulations! You got all 3 questions right! You're a true science detective! 🎉
+            </div>
+        </div>
+    </div>
+
+    <!-- Scientific Debrief Section -->
+    <div class="scientific-debrief">
+        <h2>Scientific Debrief: What the Research Really Shows</h2>
+        <p>[SCIENTIFIC_DEBRIEF_CONTENT]</p>
+        
+        <h3>Key Findings</h3>
+        <p>[KEY_FINDINGS_CONTENT]</p>
+        
+        <h3>What This Means</h3>
+        <p>[WHAT_THIS_MEANS_CONTENT]</p>
+    </div>
+
+    <!-- References Section -->
+    <div class="references">
+        <h2>Learn More</h2>
+        <ol>
+            <li><a href="[REFERENCE_1_URL]">[REFERENCE_1_TITLE]</a></li>
+            <li><a href="[REFERENCE_2_URL]">[REFERENCE_2_TITLE]</a></li>
+            <li><a href="[REFERENCE_3_URL]">[REFERENCE_3_TITLE]</a></li>
+            <li><a href="[REFERENCE_4_URL]">[REFERENCE_4_TITLE]</a></li>
+            <li><a href="[REFERENCE_5_URL]">[REFERENCE_5_TITLE]</a></li>
+        </ol>
+    </div>
+
+    <script>
+        let score = 0;
+        let answeredQuestions = new Set();
+        const correctAnswers = { 1: 'A', 2: 'B', 3: 'C' }; // Update based on your questions
+        const praises = {
+            1: "[PRAISE_1_TEXT]",
+            2: "[PRAISE_2_TEXT]",
+            3: "[PRAISE_3_TEXT]"
+        };
+
+        function checkAnswer(questionNum, selectedAnswer, isCorrect) {
+            const correct = correctAnswers[questionNum] === selectedAnswer;
+            const feedbackDiv = document.getElementById(`feedback${questionNum}`);
+            const hintDiv = document.getElementById(`hint${questionNum}`);
+            const options = document.querySelectorAll(`#question${questionNum} .option`);
+            const clickedButton = event.target;
+
+            // Clear any previous feedback and hints
+            feedbackDiv.style.display = 'none';
+            hintDiv.style.display = 'none';
+            hintDiv.classList.remove('show');
+
+            if (correct) {
+                // Correct answer
+                clickedButton.classList.add('correct');
+                feedbackDiv.textContent = praises[questionNum];
+                feedbackDiv.className = 'feedback correct';
+                feedbackDiv.style.display = 'block';
+
+                // Add to score if not already answered correctly
+                if (!answeredQuestions.has(questionNum)) {
+                    score++;
+                    answeredQuestions.add(questionNum);
+                    updateScore();
+                }
+
+                // Disable all options for this question
+                options.forEach(option => {
+                    option.disabled = true;
+                    if (!option.classList.contains('correct')) {
+                        option.style.opacity = '0.4';
+                    }
+                });
+
+            } else {
+                // Wrong answer
+                clickedButton.classList.add('incorrect');
+                feedbackDiv.textContent = "Not quite right! Try again!";
+                feedbackDiv.className = 'feedback incorrect';
+                feedbackDiv.style.display = 'block';
+
+                // Show hint for wrong answer
+                hintDiv.style.display = 'block';
+                hintDiv.classList.add('show');
+
+                // Disable the wrong option permanently, but allow retries on others
+                clickedButton.disabled = true;
+
+                // Re-enable other options after a short delay
+                setTimeout(() => {
+                    options.forEach(option => {
+                        if (!option.classList.contains('incorrect')) {
+                            option.disabled = false;
+                        }
+                    });
+                }, 1000);
+            }
+        }
+
+        function updateScore() {
+            document.getElementById('score').textContent = score;
+
+            // Check for perfect score
+            if (score === 3) {
+                setTimeout(() => {
+                    document.getElementById('perfect-score').classList.add('show');
+                    createConfetti();
+                }, 1500);
+            }
+        }
+
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FF6600', '#ff983f', '#ffffa1', '#4CAF50', '#FFD700', '#FFA500', '#FF1493', '#00CED1'];
+
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.3 + 's';
+
+                    container.appendChild(confetti);
+
+                    setTimeout(() => {
+                        if (confetti.parentNode) {
+                            confetti.parentNode.removeChild(confetti);
+                        }
+                    }, 5000);
+                }, i * 10);
+            }
+        }
+
+        // Initialize quiz
+        document.addEventListener('DOMContentLoaded', function () {
+            const hints = document.querySelectorAll('.hint');
+            hints.forEach(hint => {
+                hint.style.display = 'none';
+            });
+        });
+
+        // Initialize navigation using the standardized template
+        document.addEventListener('DOMContentLoaded', function() {
+            const navigation = new StoryNavigation('[STORY_ID]'); // Replace with actual story ID
+            navigation.initialize();
+        });
+    </script>
+    
+    <!-- Navigation Template Script -->
+    <script src="../navigation-template.js"></script>
+</body>
+</html>
